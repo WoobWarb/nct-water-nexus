@@ -1319,52 +1319,132 @@
         <!-- OVERLAY 1: HISTORY CHART -->
         <div class="mob-overlay" id="mobHistoryOverlay">
           <div class="overlay-card">
-            <div style="font-size: 1rem; font-weight: 700; margin-bottom: 12px;">📈 ประวัติคุณภาพน้ำ (History)</div>
-            <div style="height: 220px; position: relative;">
+            <div style="font-size: 0.95rem; font-weight: 700; color:#0f172a; margin-bottom: 8px;">📈 กราฟประวัติคุณภาพน้ำย้อนหลัง (History)</div>
+            <div style="height: 180px; position: relative;">
               <canvas id="mobileChartCanvas"></canvas>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; margin-top:10px; font-size:0.72rem; text-align:center;">
+              <div style="background:#f8fafc; padding:6px; border-radius:8px; border:1px solid #e2e8f0;">
+                <div style="color:#64748b;">pH เฉลี่ย</div>
+                <b style="color:#0f172a; font-size:0.85rem;">7.28</b>
+              </div>
+              <div style="background:#f8fafc; padding:6px; border-radius:8px; border:1px solid #e2e8f0;">
+                <div style="color:#64748b;">TDS เฉลี่ย</div>
+                <b style="color:#059669; font-size:0.85rem;">210 ppm</b>
+              </div>
+              <div style="background:#f8fafc; padding:6px; border-radius:8px; border:1px solid #e2e8f0;">
+                <div style="color:#64748b;">Cl เฉลี่ย</div>
+                <b style="color:#0284c7; font-size:0.85rem;">0.85 mg/L</b>
+              </div>
             </div>
           </div>
 
           <div class="overlay-card">
-            <div style="font-size: 0.95rem; font-weight: 700; margin-bottom: 10px;">📋 บันทึกประวัติล่าสุด</div>
-            <div id="mobHistoryLogs" style="font-size: 0.8rem; display: flex; flex-direction: column; gap: 6px;"></div>
+            <div style="font-size: 0.9rem; font-weight: 700; color:#0f172a; margin-bottom: 8px;">📋 บันทึกประวัติล่าสุด (Telemetry Logs)</div>
+            <div id="mobHistoryLogs" style="font-size: 0.76rem; display: flex; flex-direction: column; gap: 6px;">
+              <div style="display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid #f1f5f9;">
+                <span>⏰ 14:15:00</span>
+                <span>pH 7.29 | TDS 210 | Cl 0.85</span>
+                <span style="color:#10b981; font-weight:700;">ปกติ</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid #f1f5f9;">
+                <span>⏰ 14:14:00</span>
+                <span>pH 7.30 | TDS 209 | Cl 0.84</span>
+                <span style="color:#10b981; font-weight:700;">ปกติ</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; padding:4px 0;">
+                <span>⏰ 14:13:00</span>
+                <span>pH 7.28 | TDS 211 | Cl 0.86</span>
+                <span style="color:#10b981; font-weight:700;">ปกติ</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- OVERLAY 2: CALIBRATION -->
         <div class="mob-overlay" id="mobCalibOverlay">
           <div class="overlay-card">
-            <div style="font-size: 1rem; font-weight: 700; margin-bottom: 6px;">💠 การเทียบมาตรฐาน (Calibration)</div>
-            <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px;">โปรดจุ่มหัววัดลงในน้ำยา Buffer เพื่อคาลิเบรต</p>
+            <div style="font-size: 0.95rem; font-weight: 700; color:#0f172a; margin-bottom: 4px;">💠 สอบเทียบมาตรฐานหัววัด (Calibration)</div>
+            <p style="font-size: 0.74rem; color: var(--text-muted); margin-bottom: 12px;">ปรับเทียบค่าเซนเซอร์แบบดิจิทัลผ่านแอปพลิเคชัน</p>
 
-            <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #f1f5f9;">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f1f5f9;">
               <div>
-                <b>pH 7.00 Buffer</b>
-                <div style="font-size:0.72rem; color:var(--text-muted);">จุดสมดุลมาตรฐาน</div>
+                <b style="font-size:0.82rem;">pH 7.00 Buffer (Zero Standard)</b>
+                <div style="font-size:0.7rem; color:var(--text-muted);">จุดสมดุลมาตรฐานกลาง</div>
               </div>
-              <button class="btn-action-custom" style="width:auto; margin:0; padding:6px 12px; font-size:0.75rem;" onclick="calibrateSensor('ph7')">Calibrate</button>
+              <button class="btn-action-custom" style="width:auto; margin:0; padding:5px 12px; font-size:0.72rem;" onclick="calibrateSensor('ph7')">Calibrate</button>
             </div>
 
-            <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #f1f5f9;">
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f1f5f9;">
               <div>
-                <b>pH 4.01 Buffer</b>
-                <div style="font-size:0.72rem; color:var(--text-muted);">จุดสอบเทียบกรด</div>
+                <b style="font-size:0.82rem;">pH 4.01 Buffer (Acid Standard)</b>
+                <div style="font-size:0.7rem; color:var(--text-muted);">จุดสอบเทียบกรด</div>
               </div>
-              <button class="btn-action-custom" style="width:auto; margin:0; padding:6px 12px; font-size:0.75rem; background:#475569;" onclick="calibrateSensor('ph4')">Calibrate</button>
+              <button class="btn-action-custom" style="width:auto; margin:0; padding:5px 12px; font-size:0.72rem; background:#475569;" onclick="calibrateSensor('ph4')">Calibrate</button>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #f1f5f9;">
+              <div>
+                <b style="font-size:0.82rem;">TDS Standard (1413 µS/cm)</b>
+                <div style="font-size:0.7rem; color:var(--text-muted);">จุดสอบเทียบค่าการนำไฟฟ้า</div>
+              </div>
+              <button class="btn-action-custom" style="width:auto; margin:0; padding:5px 12px; font-size:0.72rem; background:#059669;" onclick="calibrateSensor('tds')">Calibrate</button>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 0;">
+              <div>
+                <b style="font-size:0.82rem;">Residual Cl Zero (0.00 mg/L)</b>
+                <div style="font-size:0.7rem; color:var(--text-muted);">จุดศูนย์คลอรีนคงเหลือ</div>
+              </div>
+              <button class="btn-action-custom" style="width:auto; margin:0; padding:5px 12px; font-size:0.72rem; background:#0284c7;" onclick="calibrateSensor('cl0')">Calibrate</button>
             </div>
           </div>
         </div>
 
-        <!-- OVERLAY 3: DEVICES -->
+        <!-- OVERLAY 3: DEVICES (100 STATIONS HUB) -->
         <div class="mob-overlay" id="mobDevicesOverlay">
           <div class="overlay-card">
-            <div style="font-size: 1rem; font-weight: 700; margin-bottom: 12px;">🎛️ สถานีทั้งหมด (All Devices)</div>
-            <div style="background:#f1f5f9; padding:12px; border-radius:12px; border:2px solid #0284c7; display:flex; justify-content:space-between; align-items:center;">
-              <div>
-                <b>📍 NCT Station #01</b>
-                <div style="font-size:0.74rem; color:#10b981; font-weight:600;">🟢 Online (Active)</div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px;">
+              <span style="font-size: 0.95rem; font-weight: 700; color:#0f172a;">🎛️ รายการสถานี (All 100 Stations)</span>
+              <span style="font-size:0.7rem; background:#dcfce7; color:#15803d; font-weight:700; padding:2px 8px; border-radius:9999px;">98 Online</span>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:8px; font-size:0.78rem;">
+              <!-- Node 1 -->
+              <div style="background:#f1f5f9; padding:10px 12px; border-radius:10px; border:2px solid #0284c7; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <b>📍 Station #01 (Main Plant)</b>
+                  <div style="font-size:0.7rem; color:#10b981; font-weight:600;">🟢 Online • pH 7.29 | Cl 0.85</div>
+                </div>
+                <span style="font-size:0.68rem; font-weight:700; color:#0284c7; background:#e0f2fe; padding:3px 6px; border-radius:4px;">เลือกอยู่</span>
               </div>
-              <span style="font-size:0.72rem; font-weight:700; color:#0284c7; background:#e0f2fe; padding:4px 8px; border-radius:6px;">เลือกอยู่</span>
+
+              <!-- Node 2 -->
+              <div style="background:#ffffff; padding:10px 12px; border-radius:10px; border:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <b>📍 Station #02 (North Tank)</b>
+                  <div style="font-size:0.7rem; color:#10b981; font-weight:600;">🟢 Online • pH 7.15 | Cl 0.92</div>
+                </div>
+                <button style="background:#f1f5f9; border:1px solid #cbd5e1; padding:3px 8px; border-radius:4px; font-size:0.68rem; font-weight:600; cursor:pointer;">สลับดู</button>
+              </div>
+
+              <!-- Node 3 -->
+              <div style="background:#ffffff; padding:10px 12px; border-radius:10px; border:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <b>📍 Station #03 (East Booster)</b>
+                  <div style="font-size:0.7rem; color:#10b981; font-weight:600;">🟢 Online • pH 7.42 | Cl 0.78</div>
+                </div>
+                <button style="background:#f1f5f9; border:1px solid #cbd5e1; padding:3px 8px; border-radius:4px; font-size:0.68rem; font-weight:600; cursor:pointer;">สลับดู</button>
+              </div>
+
+              <!-- Node 4 -->
+              <div style="background:#ffffff; padding:10px 12px; border-radius:10px; border:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <b>📍 Station #04 (West Pond)</b>
+                  <div style="font-size:0.7rem; color:#d97706; font-weight:600;">🟡 Warning • pH 6.40 | Cl 0.15</div>
+                </div>
+                <button style="background:#f1f5f9; border:1px solid #cbd5e1; padding:3px 8px; border-radius:4px; font-size:0.68rem; font-weight:600; cursor:pointer;">สลับดู</button>
+              </div>
             </div>
           </div>
         </div>
@@ -1372,15 +1452,32 @@
         <!-- OVERLAY 4: SETTINGS -->
         <div class="mob-overlay" id="mobSettingsOverlay">
           <div class="overlay-card">
-            <div style="font-size: 1rem; font-weight: 700; margin-bottom: 12px;">⚙️ การตั้งค่าระบบ (Settings)</div>
-            <div style="display:flex; flex-direction:column; gap:12px; font-size:0.84rem;">
-              <div style="display:flex; justify-content:space-between; align-items:center;">
-                <span>แจ้งเตือนเมื่อค่า pH ผิดปกติ</span>
+            <div style="font-size: 0.95rem; font-weight: 700; color:#0f172a; margin-bottom: 10px;">⚙️ การตั้งค่าระบบและการแจ้งเตือน (Settings)</div>
+            
+            <div style="display:flex; flex-direction:column; gap:10px; font-size:0.78rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:6px; border-bottom:1px solid #f1f5f9;">
+                <span>🚨 แจ้งเตือนเมื่อค่า pH หลุดเกณฑ์</span>
                 <input type="checkbox" checked>
               </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:6px; border-bottom:1px solid #f1f5f9;">
+                <span>🚨 แจ้งเตือนเมื่อคลอรีนต่ำกว่า 0.20 mg/L</span>
+                <input type="checkbox" checked>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:6px; border-bottom:1px solid #f1f5f9;">
+                <span>✈️ ส่งการแจ้งเตือนผ่าน Telegram Bot</span>
+                <input type="checkbox" checked>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:6px; border-bottom:1px solid #f1f5f9;">
+                <span>💬 ส่งการแจ้งเตือนผ่าน LINE Notify</span>
+                <input type="checkbox" checked>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:6px; border-bottom:1px solid #f1f5f9;">
+                <span>📶 ความถี่ส่งข้อมูล 4G LTE</span>
+                <span style="font-weight:700; color:#0284c7;">ทุก 1 วินาที (Live)</span>
+              </div>
               <div style="display:flex; justify-content:space-between; align-items:center;">
-                <span>เฟิร์มแวร์เวอร์ชัน</span>
-                <span style="color:#64748b; font-family:monospace;">NCT-v2.5.0</span>
+                <span>เฟิร์มแวร์ระบบ</span>
+                <span style="color:#64748b; font-family:monospace;">NCT-Water-v2.5.0-PRO</span>
               </div>
             </div>
           </div>
