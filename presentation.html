@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NCT WATER NEXUS PRO - Smart Water Monitoring & Commercial Proposal</title>
+  <title>NCT WATER NEXUS PRO - Smart Water Monitoring & Volume Pricing</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -338,6 +338,11 @@
       box-shadow: 0 10px 30px rgba(2, 132, 199, 0.18);
     }
 
+    .pricing-card.featured-green {
+      border-color: var(--emerald);
+      box-shadow: 0 10px 30px rgba(5, 150, 105, 0.18);
+    }
+
     .pkg-header {
       padding: 16px 20px;
       background: #f8fafc;
@@ -346,6 +351,11 @@
 
     .pricing-card.featured .pkg-header {
       background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #ffffff;
+    }
+
+    .pricing-card.featured-green .pkg-header {
+      background: linear-gradient(135deg, #059669, #047857);
       color: #ffffff;
     }
 
@@ -361,9 +371,9 @@
       margin-bottom: 6px;
     }
 
-    .pricing-card.featured .pkg-badge {
+    .pricing-card.featured .pkg-badge, .pricing-card.featured-green .pkg-badge {
       background: #ffffff;
-      color: #0284c7;
+      color: var(--text-main);
     }
 
     .pkg-name { font-size: 1.15rem; font-weight: 800; }
@@ -453,7 +463,7 @@
       <div class="logo-badge">NCT</div>
       <div>
         <div style="font-weight: 800; font-size: 1.05rem; letter-spacing: -0.3px;">NCT WATER NEXUS PRO</div>
-        <div style="font-size: 0.72rem; color: #94a3b8;">Smart Water Monitoring &amp; Commercial Proposal</div>
+        <div style="font-size: 0.72rem; color: #94a3b8;">Smart Water Monitoring | ตารางราคา: ซื้อขาด vs รายปี (&lt;100 ชุด / ≥100 ชุด)</div>
       </div>
     </div>
 
@@ -480,14 +490,15 @@
         <!-- SLIDE 1: COVER -->
         <section class="slide slide-dark active" id="slide-1">
           <div>
-            <div class="slide-category">💧 INDUSTRIAL IOT &amp; SCADA WATER MONITORING</div>
-            <h1 class="slide-title" style="font-size: 2.6rem; margin-top: 10px;">NCT WATER NEXUS PRO</h1>
-            <p style="font-size: 1.25rem; color: #cbd5e1; font-weight: 500; margin-bottom: 24px;">
-              Smart Water Quality Intelligence, Real-Time IoT Telemetry &amp; Analytics Platform
+            <div class="slide-category">💧 ONLINE SMART WATER MONITORING &amp; TELEMETRY</div>
+            <h1 class="slide-title" style="font-size: 2.5rem; margin-top: 10px;">NCT WATER NEXUS PRO</h1>
+            <p style="font-size: 1.2rem; color: #cbd5e1; font-weight: 500; margin-bottom: 20px;">
+              Smart Water Quality Intelligence &amp; Real-Time Telemetry Platform
             </p>
-            <div style="background: rgba(255,255,255,0.08); border-left: 4px solid var(--accent-cyan); padding: 14px 20px; border-radius: 8px; max-width: 800px;">
+            <div style="background: rgba(255,255,255,0.08); border-left: 4px solid var(--accent-cyan); padding: 14px 20px; border-radius: 8px; max-width: 850px;">
               <p style="font-size: 0.95rem; color: #e2e8f0; line-height: 1.6;">
-                ระบบตรวจวัดและติดตามคุณภาพน้ำแบบ Real-Time ตลอด 24 ชม. | แดชบอร์ด SCADA &amp; Mobile App | รายงานข้อเสนอราคาและแพ็กเกจการติดตั้ง (Commercial Proposal)
+                รายงานข้อเสนอราคา 2 รูปแบบการลงทุน: <b>【 ซื้อขาด (One-Time) 】</b> vs <b>【 เช่าใช้รายปี (Annual Subscription) 】</b><br>
+                แยกตามจำนวนสั่งซื้อ: <b>【 น้อยกว่า 100 ชุด (&lt;100) 】</b> และ <b>【 มากกว่า 100 ชุดขึ้นไป (≥100 Bulk Discount) 】</b>
               </p>
             </div>
           </div>
@@ -502,12 +513,12 @@
               <div style="font-size:1.15rem; font-weight:700; color:#38bdf8; margin-top:2px;">Live 1-Sec Polling</div>
             </div>
             <div style="background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-              <div style="font-size:0.75rem; color:#94a3b8;">ระบบแจ้งเตือนฉุกเฉิน</div>
-              <div style="font-size:1.15rem; font-weight:700; color:#4ade80; margin-top:2px;">Line / SMS Alert 24/7</div>
+              <div style="font-size:0.75rem; color:#94a3b8;">ซื้อขาด &lt;100 vs ≥100</div>
+              <div style="font-size:1.1rem; font-weight:700; color:#38bdf8; margin-top:2px;">฿24,900 / ฿16,900</div>
             </div>
             <div style="background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-              <div style="font-size:0.75rem; color:#94a3b8;">แพ็กเกจราคาเริ่มต้น</div>
-              <div style="font-size:1.15rem; font-weight:700; color:#fbbf24; margin-top:2px;">฿24,500 - ฿85,000</div>
+              <div style="font-size:0.75rem; color:#94a3b8;">รายปี &lt;100 vs ≥100</div>
+              <div style="font-size:1.1rem; font-weight:700; color:#4ade80; margin-top:2px;">฿12,000 / ฿8,400/ปี</div>
             </div>
           </div>
 
@@ -517,59 +528,62 @@
           </div>
         </section>
 
-        <!-- SLIDE 2: CHALLENGES VS SOLUTION -->
+        <!-- SLIDE 2: PRICING MATRIX OVERVIEW -->
         <section class="slide" id="slide-2">
           <div>
-            <div class="slide-category">EXECUTIVE SUMMARY &amp; PAIN POINTS</div>
-            <h2 class="slide-title">ปัญหาเดิมในการดูแลระบบน้ำ vs โซลูชัน NCT Nexus</h2>
+            <div class="slide-category">COMMERCIAL PRICING STRUCTURE</div>
+            <h2 class="slide-title">โครงสร้างราคา 2 รูปแบบ x 2 กลุ่มจำนวนสั่งซื้อ</h2>
           </div>
 
           <div class="slide-body">
             <div class="grid-2col">
-              <div class="content-box" style="border-left: 4px solid var(--rose);">
-                <div class="box-title" style="color: var(--rose);">
-                  <span>❌ ปัญหาเดิมที่พบประจำ (Traditional Issues)</span>
+              <!-- Left: <100 sets -->
+              <div class="content-box highlight" style="border-left: 4px solid var(--primary);">
+                <div class="box-title" style="color: var(--primary);">
+                  <span>📦 1. จำนวนน้อยกว่า 100 ชุด (&lt; 100 Sets)</span>
                 </div>
                 <ul class="feature-list">
                   <li>
-                    <span>⏱️</span>
-                    <div><b>การสุ่มตรวจล่าช้า (Manual Sampling):</b> ตรวจเพียง 1-2 ครั้ง/วัน ไม่สามารถตรวจจับสภาวะน้ำผิดปกติฉับพลันได้ทันเวลา</div>
+                    <span>🏷️</span>
+                    <div><b>แบบซื้อขาด (Outright Purchase):</b><br>
+                    • Standard (pH + Temp): <b>฿24,900</b> / ชุด<br>
+                    • Pro 4-in-1 (pH + Temp + TDS + Cl): <b>฿49,000</b> / ชุด <i>(ยอดนิยม)</i><br>
+                    • Enterprise 5-in-1 (+ ORP): <b>฿79,000</b> / ชุด<br>
+                    <small style="color:var(--text-muted);">(ฟรี Cloud Server &amp; ซิม 1-2 ปีแรก, ประกัน 1-2 ปี)</small></div>
                   </li>
                   <li>
-                    <span>⚠️</span>
-                    <div><b>ความเสี่ยงน้ำหลุดเกณฑ์มาตรฐาน:</b> เสี่ยงต่อสินค้าเสียหาย การปนเปื้อนในกระบวนการผลิต และค่าปรับจากหน่วยงานรัฐ</div>
-                  </li>
-                  <li>
-                    <span>📋</span>
-                    <div><b>ขาดข้อมูลบันทึกแบบ Real-Time:</b> บันทึกบนกระดาษสูญหายง่าย ไม่สามารถวิเคราะห์แนวโน้มเชิงสถิติได้</div>
-                  </li>
-                  <li>
-                    <span>🔔</span>
-                    <div><b>ไม่ทราบเหตุผิดปกติทันที:</b> เมื่อสารกรองเสื่อมหรือค่าน้ำวิกฤต ไม่มีการแจ้งเตือนจนเกิดความเสียหายแล้ว</div>
+                    <span>🔄</span>
+                    <div><b>แบบเช่าใช้รายปี (Annual Subscription):</b><br>
+                    • Standard Care: <b>฿12,000</b> / ชุด / ปี (~฿1,000/เดือน)<br>
+                    • Pro Care (4-in-1): <b>฿24,000</b> / ชุด / ปี (~฿2,000/เดือน)<br>
+                    • Enterprise Care: <b>฿39,000</b> / ชุด / ปี (~฿3,250/เดือน)<br>
+                    <small style="color:var(--text-muted);">(ฟรีเครื่อง + ซิม + Cloud + เปลี่ยนหัววัดและ Calibrate ฟรีตลอดสัญญา)</small></div>
                   </li>
                 </ul>
               </div>
 
+              <!-- Right: >=100 sets -->
               <div class="content-box highlight" style="border-left: 4px solid var(--emerald);">
                 <div class="box-title" style="color: var(--emerald);">
-                  <span>✅ โซลูชัน NCT WATER NEXUS PRO</span>
+                  <span>🏢 2. จำนวน 100 ชุดขึ้นไป (≥ 100 Sets Bulk Discount)</span>
                 </div>
                 <ul class="feature-list">
                   <li>
-                    <span>⚡</span>
-                    <div><b>ตรวจวัด Real-Time 24/7 (Live 1-Sec):</b> รายงานผล pH, Temp, TDS, Residual Cl, ORP ต่อเนื่องตลอดเวลา</div>
+                    <span>🏷️</span>
+                    <div><b>แบบซื้อขาดราคาส่ง (Bulk Outright - ลด ~30%):</b><br>
+                    • Standard (pH + Temp): <b>฿16,900</b> / ชุด<br>
+                    • Pro 4-in-1 (pH + Temp + TDS + Cl): <b>฿34,500</b> / ชุด <i>(ประหยัด ฿1,450,000/100ชุด)</i><br>
+                    • Enterprise 5-in-1 (+ ORP): <b>฿55,000</b> / ชุด</div>
                   </li>
                   <li>
-                    <span>🔔</span>
-                    <div><b>ระบบแจ้งเตือนอัจฉริยะ (Instant Early Warnings):</b> เตือนทันทีผ่าน Line/SMS เมื่อค่าน้ำเริ่มแกว่งตัวผิดปกติ</div>
+                    <span>🔄</span>
+                    <div><b>แบบเช่าใช้รายปีราคาส่ง (Bulk Annual - ลด ~30%):</b><br>
+                    • Standard Care: <b>฿8,400</b> / ชุด / ปี (~฿700/เดือน)<br>
+                    • Pro Care (4-in-1): <b>฿16,800</b> / ชุด / ปี (~฿1,400/เดือน)<br>
+                    • Enterprise Care: <b>฿27,000</b> / ชุด / ปี (~฿2,250/เดือน)</div>
                   </li>
-                  <li>
-                    <span>📱</span>
-                    <div><b>แดชบอร์ดคู่ Web SCADA + Mobile App:</b> มอนิเตอร์ผ่านคอมพิวเตอร์ห้องควบคุมหรือสมาร์ทโฟนได้ทุกที่ในโลก</div>
-                  </li>
-                  <li>
-                    <span>📊</span>
-                    <div><b>บันทึกย้อนหลัง &amp; Audit Trail:</b> เก็บบันทึกข้อมูลบน Cloud ไม่จำกัด พร้อม Export รายงานรับรองมาตรฐานสากล</div>
+                  <li style="margin-top:6px; background:#f0fdf4; padding:8px 10px; border-radius:8px; font-size:0.8rem; color:#15803d;">
+                    🌟 <b>สิทธิพิเศษ 100+ ชุด:</b> ฟรี Private Cloud, ติดโลโก้แบรนด์ลูกค้า (White-label) และอะไหล่สำรอง Spare 5%
                   </li>
                 </ul>
               </div>
@@ -577,13 +591,78 @@
           </div>
 
           <div class="slide-footer">
-            <span>NCT Water Nexus • ภาพรวมระบบและปัญหาที่แก้ไข</span>
+            <span>NCT Water Nexus • โครงสร้างราคาเปรียบเทียบทั้ง 2 โมเดล</span>
             <span>สไลด์ 2 / 8</span>
           </div>
         </section>
 
-        <!-- SLIDE 3: HARDWARE & SENSORS -->
+        <!-- SLIDE 3: MASTER COMPARISON TABLE -->
         <section class="slide" id="slide-3">
+          <div>
+            <div class="slide-category">MASTER PRICING TABLE</div>
+            <h2 class="slide-title">ตารางสรุปราคาขาย: ซื้อขาด vs รายปี (&lt;100 ชุด และ ≥100 ชุด)</h2>
+          </div>
+
+          <div class="slide-body">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>ระดับแพ็กเกจ (Tier)</th>
+                  <th>ซื้อขาด (&lt;100 ชุด)</th>
+                  <th>ซื้อขาด (≥100 ชุด Bulk)</th>
+                  <th>รายปี (&lt;100 ชุด)</th>
+                  <th>รายปี (≥100 ชุด Bulk)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>1. Standard (pH + Temp)</b></td>
+                  <td><b>฿24,900</b> / ชุด</td>
+                  <td><b style="color:#0284c7;">฿16,900</b> / ชุด</td>
+                  <td><b>฿12,000</b> / ปี</td>
+                  <td><b style="color:#059669;">฿8,400</b> / ปี (~฿700/ด.)</td>
+                </tr>
+                <tr>
+                  <td><b>2. Pro 4-in-1 (pH, Temp, TDS, Cl)</b></td>
+                  <td><b>฿49,000</b> / ชุด</td>
+                  <td><b style="color:#0284c7;">฿34,500</b> / ชุด</td>
+                  <td><b>฿24,000</b> / ปี</td>
+                  <td><b style="color:#059669;">฿16,800</b> / ปี (~฿1,400/ด.)</td>
+                </tr>
+                <tr>
+                  <td><b>3. Enterprise 5-in-1 (+ ORP)</b></td>
+                  <td><b>฿79,000</b> / ชุด</td>
+                  <td><b style="color:#0284c7;">฿55,000</b> / ชุด</td>
+                  <td><b>฿39,000</b> / ปี</td>
+                  <td><b style="color:#059669;">฿27,000</b> / ปี (~฿2,250/ด.)</td>
+                </tr>
+                <tr>
+                  <td><b>กรรมสิทธิ์อุปกรณ์</b></td>
+                  <td colspan="2" style="text-align:center;"><b style="color:#0284c7;">เป็นกรรมสิทธิ์ของลูกค้า 100%</b></td>
+                  <td colspan="2" style="text-align:center;"><b style="color:#059669;">ให้ยืมเครื่องใช้งานฟรีตลอดอายุสัญญา</b></td>
+                </tr>
+                <tr>
+                  <td><b>การเปลี่ยนหัววัด/อะไหล่</b></td>
+                  <td colspan="2" style="text-align:center;">ฟรีตามระยะประกัน (ปีถัดไปซื้อตามราคาอะไหล่)</td>
+                  <td colspan="2" style="text-align:center;"><b style="color:#059669;">ฟรี 100% ตลอดสัญญา (+ อะไหล่สำรอง 5% สำหรับ 100+ ชุด)</b></td>
+                </tr>
+                <tr>
+                  <td><b>Cloud &amp; ซิม 4G</b></td>
+                  <td colspan="2" style="text-align:center;">ฟรี 1–2 ปีแรก (ปีถัดไป ฿4,500–฿6,000/ปี)</td>
+                  <td colspan="2" style="text-align:center;"><b style="color:#059669;">รวมอยู่ในค่าบริการรายปีแล้ว ไม่ต้องจ่ายเพิ่ม</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="slide-footer">
+            <span>* ทุกแพ็กเกจรวมค่าซอฟต์แวร์แดชบอร์ด SCADA Web และ Mobile Companion App ตลอด 24 ชั่วโมง</span>
+            <span>สไลด์ 3 / 8</span>
+          </div>
+        </section>
+
+        <!-- SLIDE 4: SENSORS & SPECS -->
+        <section class="slide" id="slide-4">
           <div>
             <div class="slide-category">HARDWARE ECOSYSTEM &amp; SENSORS</div>
             <h2 class="slide-title">สเปกเซนเซอร์ตรวจวัดคุณภาพน้ำความแม่นยำสูง</h2>
@@ -647,12 +726,12 @@
 
           <div class="slide-footer">
             <span>NCT Water Nexus • สเปกเซนเซอร์และฮาร์ดแวร์</span>
-            <span>สไลด์ 3 / 8</span>
+            <span>สไลด์ 4 / 8</span>
           </div>
         </section>
 
-        <!-- SLIDE 4: DUAL-MODE DASHBOARD SHOWCASE -->
-        <section class="slide" id="slide-4">
+        <!-- SLIDE 5: DUAL-MODE DASHBOARD -->
+        <section class="slide" id="slide-5">
           <div>
             <div class="slide-category">SOFTWARE PLATFORM &amp; SCADA UI</div>
             <h2 class="slide-title">แพลตฟอร์มแดชบอร์ดคู่ (Web SCADA + Mobile Companion)</h2>
@@ -690,12 +769,12 @@
 
           <div class="slide-footer">
             <span>NCT Water Nexus • ซอฟต์แวร์แดชบอร์ดและการสั่งการ</span>
-            <span>สไลด์ 4 / 8</span>
+            <span>สไลด์ 5 / 8</span>
           </div>
         </section>
 
-        <!-- SLIDE 5: WATER QUALITY BENCHMARKS -->
-        <section class="slide" id="slide-5">
+        <!-- SLIDE 6: WATER QUALITY BENCHMARKS -->
+        <section class="slide" id="slide-6">
           <div>
             <div class="slide-category">STANDARDS &amp; REGULATORY COMPLIANCE</div>
             <h2 class="slide-title">เกณฑ์มาตรฐานคุณภาพน้ำและการแจ้งเตือน</h2>
@@ -754,91 +833,11 @@
 
           <div class="slide-footer">
             <span>สอดคล้องตามมาตรฐาน: กรมอนามัย กระทรวงสาธารณสุข • กรมโรงงานฯ • WHO • US EPA</span>
-            <span>สไลด์ 5 / 8</span>
-          </div>
-        </section>
-
-        <!-- SLIDE 6: COMMERCIAL PRICING PACKAGES -->
-        <section class="slide" id="slide-6">
-          <div>
-            <div class="slide-category">COMMERCIAL PROPOSAL &amp; PACKAGES</div>
-            <h2 class="slide-title">แพ็กเกจราคาขายระบบตรวจวัดและแดชบอร์ด</h2>
-          </div>
-
-          <div class="slide-body">
-            <div class="grid-3col">
-              <!-- Package 1 -->
-              <div class="pricing-card">
-                <div class="pkg-header">
-                  <span class="pkg-badge">เริ่มต้น</span>
-                  <div class="pkg-name">STARTER MONITORING</div>
-                  <div class="pkg-price">฿24,500</div>
-                  <div style="font-size:0.75rem; color:#64748b;">สำหรับระบบน้ำขนาดเล็ก / อาคาร</div>
-                </div>
-                <div class="pkg-body">
-                  <ul>
-                    <li>✔ 1x NCT Controller Node (WiFi Hub)</li>
-                    <li>✔ 1x Glass pH Sensor (±0.01 pH)</li>
-                    <li>✔ 1x PT1000 Temp Sensor (with ATC)</li>
-                    <li>✔ Web Dashboard &amp; Mobile App</li>
-                    <li>✔ Cloud Server ฟรี 1 ปีเต็ม</li>
-                    <li>✔ รับประกันอุปกรณ์ 1 ปี</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- Package 2: Most Popular -->
-              <div class="pricing-card featured">
-                <div class="pkg-header">
-                  <span class="pkg-badge">★ MOST POPULAR</span>
-                  <div class="pkg-name">PROFESSIONAL TELEMETRY</div>
-                  <div class="pkg-price">฿48,000</div>
-                  <div style="font-size:0.75rem; color:#e0f2fe;">ยอดนิยม! ตรวจวัดครบ 4 ค่าหลัก</div>
-                </div>
-                <div class="pkg-body">
-                  <ul>
-                    <li>✔ 1x Heavy-Duty SCADA Node (IP67)</li>
-                    <li>✔ <b>4x เซนเซอร์ครบชุด (pH, Temp, TDS, Cl)</b></li>
-                    <li>✔ <b>Dual Telemetry (4G LTE + WiFi)</b></li>
-                    <li>✔ <b>LiFePO4 แบตเตอรี่สำรองใช้งานยามไฟดับ</b></li>
-                    <li>✔ ระบบแจ้งเตือน Line Alert &amp; SMS 24/7</li>
-                    <li>✔ Cloud SCADA Web + Mobile ฟรี 2 ปี</li>
-                    <li>✔ ติดตั้ง ปรับเทียบ และ Setup หน้างาน</li>
-                    <li>✔ รับประกันอุปกรณ์และบริการ 2 ปีเต็ม</li>
-                  </ul>
-                </div>
-              </div>
-
-              <!-- Package 3 -->
-              <div class="pricing-card">
-                <div class="pkg-header" style="background:#f0fdf4;">
-                  <span class="pkg-badge" style="background:#dcfce7; color:#15803d;">Lab Grade 5-in-1</span>
-                  <div class="pkg-name" style="color:#0f172a;">ENTERPRISE SCADA STATION</div>
-                  <div class="pkg-price" style="color:#059669;">฿85,000</div>
-                  <div style="font-size:0.75rem; color:#64748b;">สถานีตรวจวัดคุณภาพน้ำครบวงจร</div>
-                </div>
-                <div class="pkg-body">
-                  <ul>
-                    <li>✔ 1x Industrial Master SCADA PLC Hub</li>
-                    <li>✔ <b>5x เซนเซอร์แล็บ (pH, Temp, TDS, Cl, ORP)</b></li>
-                    <li>✔ <b>ชุดบายพาส Flow Cell Mounting Chamber</b></li>
-                    <li>✔ Dual Power Supply + LiFePO4 Backup</li>
-                    <li>✔ Cloud Unlimited + Modbus/ERP API</li>
-                    <li>✔ สอบเทียบหน้างาน 4 ครั้ง/ปี (ทุกไตรมาส)</li>
-                    <li>✔ รับประกันพรีเมียม 3 ปี (24/7 Priority SLA)</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="slide-footer">
-            <span>* ราคารวมค่าซอฟต์แวร์แดชบอร์ด, สิทธิ์การใช้งาน Mobile App และการอบรมเจ้าหน้าที่เรียบร้อยแล้ว</span>
             <span>สไลด์ 6 / 8</span>
           </div>
         </section>
 
-        <!-- SLIDE 7: ROI & VALUE CREATION -->
+        <!-- SLIDE 7: ROI ANALYSIS -->
         <section class="slide" id="slide-7">
           <div>
             <div class="slide-category">RETURN ON INVESTMENT &amp; BUSINESS VALUE</div>
@@ -871,16 +870,6 @@
                 <p style="font-size:0.78rem; color:var(--text-muted);">คำนวณจากค่าแรงงานที่ประหยัดได้ + การป้องกันความเสียหายของสินค้า</p>
               </div>
             </div>
-
-            <div style="margin-top:16px; background:#f8fafc; border:1px dashed var(--border-light); border-radius:var(--radius-md); padding:14px 20px;">
-              <div style="font-size:0.88rem; font-weight:700; color:var(--text-main); margin-bottom:6px;">📦 อุปกรณ์เสริมและบริการต่อขยาย (Add-ons):</div>
-              <div style="font-size:0.8rem; color:var(--text-sub); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;">
-                <span>• ชุดกระเปาะ Flow Cell Chamber: <b>฿8,500/ชุด</b></span>
-                <span>• Cloud Server &amp; 4G eSIM รายปี: <b>฿6,000 - ฿9,600/ปี</b></span>
-                <span>• สัญญาบริการสอบเทียบหน้างาน (SLA 4 ครั้ง/ปี): <b>฿12,000/ปี</b></span>
-                <span>• Modbus TCP/ERP Integration: <b>฿12,000</b></span>
-              </div>
-            </div>
           </div>
 
           <div class="slide-footer">
@@ -889,7 +878,7 @@
           </div>
         </section>
 
-        <!-- SLIDE 8: CONTACT & ROADMAP -->
+        <!-- SLIDE 8: CONTACT & NEXT STEPS -->
         <section class="slide slide-dark" id="slide-8">
           <div>
             <div class="slide-category">IMPLEMENTATION &amp; NEXT STEPS</div>
@@ -897,42 +886,23 @@
           </div>
 
           <div class="slide-body">
-            <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; margin-bottom:20px;">
-              <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:16px;">
-                <div style="color:var(--accent-cyan); font-weight:800; font-size:0.9rem;">WEEK 1</div>
-                <div style="font-weight:700; font-size:1rem; color:#fff; margin:4px 0 8px;">สำรวจหน้างาน</div>
-                <p style="font-size:0.78rem; color:#94a3b8; line-height:1.4;">สำรวจจุดติดตั้งท่อน้ำ Flow Cell และตรวจสอบสัญญาณเครือข่าย</p>
-              </div>
-
-              <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:16px;">
-                <div style="color:var(--accent-cyan); font-weight:800; font-size:0.9rem;">WEEK 2</div>
-                <div style="font-weight:700; font-size:1rem; color:#fff; margin:4px 0 8px;">ติดตั้งฮาร์ดแวร์</div>
-                <p style="font-size:0.78rem; color:#94a3b8; line-height:1.4;">ติดตั้งตู้คอนโทรลเลอร์ เซนเซอร์ และระบบไฟฟ้าสำรองเข้าสู่ท่อบายพาส</p>
-              </div>
-
-              <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:16px;">
-                <div style="color:var(--accent-cyan); font-weight:800; font-size:0.9rem;">WEEK 3</div>
-                <div style="font-weight:700; font-size:1rem; color:#fff; margin:4px 0 8px;">สอบเทียบ &amp; Cloud</div>
-                <p style="font-size:0.78rem; color:#94a3b8; line-height:1.4;">Calibrate หัววัด เชื่อมต่อ Cloud Dashboard และตั้งค่าแจ้งเตือน Line</p>
-              </div>
-
-              <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:16px;">
-                <div style="color:var(--accent-cyan); font-weight:800; font-size:0.9rem;">WEEK 4</div>
-                <div style="font-weight:700; font-size:1rem; color:#fff; margin:4px 0 8px;">อบรม &amp; ส่งมอบ</div>
-                <p style="font-size:0.78rem; color:#94a3b8; line-height:1.4;">ทดสอบระบบ 72 ชม. อบรมทีมงาน และเริ่มนับประกันโครงการ</p>
+            <div style="background:linear-gradient(135deg, #0284c7, #0369a1); border-radius:var(--radius-md); padding:24px 28px; margin-bottom:20px;">
+              <h3 style="font-size:1.3rem; font-weight:800; color:#fff; margin-bottom:8px;">📞 นัดหมายสาธิตระบบจริง (Live Demonstration) &amp; ขอใบเสนอราคา</h3>
+              <p style="font-size:0.92rem; color:#e0f2fe; line-height:1.6;">
+                ทีมวิศวกร NCT พร้อมเข้าสำรวจหน้างานและจัดทำใบเสนอราคาตามจำนวนชุดที่ท่านต้องการ (ทั้งแบบ &lt;100 ชุด และ ≥100 ชุด)
+              </p>
+              <div style="margin-top:16px; font-size:0.95rem; color:#fff; display:flex; flex-wrap:wrap; gap:20px;">
+                <span>📧 <b>Email:</b> sales@nct-water.com</span>
+                <span>📱 <b>Tel:</b> 02-XXX-XXXX, 08X-XXX-XXXX</span>
+                <span>💬 <b>Line:</b> @nctwater</span>
               </div>
             </div>
 
-            <div style="background:linear-gradient(135deg, #0284c7, #0369a1); border-radius:var(--radius-md); padding:20px 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-              <div>
-                <div style="font-size:1.15rem; font-weight:800; color:#fff;">📞 นัดหมายสาธิตระบบจริง (Live Demonstration) &amp; ขอใบเสนอราคา</div>
-                <div style="font-size:0.85rem; color:#e0f2fe; margin-top:2px;">ทีมวิศวกร NCT พร้อมเข้าสำรวจและประเมินงบประมาณโครงการฟรี</div>
-              </div>
-              <div style="display:flex; gap:12px;">
-                <a href="index.html" target="_blank" class="btn-hdr" style="background:#fff; color:#0284c7; font-weight:800; border:none;">
-                  ⚡ ดู Live Dashboard
-                </a>
-              </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.06); padding:16px 24px; border-radius:12px; border:1px solid rgba(255,255,255,0.12);">
+              <span style="font-size:0.9rem; color:#cbd5e1;">⚡ ทดลองเปิดใช้งานหน้าจอจำลอง SCADA &amp; Mobile Dashboard สด</span>
+              <a href="index.html" target="_blank" class="btn-hdr btn-primary-action" style="padding:8px 20px;">
+                เปิด Live Dashboard
+              </a>
             </div>
           </div>
 
@@ -960,224 +930,80 @@
       <div class="report-card-section" style="background:radial-gradient(circle at 90% 10%, #1e293b 0%, #0f172a 100%); color:#fff;">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
           <div>
-            <span style="font-size:0.8rem; font-weight:800; color:#38bdf8; background:rgba(56,189,248,0.15); padding:4px 10px; border-radius:6px; letter-spacing:0.5px;">EXECUTIVE PROPOSAL REPORT</span>
+            <span style="font-size:0.8rem; font-weight:800; color:#38bdf8; background:rgba(56,189,248,0.15); padding:4px 10px; border-radius:6px; letter-spacing:0.5px;">COMMERCIAL PROPOSAL REPORT</span>
             <h1 style="font-size:2.2rem; font-weight:800; margin-top:10px;">NCT WATER NEXUS PRO</h1>
-            <p style="font-size:1.1rem; color:#cbd5e1; margin-top:4px;">ระบบตรวจวัดและบริหารจัดการคุณภาพน้ำอัจฉริยะ พร้อมแดชบอร์ด SCADA และข้อเสนอราคาขาย</p>
+            <p style="font-size:1.1rem; color:#cbd5e1; margin-top:4px;">ตารางราคาจำหน่ายระบบตรวจวัดคุณภาพน้ำอัจฉริยะ: ซื้อขาด vs รายปี (&lt;100 ชุด และ ≥100 ชุด)</p>
           </div>
           <div style="text-align:right; font-size:0.85rem; color:#94a3b8;">
             <div><b>วันที่ออกเอกสาร:</b> สิงหาคม 2026</div>
             <div><b>เวอร์ชันระบบ:</b> 2.5 Pro Edition</div>
-            <div><b>สถานะ:</b> ข้อเสนอราคาทางการ (Commercial Proposal)</div>
+            <div><b>สถานะ:</b> Commercial Proposal</div>
           </div>
         </div>
       </div>
 
+      <!-- Section 1: Pricing Matrix Table -->
       <div class="report-card-section">
-        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">1. บทสรุปผู้บริหารและหลักการทำงาน (Executive Summary)</h2>
-        <p style="font-size:0.92rem; color:#334155; line-height:1.7; margin-bottom:16px;">
-          <b>NCT WATER NEXUS PRO</b> คือระบบตรวจวัดและบริหารจัดการคุณภาพน้ำอัจฉริยะระดับอุตสาหกรรม (Smart Water Quality Intelligence Platform) ที่ผสานเซนเซอร์ตรวจวัดคุณภาพน้ำความแม่นยำสูง (pH, Temp, TDS, Residual Chlorine, ORP) เข้ากับหน่วยประมวลผล IoT Controller และส่งสัญญาณข้อมูลสด (Real-time Telemetry) ขึ้นสู่ระบบคลาวด์แบบวินาทีต่อวินาที (1-Sec Polling) ช่วยให้ผู้บริหารและทีมวิศวกรสามารถมอนิเตอร์และรับการแจ้งเตือนความผิดปกติของน้ำได้แบบ 24/7 ผ่านทั้ง <b>Desktop SCADA Web Dashboard</b> และ <b>Mobile Companion App</b>
-        </p>
-
-        <div class="grid-2col" style="margin-top:18px;">
-          <div style="background:#f8fafc; padding:18px; border-radius:12px; border:1px solid #e2e8f0;">
-            <b style="color:#e11d48;">❌ ความเสี่ยงของระบบเดิม (Traditional Operations)</b>
-            <ul style="margin-top:8px; font-size:0.85rem; color:#475569; display:flex; flex-direction:column; gap:6px; padding-left:18px;">
-              <li>การสุ่มตักน้ำตรวจแบบแมนนวล 1-2 ครั้ง/วัน ไม่เห็นค่าแกว่งตัวแบบฉับพลัน</li>
-              <li>ความเสี่ยงต่อการหลุดเกณฑ์มาตรฐานสิ่งแวดล้อมและมาตรฐานกรมอนามัย</li>
-              <li>ข้อมูลบันทึกในสมุดกระดาษสูญหายง่าย ไม่สามารถเชื่อมต่อระบบ ERP/SCADA ได้</li>
-              <li>ไม่สามารถแจ้งเตือนเหตุฉุกเฉินหรือสารปนเปื้อนได้ทันเวลา</li>
-            </ul>
-          </div>
-
-          <div style="background:#f0fdf4; padding:18px; border-radius:12px; border:1px solid #bbf7d0;">
-            <b style="color:#15803d;">✅ ประโยชน์ที่ได้รับจาก NCT WATER NEXUS</b>
-            <ul style="margin-top:8px; font-size:0.85rem; color:#166534; display:flex; flex-direction:column; gap:6px; padding-left:18px;">
-              <li>ตรวจวัดต่อเนื่อง 24 ชม. ตรวจจับความผิดปกติและแจ้งเตือนทันทีทาง Line/SMS</li>
-              <li>ลดเวลาแรงงานในการเดินสุ่มตรวจน้ำลงได้ถึง 80%</li>
-              <li>ระบบเก็บบันทึกประวัติบน Cloud ไม่จำกัด พร้อม Export รายงานรับรองมาตรฐาน</li>
-              <li>มีแบตเตอรี่สำรองไฟ LiFePO4 ทำงานต่อเนื่องแม้ยามไฟฟ้าดับ</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="report-card-section">
-        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">2. ข้อมูลจำเพาะทางเทคนิคและเซนเซอร์ (Technical Specifications)</h2>
+        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">1. ตารางราคาเปรียบเทียบครบทุกโมเดล (Master Pricing Matrix)</h2>
         <table class="custom-table">
           <thead>
             <tr>
-              <th>พารามิเตอร์</th>
-              <th>ประเภทหัววัด (Sensor Probe)</th>
-              <th>ช่วงการวัด (Range)</th>
-              <th>ความแม่นยำ (Accuracy)</th>
-              <th>มาตรฐานควบคุม</th>
+              <th>ระดับแพ็กเกจ (Tier)</th>
+              <th>ซื้อขาด (&lt;100 ชุด)</th>
+              <th>ซื้อขาด (≥100 ชุด Bulk)</th>
+              <th>รายปี (&lt;100 ชุด)</th>
+              <th>รายปี (≥100 ชุด Bulk)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><b>ความเป็นกรด-ด่าง (pH)</b></td>
-              <td>Industrial Glass Combination Electrode</td>
-              <td>0.00 – 14.00 pH</td>
-              <td>±0.01 pH</td>
-              <td>6.50 – 8.50 pH (มาตรฐานน้ำดื่ม/น้ำใช้)</td>
+              <td><b>1. Standard (pH + Temp)</b></td>
+              <td><b>฿24,900</b> / ชุด</td>
+              <td><b style="color:#0284c7;">฿16,900</b> / ชุด</td>
+              <td><b>฿12,000</b> / ปี</td>
+              <td><b style="color:#059669;">฿8,400</b> / ปี (~฿700/ด.)</td>
             </tr>
             <tr>
-              <td><b>อุณหภูมิน้ำ (Water Temp)</b></td>
-              <td>Platinum RTD PT1000 Probe</td>
-              <td>0.0 – 50.0 °C (32 – 122 °F)</td>
-              <td>±0.1 °C</td>
-              <td>15.0 – 30.0 °C (พร้อมระบบชดเชย ATC)</td>
+              <td><b>2. Pro 4-in-1 (pH, Temp, TDS, Cl)</b></td>
+              <td><b>฿49,000</b> / ชุด</td>
+              <td><b style="color:#0284c7;">฿34,500</b> / ชุด</td>
+              <td><b>฿24,000</b> / ปี</td>
+              <td><b style="color:#059669;">฿16,800</b> / ปี (~฿1,400/ด.)</td>
             </tr>
             <tr>
-              <td><b>สารละลายรวม (TDS)</b></td>
-              <td>Titanium Alloy Dual-Pole Sensor</td>
-              <td>0 – 2,000 ppm (mg/L)</td>
-              <td>±2% F.S.</td>
-              <td>&lt; 500 ppm (ตามเกณฑ์กรมอนามัย)</td>
-            </tr>
-            <tr>
-              <td><b>คลอรีนคงเหลือ (Residual Cl)</b></td>
-              <td>Amperometric Membrane-Covered Sensor</td>
-              <td>0.00 – 5.00 mg/L (ppm)</td>
-              <td>±0.05 mg/L</td>
-              <td>0.20 – 2.00 mg/L (คงสภาพฆ่าเชื้อ)</td>
-            </tr>
-            <tr>
-              <td><b>ศักย์ไฟฟ้าออกซิเดชัน (ORP)</b></td>
-              <td>Platinum Disc Redox Electrode</td>
-              <td>-1,000 ถึง +1,000 mV</td>
-              <td>±5 mV</td>
-              <td>&gt; 650 mV (ยับยั้งเชื้อโรค 99.9%)</td>
+              <td><b>3. Enterprise 5-in-1 (+ ORP)</b></td>
+              <td><b>฿79,000</b> / ชุด</td>
+              <td><b style="color:#0284c7;">฿55,000</b> / ชุด</td>
+              <td><b>฿39,000</b> / ปี</td>
+              <td><b style="color:#059669;">฿27,000</b> / ปี (~฿2,250/ด.)</td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <!-- Section 2: Model Comparison Details -->
       <div class="report-card-section">
-        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">3. ตารางเปรียบเทียบแพ็กเกจและราคาจำหน่าย (Pricing Packages)</h2>
-        
-        <div class="grid-3col">
-          <div class="pricing-card">
-            <div class="pkg-header">
-              <span class="pkg-badge">เริ่มต้น</span>
-              <div class="pkg-name">STARTER MONITORING</div>
-              <div class="pkg-price">฿24,500</div>
-            </div>
-            <div class="pkg-body">
-              <ul>
-                <li>✔ 1x Controller Node (WiFi)</li>
-                <li>✔ เซนเซอร์ pH + อุณหภูมิ PT1000</li>
-                <li>✔ Web Dashboard &amp; Mobile App</li>
-                <li>✔ Cloud Server ฟรี 1 ปี</li>
-                <li>✔ รับประกัน 1 ปี</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="pricing-card featured">
-            <div class="pkg-header">
-              <span class="pkg-badge">★ ยอดนิยม</span>
-              <div class="pkg-name">PROFESSIONAL TELEMETRY</div>
-              <div class="pkg-price">฿48,000</div>
-            </div>
-            <div class="pkg-body">
-              <ul>
-                <li>✔ 1x Heavy-Duty SCADA Node (IP67)</li>
-                <li>✔ เซนเซอร์ 4 ค่า (pH, Temp, TDS, Cl)</li>
-                <li>✔ Dual Telemetry (4G LTE + WiFi)</li>
-                <li>✔ LiFePO4 แบตเตอรี่สำรองไฟ</li>
-                <li>✔ แจ้งเตือน Line Alert &amp; SMS 24/7</li>
-                <li>✔ Cloud Server ฟรี 2 ปี</li>
-                <li>✔ ติดตั้งและตั้งค่าหน้างาน</li>
-                <li>✔ รับประกัน 2 ปีเต็ม</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="pricing-card">
-            <div class="pkg-header" style="background:#f0fdf4;">
-              <span class="pkg-badge" style="background:#dcfce7; color:#15803d;">Lab Grade 5-in-1</span>
-              <div class="pkg-name" style="color:#0f172a;">ENTERPRISE SCADA</div>
-              <div class="pkg-price" style="color:#059669;">฿85,000</div>
-            </div>
-            <div class="pkg-body">
-              <ul>
-                <li>✔ 1x Industrial Master PLC Hub</li>
-                <li>✔ เซนเซอร์ 5 ค่า (+ ORP Probe)</li>
-                <li>✔ ชุดกระเปาะ Flow Cell Chamber</li>
-                <li>✔ Dual Power + LiFePO4 Backup</li>
-                <li>✔ Cloud Unlimited + Modbus API</li>
-                <li>✔ สอบเทียบหน้างาน 4 ครั้ง/ปี</li>
-                <li>✔ รับประกัน 3 ปี (24/7 SLA)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top:24px;">
-          <h3 style="font-size:1.05rem; font-weight:700; margin-bottom:10px;">รายการอุปกรณ์เสริมและบริการเพิ่มเติม (Optional Add-ons):</h3>
-          <table class="custom-table">
-            <thead>
-              <tr>
-                <th>รายการอุปกรณ์ / บริการ</th>
-                <th>รายละเอียด</th>
-                <th>ราคา (THB)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><b>ชุดกระเปาะวัดน้ำติดตั้งสำเร็จ (Flow Cell Chamber Kit)</b></td>
-                <td>กระเปาะใส่หัววัด Acrylic/PVC ทนแรงดัน พร้อมวาล์วปรับอัตราการไหลและระบบบายพาส</td>
-                <td><b>฿8,500 / ชุด</b></td>
-              </tr>
-              <tr>
-                <td><b>ค่าบริการ Cloud Server &amp; 4G SIM รายปี</b></td>
-                <td>พื้นที่เก็บบันทึกข้อมูลไม่จำกัด, ซิมการ์ด 4G IoT ส่งข้อมูล 24 ชม., อัปเดตซอฟต์แวร์ตลอดสัญญา</td>
-                <td><b>฿6,000 – ฿9,600 / ปี</b></td>
-              </tr>
-              <tr>
-                <td><b>สัญญาบริการสอบเทียบหน้างาน (Annual SLA)</b></td>
-                <td>ทีมวิศวกรเข้าตรวจเช็คและ Calibrate 4 ครั้ง/ปี พร้อมน้ำยา Buffer และใบเซอร์ ISO</td>
-                <td><b>฿12,000 / ปี</b></td>
-              </tr>
-              <tr>
-                <td><b>โมดูลเชื่อมต่อระบบภายนอก (SCADA / ERP Integration)</b></td>
-                <td>เชื่อมต่อ Modbus TCP/RTU สู่ระบบ SCADA เดิมของโรงงาน หรือ REST API เข้า ERP/Power BI</td>
-                <td><b>฿12,000 / จุด</b></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="report-card-section">
-        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">4. การวิเคราะห์ความคุ้มค่าและระยะเวลาคืนทุน (ROI Analysis)</h2>
-        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;">
+        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">2. สรุปความแตกต่างและสิทธิประโยชน์</h2>
+        <div class="grid-2col">
           <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px;">
-            <div style="font-size:0.85rem; color:#64748b;">ค่าแรงงานตรวจสอบที่ประหยัดได้</div>
-            <div style="font-size:1.5rem; font-weight:800; color:#0284c7; margin:4px 0;">฿72,000 / ปี</div>
-            <div style="font-size:0.78rem; color:#475569;">ประหยัดเวลาช่างเทคนิค 2 ชม./วัน เพื่อไปทำงานเชิงรุก</div>
+            <b style="color:#0284c7; font-size:1rem;">🏷️ แบบซื้อขาด (Outright Purchase)</b>
+            <ul style="margin-top:8px; font-size:0.85rem; color:#475569; display:flex; flex-direction:column; gap:6px; padding-left:18px;">
+              <li>เป็นกรรมสิทธิ์ของลูกค้า 100%</li>
+              <li>ฟรี Cloud Server &amp; ซิม 4G 1-2 ปีแรก (ปีถัดไป ฿4,500–฿6,000/ปี)</li>
+              <li>รับประกันอุปกรณ์ 1-2 ปี</li>
+              <li>เหมาะกับองค์กรที่มีงบ CAPEX และต้องการประหยัดระยะยาว</li>
+            </ul>
           </div>
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px;">
-            <div style="font-size:0.85rem; color:#64748b;">การป้องกันความเสียหายของสินค้า</div>
-            <div style="font-size:1.5rem; font-weight:800; color:#059669; margin:4px 0;">100% Zero Defect</div>
-            <div style="font-size:0.78rem; color:#475569;">แจ้งเตือนทันท่วงที ป้องกันสินค้าหรือไลน์ผลิตเสียหาย</div>
-          </div>
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px;">
-            <div style="font-size:0.85rem; color:#64748b;">ระยะเวลาคืนทุนโดยประมาณ</div>
-            <div style="font-size:1.5rem; font-weight:800; color:#d97706; margin:4px 0;">3 – 5 เดือน</div>
-            <div style="font-size:0.78rem; color:#475569;">ความคุ้มค่าสูง คืนทุนไว พร้อมความปลอดภัยระดับ 100%</div>
-          </div>
-        </div>
 
-        <div style="margin-top:28px; background:#0f172a; color:#fff; border-radius:16px; padding:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-          <div>
-            <h3 style="font-size:1.15rem; font-weight:800; color:#38bdf8;">พร้อมยกระดับระบบจัดการน้ำของคุณด้วย NCT WATER NEXUS PRO</h3>
-            <p style="font-size:0.85rem; color:#cbd5e1; margin-top:4px;">ติดต่อขอรับการประเมินหน้างานและใบเสนอราคาอย่างเป็นทางการได้ทันที</p>
+          <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:18px;">
+            <b style="color:#059669; font-size:1rem;">🔄 แบบเช่าใช้รายปี (Annual Subscription)</b>
+            <ul style="margin-top:8px; font-size:0.85rem; color:#166534; display:flex; flex-direction:column; gap:6px; padding-left:18px;">
+              <li>ไม่มีค่าเครื่องวันแรก จ่ายเฉพาะค่าบริการรายปี</li>
+              <li>รวม Cloud + ซิม 4G + อะไหล่เปลี่ยนฟรีตลอดสัญญา</li>
+              <li>ฟรีบริการสอบเทียบ Calibrate หน้างาน 2-4 ครั้ง/ปี พร้อมใบเซอร์ ISO</li>
+              <li>บันทึกเป็นค่าใช้จ่ายดำเนินงาน (OPEX) หักภาษีได้เต็ม 100%</li>
+            </ul>
           </div>
-          <a href="index.html" target="_blank" class="btn-hdr btn-primary-action" style="padding:10px 20px; font-size:0.9rem;">
-            ⚡ เปิดหน้าจอ Dashboard จำลอง
-          </a>
         </div>
       </div>
 
