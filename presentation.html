@@ -110,23 +110,23 @@
       transform: translateY(-1px);
     }
 
-    .btn-hdr.btn-primary-action {
+    .btn-hdr.btn-client-action {
       background: linear-gradient(135deg, #0284c7, #0369a1);
       border: none;
       box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
     }
 
-    .btn-hdr.btn-primary-action:hover {
+    .btn-hdr.btn-client-action:hover {
       background: linear-gradient(135deg, #0369a1, #075985);
     }
 
-    .btn-hdr.btn-pdf-action {
+    .btn-hdr.btn-internal-action {
       background: linear-gradient(135deg, #e11d48, #be123c);
       border: none;
       box-shadow: 0 4px 12px rgba(225, 29, 72, 0.35);
     }
 
-    .btn-hdr.btn-pdf-action:hover {
+    .btn-hdr.btn-internal-action:hover {
       background: linear-gradient(135deg, #be123c, #9f1239);
     }
 
@@ -397,14 +397,17 @@
     <div class="header-actions">
       <button class="btn-hdr" onclick="toggleViewMode('slide')" id="btnViewSlide">🖥️ สไลด์นำเสนอ (PPT)</button>
       <button class="btn-hdr" onclick="toggleViewMode('report')" id="btnViewReport">📄 รายงานสรุป (Doc)</button>
-      <a href="NCT_Water_Nexus_Dashboard_Report.pdf?v=20260901" download class="btn-hdr btn-pdf-action">
-        📄 ดาวน์โหลดใบเสนอราคา (PDF)
+      <a href="NCT_Water_Nexus_Client_Proposal.pdf?v=20260901" download class="btn-hdr btn-client-action">
+        📄 ใบเสนอราคาสำหรับลูกค้า (PDF)
       </a>
-      <a href="NCT_Water_Nexus_Report_and_Pricing.pptx" download class="btn-hdr btn-primary-action">
-        📥 ดาวน์โหลดสไลด์ (PPTX)
+      <a href="NCT_Water_Nexus_Internal_Costing.pdf?v=20260901" download class="btn-hdr btn-internal-action">
+        🔒 เอกสารต้นทุนภายใน (Internal PDF)
+      </a>
+      <a href="NCT_Water_Nexus_Report_and_Pricing.pptx" download class="btn-hdr">
+        📥 สไลด์ (PPTX)
       </a>
       <a href="index.html" target="_blank" class="btn-hdr">
-        ⚡ Live Dashboard
+        ⚡ Live SCADA
       </a>
     </div>
   </header>
@@ -654,18 +657,18 @@
           </div>
         </section>
 
-        <!-- SLIDE 6: HARDWARE BOM BREAKDOWN -->
+        <!-- SLIDE 6: HARDWARE BOM BREAKDOWN (INTERNAL/OVERVIEW) -->
         <section class="slide" id="slide-6">
           <div>
-            <div class="slide-category">5. HARDWARE BOM PER UNIT</div>
-            <h2 class="slide-title">5. ตารางต้นทุนฮาร์ดแวร์ตู้คอนโทรลต่อชุด (BOM per Unit)</h2>
+            <div class="slide-category">5. HARDWARE EQUIPMENT &amp; BOM</div>
+            <h2 class="slide-title">5. รายการอุปกรณ์ฮาร์ดแวร์ตู้คอนโทรลมาตรฐาน 4 ค่า</h2>
           </div>
 
           <div class="slide-body">
             <div class="grid-4col">
               <div class="content-box highlight">
                 <div style="font-size:0.85rem; font-weight:700; color:var(--primary); line-height:1.3;">ชุดเซนเซอร์หลัก (Modela One + 4 ค่า)</div>
-                <div style="font-size:1.45rem; font-weight:800; font-family:'JetBrains Mono'; color:#0f172a; margin:6px 0;">17,000 บาท</div>
+                <div style="font-size:1.15rem; font-weight:800; color:#0f172a; margin:6px 0;">Modbus RTU RS-485</div>
                 <p style="font-size:0.75rem; color:var(--text-muted); line-height:1.3;">
                   บอร์ด Modela One + หัววัด pH แก้ว + TDS Titanium + Temp PT1000 + เซนเซอร์คลอรีน Cybertice
                 </p>
@@ -673,7 +676,7 @@
 
               <div class="content-box highlight">
                 <div style="font-size:0.85rem; font-weight:700; color:var(--emerald); line-height:1.3;">4G LTE Router (TP-Link TL-MR100)</div>
-                <div style="font-size:1.45rem; font-weight:800; font-family:'JetBrains Mono'; color:#0f172a; margin:6px 0;">1,000 บาท</div>
+                <div style="font-size:1.15rem; font-weight:800; color:#0f172a; margin:6px 0;">300 Mbps Wi-Fi</div>
                 <p style="font-size:0.75rem; color:var(--text-muted); line-height:1.3;">
                   เราเตอร์ 4G LTE Wi-Fi ความเร็ว 300 Mbps เสาภายนอก 2 เสา สัญญาณนิ่งเสถียร
                 </p>
@@ -681,7 +684,7 @@
 
               <div class="content-box highlight">
                 <div style="font-size:0.85rem; font-weight:700; color:var(--amber); line-height:1.3;">ซิมการ์ด 4G รายปี (Unlimited 15-20 Mbps)</div>
-                <div style="font-size:1.45rem; font-weight:800; font-family:'JetBrains Mono'; color:#0f172a; margin:6px 0;">1,800 บาท</div>
+                <div style="font-size:1.15rem; font-weight:800; color:#0f172a; margin:6px 0;">IoT Unlimited Data</div>
                 <p style="font-size:0.75rem; color:var(--text-muted); line-height:1.3;">
                   ซิมเน็ต IoT รายปี ไม่อั้น ไม่ลดสปีด รวมค่าบริการ 12 เดือนเต็ม ส่งข้อมูล 24 ชม.
                 </p>
@@ -689,7 +692,7 @@
 
               <div class="content-box highlight">
                 <div style="font-size:0.85rem; font-weight:700; color:var(--text-main); line-height:1.3;">ตู้คอนโทรล IP65 + Switching 24V + Breaker</div>
-                <div style="font-size:1.45rem; font-weight:800; font-family:'JetBrains Mono'; color:#0f172a; margin:6px 0;">1,200 บาท</div>
+                <div style="font-size:1.15rem; font-weight:800; color:#0f172a; margin:6px 0;">IP65 Waterproof</div>
                 <p style="font-size:0.75rem; color:var(--text-muted); line-height:1.3;">
                   ตู้กันน้ำ IP65 + Switching 24V + Breaker ป้องกันไฟเกิน + Terminal + Wiring ครบ
                 </p>
@@ -698,9 +701,9 @@
 
             <div style="margin-top:16px; background:#0f172a; color:#fff; border-radius:var(--radius-md); padding:16px 22px; display:flex; justify-content:space-between; align-items:center;">
               <div>
-                <span style="font-size:0.85rem; color:#94a3b8;">สรุปรวมต้นทุนฮาร์ดแวร์หน้างาน:</span>
-                <div style="font-size:1.4rem; font-weight:800; color:#38bdf8; margin-top:2px;">
-                  ➡️ รวมต้นทุนต่อชุด: 21,000 บาท  |  รวมต้นทุนโครงการ (100 ชุด): 2,100,000 บาท
+                <span style="font-size:0.85rem; color:#94a3b8;">มาตรฐานชุดอุปกรณ์สำเร็จรูป:</span>
+                <div style="font-size:1.25rem; font-weight:800; color:#38bdf8; margin-top:2px;">
+                  ชุดอุปกรณ์ประกอบสำเร็จรูป 100 จุด พร้อมระบบสื่อสาร 4G LTE และ Cloud Dashboard
                 </div>
               </div>
               <span style="font-size:0.8rem; background:rgba(56,189,248,0.2); color:#38bdf8; border:1px solid #38bdf8; padding:6px 14px; border-radius:9999px; font-weight:700;">
@@ -710,7 +713,7 @@
           </div>
 
           <div class="slide-footer">
-            <span>NCT Water Nexus • ตารางต้นทุนฮาร์ดแวร์และอุปกรณ์ต่อชุด (BOM)</span>
+            <span>NCT Water Nexus • รายการอุปกรณ์ฮาร์ดแวร์ตู้คอนโทรลต่อชุด</span>
             <span>สไลด์ 6 / 8</span>
           </div>
         </section>
@@ -733,7 +736,7 @@
                     <div style="font-size:0.85rem; color:#64748b; margin-top:2px;">Plug &amp; Play / Supply Only</div>
                   </div>
                   <span style="font-size:0.8rem; background:#e0f2fe; color:#0369a1; padding:4px 10px; border-radius:9999px; font-weight:800;">
-                    ฿29,500 - ฿32,000 / ชุด
+                    ฿31,500 / ชุด
                   </span>
                 </div>
 
@@ -748,9 +751,9 @@
                   </ul>
                 </div>
 
-                <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px 14px; border-radius:10px; font-size:0.82rem;">
-                  <div>💰 <b>มูลค่าโครงการรวม (100 ชุด):</b> <span style="color:var(--primary); font-weight:800;">2,950,000 - 3,200,000 บาท</span></div>
-                  <div>📈 <b>กำไรขั้นต้นโดยประมาณ:</b> <span style="color:var(--emerald); font-weight:800;">850,000 - 1,100,000 บาท</span> (Margin ~29-34%)</div>
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px 14px; border-radius:10px; font-size:0.85rem;">
+                  <div>💰 <b>มูลค่าโครงการรวม (100 ชุด):</b> <span style="color:var(--primary); font-weight:800;">3,150,000 บาท</span></div>
+                  <div style="color:#64748b; font-size:0.75rem; margin-top:2px;">(ช่วงราคาแข่งขันได้จริง: ฿29,500 - ฿32,000 / ชุด)</div>
                 </div>
               </div>
 
@@ -762,7 +765,7 @@
                     <div style="font-size:0.85rem; color:#64748b; margin-top:2px;">Turnkey Solution (พร้อมประกัน On-site 1 ปี)</div>
                   </div>
                   <span style="font-size:0.8rem; background:#dcfce7; color:#15803d; padding:4px 10px; border-radius:9999px; font-weight:800;">
-                    ฿38,000 - ฿42,000 / ชุด
+                    ฿39,500 / ชุด
                   </span>
                 </div>
 
@@ -773,13 +776,13 @@
                     <li>✔ ค่าแรงและทีมงานเข้าติดตั้งยึดตู้ / เดินท่อบายพาสหน้างาน</li>
                     <li>✔ สอบเทียบ (Calibration) หัววัด pH / TDS ด้วยน้ำยามาตรฐานหน้างาน</li>
                     <li>✔ อบรมการใช้งานระบบและส่งมอบคู่มือการปฏิบัติงาน</li>
-                    <li>✔ รับประกันระบบและบริการ On-site Service ตลอด 1 ปี</li>
+                    <li>✔ รับประกันระบบและบริการ On-site Service ตลอด 1 ปีเต็ม</li>
                   </ul>
                 </div>
 
-                <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:10px 14px; border-radius:10px; font-size:0.82rem;">
-                  <div>💰 <b>มูลค่าโครงการรวม (100 ชุด):</b> <span style="color:var(--emerald); font-weight:800;">3,800,000 - 4,200,000 บาท</span></div>
-                  <div>📈 <b>กำไรขั้นต้นโดยประมาณ:</b> <span style="color:var(--emerald); font-weight:800;">1,700,000 - 2,100,000 บาท</span> (Margin ~45-50%)</div>
+                <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:10px 14px; border-radius:10px; font-size:0.85rem;">
+                  <div>💰 <b>มูลค่าโครงการรวม (100 ชุด):</b> <span style="color:var(--emerald); font-weight:800;">3,950,000 บาท</span></div>
+                  <div style="color:#15803d; font-size:0.75rem; margin-top:2px;">★ แนะนำสำหรับงานโครงการ (ช่วงราคา ฿38,000 - ฿42,000 / ชุด)</div>
                 </div>
               </div>
 
@@ -787,7 +790,7 @@
           </div>
 
           <div class="slide-footer">
-            <span>* เปรียบเทียบขอบเขตงานและกำไรขั้นต้นระหว่างแบบที่ 1 และแบบที่ 2</span>
+            <span>* เปรียบเทียบขอบเขตงานระหว่างแบบที่ 1 (Plug &amp; Play) และแบบที่ 2 (Turnkey)</span>
             <span>สไลด์ 7 / 8</span>
           </div>
         </section>
@@ -803,10 +806,9 @@
             <div style="background:linear-gradient(135deg, #0284c7, #0369a1); border-radius:var(--radius-md); padding:24px 28px; margin-bottom:20px;">
               <h3 style="font-size:1.25rem; font-weight:800; color:#fff; margin-bottom:8px;">📞 พร้อมนำเสนอและจัดทำใบเสนอราคาโครงการ 100 ชุด</h3>
               <p style="font-size:0.9rem; color:#e0f2fe; line-height:1.6;">
-                • <b>รวมต้นทุนต่อชุด:</b> 21,000 บาท (100 ชุด = 2,100,000 บาท)<br>
-                • <b>[แบบที่ 1 Plug &amp; Play]:</b> 29,500 - 32,000 บ./ชุด (รวม 2.95 - 3.20 ล้าน | กำไร 8.5 แสน - 1.1 ล้าน)<br>
-                • <b>[แบบที่ 2 Turnkey]:</b> 38,000 - 42,000 บ./ชุด (รวม 3.80 - 4.20 ล้าน | กำไร 1.7 - 2.1 ล้าน)<br>
-                • <b>ซอฟต์แวร์แดชบอร์ด 100 จุด:</b> ซื้อขาด 2.5 - 6.0 แสน | รายปี 1.2 - 3.6 แสน/ปี (Recurring Income)
+                • <b>[แบบที่ 1 Plug &amp; Play]:</b> ฿31,500 บ./ชุด (รวม 3.15 ล้านบาท)<br>
+                • <b>[แบบที่ 2 Turnkey]:</b> ฿39,500 บ./ชุด (รวม 3.95 ล้านบาท รวมติดตั้ง+สอบเทียบ+ประกัน 1 ปี)<br>
+                • <b>ซอฟต์แวร์แดชบอร์ด 100 จุด:</b> ซื้อขาด ฿2.5 - ฿6.0 แสน | รายปี ฿1.2 - ฿3.6 แสน/ปี
               </p>
               <div style="margin-top:16px; font-size:0.95rem; color:#fff; display:flex; flex-wrap:wrap; gap:20px;">
                 <span>📧 <b>Email:</b> sales@nct-water.com</span>
@@ -817,8 +819,8 @@
 
             <div style="display:flex; justify-content:space-between; align-items:center; background:rgba(255,255,255,0.06); padding:16px 24px; border-radius:12px; border:1px solid rgba(255,255,255,0.12);">
               <span style="font-size:0.9rem; color:#cbd5e1;">⚡ ทดลองเปิดใช้งานหน้าจอจำลอง SCADA &amp; Mobile Dashboard สด</span>
-              <a href="index.html" target="_blank" class="btn-hdr btn-primary-action" style="padding:8px 20px;">
-                เปิด Live Dashboard
+              <a href="index.html" target="_blank" class="btn-hdr btn-client-action" style="padding:8px 20px;">
+                เปิด Live SCADA
               </a>
             </div>
           </div>
@@ -862,7 +864,7 @@
       <!-- Section 1: Overview & Specs -->
       <div class="report-card-section">
         <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">1. ภาพรวมโครงการและข้อกำหนดทางเทคนิค 4 พารามิเตอร์</h2>
-        <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.9rem; margin-bottom:16px;">
           <tr style="background:#0f172a; color:#fff;">
             <th style="padding:8px 12px; text-align:left;">พารามิเตอร์</th>
             <th style="padding:8px 12px; text-align:left;">ช่วงการวัด</th>
@@ -892,6 +894,35 @@
             <td style="padding:8px 12px;">0.00 – 5.00 mg/L</td>
             <td style="padding:8px 12px;">±0.02 mg/L</td>
             <td style="padding:8px 12px;">Amperometric Membrane Sensor</td>
+          </tr>
+        </table>
+
+        <h3 style="font-size:1.1rem; font-weight:700; margin-bottom:8px; color:#0284c7;">1.2 รายการอุปกรณ์ฮาร์ดแวร์ตู้คอนโทรลมาตรฐาน</h3>
+        <table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
+          <tr style="background:#0f172a; color:#fff;">
+            <th style="padding:6px 10px;">รายการอุปกรณ์</th>
+            <th style="padding:6px 10px;">แบรนด์ / รุ่น</th>
+            <th style="padding:6px 10px;">คุณสมบัติทางวิศวกรรม</th>
+          </tr>
+          <tr style="border-bottom:1px solid #e2e8f0;">
+            <td style="padding:6px 10px;"><b>ชุดเซนเซอร์ 4 ค่า</b></td>
+            <td style="padding:6px 10px;">Modela One + Cybertice</td>
+            <td style="padding:6px 10px;">Modbus RTU RS-485, หัววัด pH แก้ว, TDS Titanium, PT1000 ATC, คลอรีนคงเหลือ</td>
+          </tr>
+          <tr style="border-bottom:1px solid #e2e8f0; background:#f8fafc;">
+            <td style="padding:6px 10px;"><b>เราเตอร์สื่อสาร 4G LTE</b></td>
+            <td style="padding:6px 10px;">TP-Link TL-MR100</td>
+            <td style="padding:6px 10px;">300 Mbps Wi-Fi 4G LTE, 2 เสารับสัญญาณภายนอก สัญญาณนิ่งเสถียร</td>
+          </tr>
+          <tr style="border-bottom:1px solid #e2e8f0;">
+            <td style="padding:6px 10px;"><b>ซิมการ์ด IoT รายปี</b></td>
+            <td style="padding:6px 10px;">4G Unlimited Data</td>
+            <td style="padding:6px 10px;">เน็ตไม่อั้น 15-20 Mbps รวม 12 เดือนเต็ม ส่งข้อมูล 24 ชม.</td>
+          </tr>
+          <tr style="border-bottom:1px solid #e2e8f0; background:#f8fafc;">
+            <td style="padding:6px 10px;"><b>ตู้คอนโทรลสำเร็จรูป</b></td>
+            <td style="padding:6px 10px;">IP65 Waterproof</td>
+            <td style="padding:6px 10px;">ตู้กันน้ำ IP65, Switching 24V, Breaker Surge, Terminal &amp; Wiring ครบ</td>
           </tr>
         </table>
       </div>
@@ -945,23 +976,9 @@
         </div>
       </div>
 
-      <!-- Section 3: Hardware BOM -->
+      <!-- Section 3: Commercial Pricing (ท้ายสุด) -->
       <div class="report-card-section">
-        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">3. ตารางต้นทุนฮาร์ดแวร์และอุปกรณ์ต่อชุด (BOM per Unit)</h2>
-        <ul style="font-size:0.95rem; line-height:1.8; color:#334155; padding-left:20px;">
-          <li>• ชุดเซนเซอร์หลัก (Modela One + pH/TDS/Temp + คลอรีน Cybertice): <b>17,000 บาท</b></li>
-          <li>• 4G LTE Router (TP-Link TL-MR100): <b>1,000 บาท</b></li>
-          <li>• ซิมการ์ด 4G รายปี (Unlimited 15-20 Mbps): <b>1,800 บาท</b></li>
-          <li>• ตู้คอนโทรล IP65 + Switching 24V + Breaker + Terminal + Wiring: <b>1,200 บาท</b></li>
-        </ul>
-        <div style="margin-top:12px; background:#f0fdf4; border:1px solid #bbf7d0; padding:12px 18px; border-radius:10px; font-weight:700; color:#15803d; font-size:1.05rem;">
-          ➡️ รวมต้นทุนต่อชุด: 21,000 บาท  |  รวมต้นทุนโครงการ (100 ชุด): 2,100,000 บาท
-        </div>
-      </div>
-
-      <!-- Section 4: Commercial Pricing (ท้ายสุด) -->
-      <div class="report-card-section">
-        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">4. ใบเสนอราคาและโครงสร้างราคาขายโครงการ (Commercial Pricing)</h2>
+        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">3. ใบเสนอราคาและโครงสร้างราคาขายโครงการ (Commercial Quotation)</h2>
         
         <div class="grid-2col" style="margin-bottom:16px;">
           <div style="background:#f8fafc; border:2px solid #0284c7; border-radius:12px; padding:20px;">
@@ -973,10 +990,9 @@
               <li>ตั้งค่าระบบ Modela App สำหรับดูข้อมูลและแจ้งเตือนผ่านมือถือ</li>
               <li>จัดทำ Web Dashboard กลางรวมข้อมูลทั้ง 100 จุด</li>
             </ul>
-            <div style="border-top:1px solid #e2e8f0; padding-top:10px; font-size:0.9rem;">
-              <div>• <b>ราคาขายต่อชุด:</b> 29,500 - 32,000 บาท</div>
-              <div>• <b>มูลค่าโครงการรวม (100 ชุด):</b> <span style="color:#0284c7; font-weight:800;">2,950,000 - 3,200,000 บาท</span></div>
-              <div>• <b>กำไรขั้นต้นโดยประมาณ:</b> <span style="color:#059669; font-weight:800;">850,000 - 1,100,000 บาท</span> (Margin ~29-34%)</div>
+            <div style="border-top:1px solid #e2e8f0; padding-top:10px; font-size:0.95rem;">
+              <div>• <b>ราคาขายต่อชุด:</b> 31,500 บาท</div>
+              <div>• <b>มูลค่าโครงการรวม (100 ชุด):</b> <span style="color:#0284c7; font-weight:800;">3,150,000 บาท</span></div>
             </div>
           </div>
 
@@ -987,12 +1003,11 @@
               <li>ค่าแรงและทีมงานเข้าติดตั้งยึดตู้/เดินท่อบายพาสหน้างาน</li>
               <li>สอบเทียบ (Calibration) หัววัด pH/TDS ด้วยน้ำยามาตรฐานหน้างาน</li>
               <li>อบรมการใช้งานระบบและส่งมอบคู่มือ</li>
-              <li>รับประกันระบบและบริการ On-site Service ตลอด 1 ปี</li>
+              <li>รับประกันระบบและบริการ On-site Service ตลอด 1 ปีเต็ม</li>
             </ul>
-            <div style="border-top:1px solid #bbf7d0; padding-top:10px; font-size:0.9rem;">
-              <div>• <b>ราคาขายต่อชุด:</b> 38,000 - 42,000 บาท</div>
-              <div>• <b>มูลค่าโครงการรวม (100 ชุด):</b> <span style="color:#059669; font-weight:800;">3,800,000 - 4,200,000 บาท</span></div>
-              <div>• <b>กำไรขั้นต้นโดยประมาณ:</b> <span style="color:#059669; font-weight:800;">1,700,000 - 2,100,000 บาท</span> (Margin ~45-50%)</div>
+            <div style="border-top:1px solid #bbf7d0; padding-top:10px; font-size:0.95rem;">
+              <div>• <b>ราคาขายต่อชุด:</b> 39,500 บาท</div>
+              <div>• <b>มูลค่าโครงการรวม (100 ชุด):</b> <span style="color:#059669; font-weight:800;">3,950,000 บาท</span></div>
             </div>
           </div>
         </div>
@@ -1088,13 +1103,13 @@
       if (mode === 'slide') {
         slideBox.style.display = 'flex';
         docBox.style.display = 'none';
-        btnSlide.classList.add('btn-primary-action');
-        btnDoc.classList.remove('btn-primary-action');
+        btnSlide.classList.add('btn-client-action');
+        btnDoc.classList.remove('btn-client-action');
       } else {
         slideBox.style.display = 'none';
         docBox.style.display = 'flex';
-        btnDoc.classList.add('btn-primary-action');
-        btnSlide.classList.remove('btn-primary-action');
+        btnDoc.classList.add('btn-client-action');
+        btnSlide.classList.remove('btn-client-action');
       }
     }
 
