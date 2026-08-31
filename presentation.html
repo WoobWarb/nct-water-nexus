@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NCT WATER NEXUS PRO - Smart Water Monitoring & Commercial Proposal</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-card-dark: #1e293b;
+      --bg-light: #f8fafc;
+      --bg-card: #ffffff;
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --accent-cyan: #06b6d4;
+      --emerald: #059669;
+      --amber: #d97706;
+      --rose: #e11d48;
+      --text-main: #0f172a;
+      --text-sub: #475569;
+      --text-muted: #64748b;
+      --border-light: #e2e8f0;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 2px 10px rgba(0,0,0,0.04);
+      --shadow-card: 0 12px 30px -8px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Prompt', 'Outfit', 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #edf3f8;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* TOP BAR */
+    .top-header-bar {
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      color: #ffffff;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #0284c7, #059669);
+      color: #fff;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-hdr {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 7px 16px;
+      border-radius: 9999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-hdr:hover {
+      background: rgba(255,255,255,0.25);
+      border-color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .btn-hdr.btn-primary-action {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      border: none;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
+    }
+
+    .btn-hdr.btn-primary-action:hover {
+      background: linear-gradient(135deg, #0369a1, #075985);
+    }
+
+    /* VIEW CONTAINER */
+    .app-viewport {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 60px;
+    }
+
+    /* SLIDE STAGE */
+    .slide-deck-wrapper {
+      width: 100%;
+      max-width: 1200px;
+      aspect-ratio: 16 / 9;
+      min-height: 675px;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      padding: 44px 54px;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      background: #ffffff;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-dark {
+      background: radial-gradient(circle at 80% 20%, #1e293b 0%, #0f172a 100%);
+      color: #ffffff;
+    }
+
+    .slide-category {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slide-dark .slide-category { color: var(--accent-cyan); }
+
+    .slide-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .slide-dark .slide-title { color: #ffffff; }
+
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .slide-dark .slide-footer {
+      border-top-color: rgba(255,255,255,0.12);
+      color: #94a3b8;
+    }
+
+    .slide-nav-controls {
+      margin-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: #ffffff;
+      padding: 10px 24px;
+      border-radius: 9999px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+    }
+
+    .nav-arrow-btn {
+      background: #f1f5f9;
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-arrow-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .slide-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slide-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .slide-dot.active {
+      width: 28px;
+      border-radius: 12px;
+      background: var(--primary);
+    }
+
+    .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-4col { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+
+    .content-box {
+      background: #f8fafc;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+    }
+
+    .content-box.highlight {
+      background: #ffffff;
+      border-color: var(--primary);
+      box-shadow: var(--shadow-card);
+    }
+
+    .box-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--text-sub);
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+
+    .feature-list li b { color: var(--text-main); }
+
+    /* PRICING CARDS */
+    .pricing-card {
+      background: #ffffff;
+      border: 2px solid var(--border-light);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(2, 132, 199, 0.18);
+    }
+
+    .pkg-header {
+      padding: 16px 20px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .pricing-card.featured .pkg-header {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #ffffff;
+    }
+
+    .pkg-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      background: #e2e8f0;
+      color: #334155;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .pricing-card.featured .pkg-badge {
+      background: #ffffff;
+      color: #0284c7;
+    }
+
+    .pkg-name { font-size: 1.15rem; font-weight: 800; }
+
+    .pkg-price {
+      font-size: 1.85rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 4px;
+    }
+
+    .pkg-body { padding: 18px 20px; flex: 1; }
+
+    .pkg-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      font-size: 0.82rem;
+    }
+
+    .pkg-body li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #334155;
+    }
+
+    .metric-hero {
+      border-radius: var(--radius-md);
+      padding: 18px;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-ph { background: linear-gradient(135deg, #369b9b, #278181); }
+    .card-temp { background: linear-gradient(135deg, #f59e0b, #d97706); }
+    .card-tds { background: linear-gradient(135deg, #10b981, #059669); }
+    .card-cl { background: linear-gradient(135deg, #0284c7, #0369a1); }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .custom-table th {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .custom-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-light);
+      color: #334155;
+    }
+
+    .custom-table tr:nth-child(even) td { background: #f8fafc; }
+
+    .report-document-view {
+      display: none;
+      width: 100%;
+      max-width: 1100px;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .report-card-section {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-card);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- GLOBAL TOP BAR -->
+  <header class="top-header-bar">
+    <div class="logo-group">
+      <div class="logo-badge">NCT</div>
+      <div>
+        <div style="font-weight: 800; font-size: 1.05rem; letter-spacing: -0.3px;">NCT WATER NEXUS PRO</div>
+        <div style="font-size: 0.72rem; color: #94a3b8;">Smart Water Monitoring &amp; Commercial Proposal</div>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button class="btn-hdr" onclick="toggleViewMode('slide')" id="btnViewSlide">🖥️ โหมดสไลด์นำเสนอ (PPT Mode)</button>
+      <button class="btn-hdr" onclick="toggleViewMode('report')" id="btnViewReport">📄 โหมดเอกสารรายงาน (Doc Mode)</button>
+      <a href="NCT_Water_Nexus_Report_and_Pricing.pptx" download class="btn-hdr btn-primary-action">
+        📥 ดาวน์โหลดไฟล์ PPTX
+      </a>
+      <a href="index.html" target="_blank" class="btn-hdr">
+        ⚡ เปิดแดชบอร์ดจริง (Live Demo)
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN APP VIEWPORT -->
+  <main class="app-viewport">
+    
+    <!-- 1. SLIDE PRESENTATION MODE -->
+    <div id="slideModeContainer" style="width:100%; display:flex; flex-direction:column; align-items:center;">
+      
+      <div class="slide-deck-wrapper">
+        
+        <!-- SLIDE 1: COVER -->
+        <section class="slide slide-dark active" id="slide-1">
+          <div>
+            <div class="slide-category">💧 INDUSTRIAL IOT &amp; SCADA WATER MONITORING</div>
+            <h1 class="slide-title" style="font-size: 2.6rem; margin-top: 10px;">NCT WATER NEXUS PRO</h1>
+            <p style="font-size: 1.25rem; color: #cbd5e1; font-weight: 500; margin-bottom: 24px;">
+              Smart Water Quality Intelligence, Real-Time IoT Telemetry &amp; Analytics Platform
+            </p>
+            <div style="background: rgba(255,255,255,0.08); border-left: 4px solid var(--accent-cyan); padding: 14px 20px; border-radius: 8px; max-width: 800px;">
+              <p style="font-size: 0.95rem; color: #e2e8f0; line-height: 1.6;">
+                ระบบตรวจวัดและติดตามคุณภาพน้ำแบบ Real-Time ตลอด 24 ชม. | แดชบอร์ด SCADA &amp; Mobile App | รายงานข้อเสนอราคาและแพ็กเกจการติดตั้ง (Commercial Proposal)
+              </p>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px;">
+            <div style="background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+              <div style="font-size:0.75rem; color:#94a3b8;">พารามิเตอร์ตรวจวัด</div>
+              <div style="font-size:1.15rem; font-weight:700; color:#fff; margin-top:2px;">pH, Temp, TDS, Cl, ORP</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+              <div style="font-size:0.75rem; color:#94a3b8;">ความถี่ Telemetry</div>
+              <div style="font-size:1.15rem; font-weight:700; color:#38bdf8; margin-top:2px;">Live 1-Sec Polling</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+              <div style="font-size:0.75rem; color:#94a3b8;">ระบบแจ้งเตือนฉุกเฉิน</div>
+              <div style="font-size:1.15rem; font-weight:700; color:#4ade80; margin-top:2px;">Line / SMS Alert 24/7</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+              <div style="font-size:0.75rem; color:#94a3b8;">แพ็กเกจราคาเริ่มต้น</div>
+              <div style="font-size:1.15rem; font-weight:700; color:#fbbf24; margin-top:2px;">฿24,500 - ฿85,000</div>
+            </div>
+          </div>
+
+          <div class="slide-footer">
+            <span>NCT Water Solutions</span>
+            <span>Version 2.5 Pro • August 2026</span>
+          </div>
+        </section>
+
+        <!-- SLIDE 2: CHALLENGES VS SOLUTION -->
+        <section class="slide" id="slide-2">
+          <div>
+            <div class="slide-category">EXECUTIVE SUMMARY &amp; PAIN POINTS</div>
+            <h2 class="slide-title">ปัญหาเดิมในการดูแลระบบน้ำ vs โซลูชัน NCT Nexus</h2>
+          </div>
+
+          <div class="slide-body">
+            <div class="grid-2col">
+              <div class="content-box" style="border-left: 4px solid var(--rose);">
+                <div class="box-title" style="color: var(--rose);">
+                  <span>❌ ปัญหาเดิมที่พบประจำ (Traditional Issues)</span>
+                </div>
+                <ul class="feature-list">
+                  <li>
+                    <span>⏱️</span>
+                    <div><b>การสุ่มตรวจล่าช้า (Manual Sampling):</b> ตรวจเพียง 1-2 ครั้ง/วัน ไม่สามารถตรวจจับสภาวะน้ำผิดปกติฉับพลันได้ทันเวลา</div>
+                  </li>
+                  <li>
+                    <span>⚠️</span>
+                    <div><b>ความเสี่ยงน้ำหลุดเกณฑ์มาตรฐาน:</b> เสี่ยงต่อสินค้าเสียหาย การปนเปื้อนในกระบวนการผลิต และค่าปรับจากหน่วยงานรัฐ</div>
+                  </li>
+                  <li>
+                    <span>📋</span>
+                    <div><b>ขาดข้อมูลบันทึกแบบ Real-Time:</b> บันทึกบนกระดาษสูญหายง่าย ไม่สามารถวิเคราะห์แนวโน้มเชิงสถิติได้</div>
+                  </li>
+                  <li>
+                    <span>🔔</span>
+                    <div><b>ไม่ทราบเหตุผิดปกติทันที:</b> เมื่อสารกรองเสื่อมหรือค่าน้ำวิกฤต ไม่มีการแจ้งเตือนจนเกิดความเสียหายแล้ว</div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="content-box highlight" style="border-left: 4px solid var(--emerald);">
+                <div class="box-title" style="color: var(--emerald);">
+                  <span>✅ โซลูชัน NCT WATER NEXUS PRO</span>
+                </div>
+                <ul class="feature-list">
+                  <li>
+                    <span>⚡</span>
+                    <div><b>ตรวจวัด Real-Time 24/7 (Live 1-Sec):</b> รายงานผล pH, Temp, TDS, Residual Cl, ORP ต่อเนื่องตลอดเวลา</div>
+                  </li>
+                  <li>
+                    <span>🔔</span>
+                    <div><b>ระบบแจ้งเตือนอัจฉริยะ (Instant Early Warnings):</b> เตือนทันทีผ่าน Line/SMS เมื่อค่าน้ำเริ่มแกว่งตัวผิดปกติ</div>
+                  </li>
+                  <li>
+                    <span>📱</span>
+                    <div><b>แดชบอร์ดคู่ Web SCADA + Mobile App:</b> มอนิเตอร์ผ่านคอมพิวเตอร์ห้องควบคุมหรือสมาร์ทโฟนได้ทุกที่ในโลก</div>
+                  </li>
+                  <li>
+                    <span>📊</span>
+                    <div><b>บันทึกย้อนหลัง &amp; Audit Trail:</b> เก็บบันทึกข้อมูลบน Cloud ไม่จำกัด พร้อม Export รายงานรับรองมาตรฐานสากล</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer">
+            <span>NCT Water Nexus • ภาพรวมระบบและปัญหาที่แก้ไข</span>
+            <span>สไลด์ 2 / 8</span>
+          </div>
+        </section>
+
+        <!-- SLIDE 3: HARDWARE & SENSORS -->
+        <section class="slide" id="slide-3">
+          <div>
+            <div class="slide-category">HARDWARE ECOSYSTEM &amp; SENSORS</div>
+            <h2 class="slide-title">สเปกเซนเซอร์ตรวจวัดคุณภาพน้ำความแม่นยำสูง</h2>
+          </div>
+
+          <div class="slide-body">
+            <div class="grid-4col">
+              <div class="metric-hero card-temp">
+                <div>
+                  <div style="font-size:0.8rem; font-weight:700; opacity:0.9;">อุณหภูมิน้ำ (Water Temp)</div>
+                  <div style="font-size:1.8rem; font-weight:800; font-family:'JetBrains Mono'; margin:8px 0;">17.3°C</div>
+                </div>
+                <div style="font-size:0.75rem; opacity:0.92; line-height:1.3;">
+                  <b>หัววัด PT1000 RTD</b><br>
+                  ช่วง 0-50°C | ความแม่นยำ ±0.1°C พร้อมชดเชยอุณหภูมิ ATC อัตโนมัติ
+                </div>
+              </div>
+
+              <div class="metric-hero card-ph">
+                <div>
+                  <div style="font-size:0.8rem; font-weight:700; opacity:0.9;">ความเป็นกรด-ด่าง (pH)</div>
+                  <div style="font-size:1.8rem; font-weight:800; font-family:'JetBrains Mono'; margin:8px 0;">7.29 pH</div>
+                </div>
+                <div style="font-size:0.75rem; opacity:0.92; line-height:1.3;">
+                  <b>Industrial Glass Probe</b><br>
+                  ช่วง 0-14 pH | ความแม่นยำ ±0.01 pH รองรับ Calibrate 4.01/7.00/10.01
+                </div>
+              </div>
+
+              <div class="metric-hero card-tds">
+                <div>
+                  <div style="font-size:0.8rem; font-weight:700; opacity:0.9;">สารละลายรวม (TDS)</div>
+                  <div style="font-size:1.8rem; font-weight:800; font-family:'JetBrains Mono'; margin:8px 0;">210 ppm</div>
+                </div>
+                <div style="font-size:0.75rem; opacity:0.92; line-height:1.3;">
+                  <b>Titanium Dual-Pole</b><br>
+                  ช่วง 0-2,000 ppm | ตรวจสอบปริมาณสารแขวนลอยและเกลือแร่ในน้ำ
+                </div>
+              </div>
+
+              <div class="metric-hero card-cl">
+                <div>
+                  <div style="font-size:0.8rem; font-weight:700; opacity:0.9;">คลอรีนคงเหลือ (Residual Cl)</div>
+                  <div style="font-size:1.8rem; font-weight:800; font-family:'JetBrains Mono'; margin:8px 0;">0.85 mg/L</div>
+                </div>
+                <div style="font-size:0.75rem; opacity:0.92; line-height:1.3;">
+                  <b>Amperometric Probe</b><br>
+                  ช่วง 0-5 mg/L | ควบคุมประสิทธิภาพการฆ่าเชื้อโรคตามเกณฑ์สาธารณสุข
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:16px; background:#0f172a; color:#fff; border-radius:var(--radius-md); padding:14px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+              <div>
+                <b style="color:#38bdf8;">🎛️ NCT Master Controller Hub:</b>
+                <span style="font-size:0.82rem; color:#cbd5e1; margin-left:8px;">WiFi 2.4G + 4G LTE Cellular | LiFePO4 Battery Backup | Alarm Relay Dry Contact</span>
+              </div>
+              <span style="font-size:0.75rem; background:#0284c7; padding:4px 10px; border-radius:9999px; font-weight:700;">IP67 Weatherproof</span>
+            </div>
+          </div>
+
+          <div class="slide-footer">
+            <span>NCT Water Nexus • สเปกเซนเซอร์และฮาร์ดแวร์</span>
+            <span>สไลด์ 3 / 8</span>
+          </div>
+        </section>
+
+        <!-- SLIDE 4: DUAL-MODE DASHBOARD SHOWCASE -->
+        <section class="slide" id="slide-4">
+          <div>
+            <div class="slide-category">SOFTWARE PLATFORM &amp; SCADA UI</div>
+            <h2 class="slide-title">แพลตฟอร์มแดชบอร์ดคู่ (Web SCADA + Mobile Companion)</h2>
+          </div>
+
+          <div class="slide-body">
+            <div class="grid-2col">
+              <div class="content-box">
+                <div class="box-title" style="color:var(--primary);">
+                  <span>💻 1. Desktop SCADA Widescreen View</span>
+                </div>
+                <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:10px;">ออกแบบสำหรับจอห้องควบคุม (Control Room), มอนิเตอร์หลายสถานีพร้อมกัน</p>
+                <ul class="feature-list">
+                  <li>✔ กราฟเส้นแนวโน้ม Multi-Axis คุณภาพน้ำ Real-Time (1-Sec polling)</li>
+                  <li>✔ ปรับเทียบมาตรฐานหัววัดได้ในคลิกเดียว (One-Click Digital Calibration)</li>
+                  <li>✔ สวิตช์เปิด-ปิดไฟหน้าจอ และทดสอบสัญญาณ Real-time</li>
+                  <li>✔ Export ประวัติย้อนหลังเป็น Excel / PDF สำหรับรายงาน ISO และโรงงาน</li>
+                </ul>
+              </div>
+
+              <div class="content-box">
+                <div class="box-title" style="color:var(--emerald);">
+                  <span>📱 2. Mobile Companion App View</span>
+                </div>
+                <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:10px;">สำหรับผู้บริหาร วิศวกร และผู้ดูแลระบบผ่านสมาร์ทโฟน iOS / Android</p>
+                <ul class="feature-list">
+                  <li>✔ หน้าตา UI สวยงามตามโมเดลแอปพลิเคชันต้นแบบ อ่านค่าง่ายทันที</li>
+                  <li>✔ แผนผังการเชื่อมต่อชัดเจน (WiFi ➔ Display ➔ Probe Topology)</li>
+                  <li>✔ แสดงระดับแบตเตอรี่สำรองและสถานะอุปกรณ์ Real-time</li>
+                  <li>✔ สลับดูหลายสถานี (All Devices) และตรวจสอบประวัติย้อนหลังได้ทุกที่</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer">
+            <span>NCT Water Nexus • ซอฟต์แวร์แดชบอร์ดและการสั่งการ</span>
+            <span>สไลด์ 4 / 8</span>
+          </div>
+        </section>
+
+        <!-- SLIDE 5: WATER QUALITY BENCHMARKS -->
+        <section class="slide" id="slide-5">
+          <div>
+            <div class="slide-category">STANDARDS &amp; REGULATORY COMPLIANCE</div>
+            <h2 class="slide-title">เกณฑ์มาตรฐานคุณภาพน้ำและการแจ้งเตือน</h2>
+          </div>
+
+          <div class="slide-body">
+            <table class="custom-table">
+              <thead>
+                <tr>
+                  <th>พารามิเตอร์</th>
+                  <th>หน่วยวัด</th>
+                  <th>เกณฑ์ปลอดภัยมาตรฐาน</th>
+                  <th>ค่าเฉลี่ยปกติ</th>
+                  <th>เงื่อนไขการแจ้งเตือน (Alert Action)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>ความเป็นกรด-ด่าง (pH)</b></td>
+                  <td>pH</td>
+                  <td>6.50 - 8.50 pH</td>
+                  <td><span style="color:#0284c7; font-weight:700;">7.20 - 7.35</span></td>
+                  <td>เตือนทันทีเมื่อ pH &lt; 6.80 หรือ &gt; 8.20</td>
+                </tr>
+                <tr>
+                  <td><b>อุณหภูมิน้ำ (Temp)</b></td>
+                  <td>°C / °F</td>
+                  <td>15.0 - 30.0 °C</td>
+                  <td><span style="color:#d97706; font-weight:700;">17.0 - 22.0</span></td>
+                  <td>ส่งค่า ATC ชดเชยการอ่านค่าเซนเซอร์แบบ Real-time</td>
+                </tr>
+                <tr>
+                  <td><b>สารละลายรวม (TDS)</b></td>
+                  <td>ppm</td>
+                  <td>&lt; 500 ppm</td>
+                  <td><span style="color:#059669; font-weight:700;">180 - 230</span></td>
+                  <td>เตือนเมื่อ &gt; 450 ppm (แนะนำล้างฟิลเตอร์กรอง)</td>
+                </tr>
+                <tr>
+                  <td><b>คลอรีนคงเหลือ (Residual Cl)</b></td>
+                  <td>mg/L</td>
+                  <td>0.20 - 2.00 mg/L</td>
+                  <td><span style="color:#0284c7; font-weight:700;">0.80 - 1.00</span></td>
+                  <td>เตือนเมื่อ &lt; 0.20 mg/L (ความเสี่ยงเชื้อแบคทีเรีย)</td>
+                </tr>
+                <tr>
+                  <td><b>ศักย์ไฟฟ้าออกซิเดชัน (ORP)</b></td>
+                  <td>mV</td>
+                  <td>&gt; 650 mV</td>
+                  <td><span style="color:#059669; font-weight:700;">700 - 750</span></td>
+                  <td>ยืนยันความสามารถในการฆ่าเชื้อโรค 99.9%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="slide-footer">
+            <span>สอดคล้องตามมาตรฐาน: กรมอนามัย กระทรวงสาธารณสุข • กรมโรงงานฯ • WHO • US EPA</span>
+            <span>สไลด์ 5 / 8</span>
+          </div>
+        </section>
+
+        <!-- SLIDE 6: COMMERCIAL PRICING PACKAGES -->
+        <section class="slide" id="slide-6">
+          <div>
+            <div class="slide-category">COMMERCIAL PROPOSAL &amp; PACKAGES</div>
+            <h2 class="slide-title">แพ็กเกจราคาขายระบบตรวจวัดและแดชบอร์ด</h2>
+          </div>
+
+          <div class="slide-body">
+            <div class="grid-3col">
+              <!-- Package 1 -->
+              <div class="pricing-card">
+                <div class="pkg-header">
+                  <span class="pkg-badge">เริ่มต้น</span>
+                  <div class="pkg-name">STARTER MONITORING</div>
+                  <div class="pkg-price">฿24,500</div>
+                  <div style="font-size:0.75rem; color:#64748b;">สำหรับระบบน้ำขนาดเล็ก / อาคาร</div>
+                </div>
+                <div class="pkg-body">
+                  <ul>
+                    <li>✔ 1x NCT Controller Node (WiFi Hub)</li>
+                    <li>✔ 1x Glass pH Sensor (±0.01 pH)</li>
+                    <li>✔ 1x PT1000 Temp Sensor (with ATC)</li>
+                    <li>✔ Web Dashboard &amp; Mobile App</li>
+                    <li>✔ Cloud Server ฟรี 1 ปีเต็ม</li>
+                    <li>✔ รับประกันอุปกรณ์ 1 ปี</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Package 2: Most Popular -->
+              <div class="pricing-card featured">
+                <div class="pkg-header">
+                  <span class="pkg-badge">★ MOST POPULAR</span>
+                  <div class="pkg-name">PROFESSIONAL TELEMETRY</div>
+                  <div class="pkg-price">฿48,000</div>
+                  <div style="font-size:0.75rem; color:#e0f2fe;">ยอดนิยม! ตรวจวัดครบ 4 ค่าหลัก</div>
+                </div>
+                <div class="pkg-body">
+                  <ul>
+                    <li>✔ 1x Heavy-Duty SCADA Node (IP67)</li>
+                    <li>✔ <b>4x เซนเซอร์ครบชุด (pH, Temp, TDS, Cl)</b></li>
+                    <li>✔ <b>Dual Telemetry (4G LTE + WiFi)</b></li>
+                    <li>✔ <b>LiFePO4 แบตเตอรี่สำรองใช้งานยามไฟดับ</b></li>
+                    <li>✔ ระบบแจ้งเตือน Line Alert &amp; SMS 24/7</li>
+                    <li>✔ Cloud SCADA Web + Mobile ฟรี 2 ปี</li>
+                    <li>✔ ติดตั้ง ปรับเทียบ และ Setup หน้างาน</li>
+                    <li>✔ รับประกันอุปกรณ์และบริการ 2 ปีเต็ม</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Package 3 -->
+              <div class="pricing-card">
+                <div class="pkg-header" style="background:#f0fdf4;">
+                  <span class="pkg-badge" style="background:#dcfce7; color:#15803d;">Lab Grade 5-in-1</span>
+                  <div class="pkg-name" style="color:#0f172a;">ENTERPRISE SCADA STATION</div>
+                  <div class="pkg-price" style="color:#059669;">฿85,000</div>
+                  <div style="font-size:0.75rem; color:#64748b;">สถานีตรวจวัดคุณภาพน้ำครบวงจร</div>
+                </div>
+                <div class="pkg-body">
+                  <ul>
+                    <li>✔ 1x Industrial Master SCADA PLC Hub</li>
+                    <li>✔ <b>5x เซนเซอร์แล็บ (pH, Temp, TDS, Cl, ORP)</b></li>
+                    <li>✔ <b>ชุดบายพาส Flow Cell Mounting Chamber</b></li>
+                    <li>✔ Dual Power Supply + LiFePO4 Backup</li>
+                    <li>✔ Cloud Unlimited + Modbus/ERP API</li>
+                    <li>✔ สอบเทียบหน้างาน 4 ครั้ง/ปี (ทุกไตรมาส)</li>
+                    <li>✔ รับประกันพรีเมียม 3 ปี (24/7 Priority SLA)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer">
+            <span>* ราคารวมค่าซอฟต์แวร์แดชบอร์ด, สิทธิ์การใช้งาน Mobile App และการอบรมเจ้าหน้าที่เรียบร้อยแล้ว</span>
+            <span>สไลด์ 6 / 8</span>
+          </div>
+        </section>
+
+        <!-- SLIDE 7: ROI & VALUE CREATION -->
+        <section class="slide" id="slide-7">
+          <div>
+            <div class="slide-category">RETURN ON INVESTMENT &amp; BUSINESS VALUE</div>
+            <h2 class="slide-title">ความคุ้มค่าและผลตอบแทนการลงทุน (ROI Analysis)</h2>
+          </div>
+
+          <div class="slide-body">
+            <div class="grid-4col">
+              <div class="content-box highlight" style="text-align:center; padding:24px 16px;">
+                <div style="font-size:2.4rem; font-weight:800; color:var(--primary); font-family:'JetBrains Mono';">80%</div>
+                <div style="font-weight:700; color:var(--text-main); margin:6px 0;">ลดเวลาแรงงาน</div>
+                <p style="font-size:0.78rem; color:var(--text-muted);">ไม่ต้องเดินตักน้ำตรวจ ลดภาระงานพนักงาน ให้โฟกัสงานซ่อมบำรุงเชิงรุก</p>
+              </div>
+
+              <div class="content-box highlight" style="text-align:center; padding:24px 16px;">
+                <div style="font-size:2.4rem; font-weight:800; color:var(--emerald); font-family:'JetBrains Mono';">100%</div>
+                <div style="font-weight:700; color:var(--text-main); margin:6px 0;">ความถูกต้องแม่นยำ</div>
+                <p style="font-size:0.78rem; color:var(--text-muted);">ระบบบันทึกและแจ้งเตือนทันทีภายใน 1 วินาที ลดความผิดพลาดจากมนุษย์</p>
+              </div>
+
+              <div class="content-box highlight" style="text-align:center; padding:24px 16px;">
+                <div style="font-size:2.4rem; font-weight:800; color:var(--amber); font-family:'JetBrains Mono';">24/7</div>
+                <div style="font-weight:700; color:var(--text-main); margin:6px 0;">ป้องกันความเสียหาย</div>
+                <p style="font-size:0.78rem; color:var(--text-muted);">รู้จังหวะล้างฟิลเตอร์และเปลี่ยนสารกรองก่อนที่ระบบจะตันหรือพัง</p>
+              </div>
+
+              <div class="content-box highlight" style="text-align:center; padding:24px 16px;">
+                <div style="font-size:2.4rem; font-weight:800; color:var(--rose); font-family:'JetBrains Mono';">3-5 ด.</div>
+                <div style="font-weight:700; color:var(--text-main); margin:6px 0;">ระยะเวลาคืนทุน</div>
+                <p style="font-size:0.78rem; color:var(--text-muted);">คำนวณจากค่าแรงงานที่ประหยัดได้ + การป้องกันความเสียหายของสินค้า</p>
+              </div>
+            </div>
+
+            <div style="margin-top:16px; background:#f8fafc; border:1px dashed var(--border-light); border-radius:var(--radius-md); padding:14px 20px;">
+              <div style="font-size:0.88rem; font-weight:700; color:var(--text-main); margin-bottom:6px;">📦 อุปกรณ์เสริมและบริการต่อขยาย (Add-ons):</div>
+              <div style="font-size:0.8rem; color:var(--text-sub); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+                <span>• ชุดกระเปาะ Flow Cell Chamber: <b>฿8,500/ชุด</b></span>
+                <span>• Cloud Server &amp; 4G eSIM รายปี: <b>฿6,000 - ฿9,600/ปี</b></span>
+                <span>• สัญญาบริการสอบเทียบหน้างาน (SLA 4 ครั้ง/ปี): <b>฿12,000/ปี</b></span>
+                <span>• Modbus TCP/ERP Integration: <b>฿12,000</b></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer">
+            <span>NCT Water Nexus • ความคุ้มค่าทางเศรษฐศาสตร์และการคืนทุน</span>
+            <span>สไลด์ 7 / 8</span>
+          </div>
+        </section>
+
+        <!-- SLIDE 8: CONTACT & ROADMAP -->
+        <section class="slide slide-dark" id="slide-8">
+          <div>
+            <div class="slide-category">IMPLEMENTATION &amp; NEXT STEPS</div>
+            <h2 class="slide-title">ขั้นตอนการติดตั้งและช่องทางติดต่อขอใบเสนอราคา</h2>
+          </div>
+
+          <div class="slide-body">
+            <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; margin-bottom:20px;">
+              <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:16px;">
+                <div style="color:var(--accent-cyan); font-weight:800; font-size:0.9rem;">WEEK 1</div>
+                <div style="font-weight:700; font-size:1rem; color:#fff; margin:4px 0 8px;">สำรวจหน้างาน</div>
+                <p style="font-size:0.78rem; color:#94a3b8; line-height:1.4;">สำรวจจุดติดตั้งท่อน้ำ Flow Cell และตรวจสอบสัญญาณเครือข่าย</p>
+              </div>
+
+              <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:16px;">
+                <div style="color:var(--accent-cyan); font-weight:800; font-size:0.9rem;">WEEK 2</div>
+                <div style="font-weight:700; font-size:1rem; color:#fff; margin:4px 0 8px;">ติดตั้งฮาร์ดแวร์</div>
+                <p style="font-size:0.78rem; color:#94a3b8; line-height:1.4;">ติดตั้งตู้คอนโทรลเลอร์ เซนเซอร์ และระบบไฟฟ้าสำรองเข้าสู่ท่อบายพาส</p>
+              </div>
+
+              <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:16px;">
+                <div style="color:var(--accent-cyan); font-weight:800; font-size:0.9rem;">WEEK 3</div>
+                <div style="font-weight:700; font-size:1rem; color:#fff; margin:4px 0 8px;">สอบเทียบ &amp; Cloud</div>
+                <p style="font-size:0.78rem; color:#94a3b8; line-height:1.4;">Calibrate หัววัด เชื่อมต่อ Cloud Dashboard และตั้งค่าแจ้งเตือน Line</p>
+              </div>
+
+              <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:16px;">
+                <div style="color:var(--accent-cyan); font-weight:800; font-size:0.9rem;">WEEK 4</div>
+                <div style="font-weight:700; font-size:1rem; color:#fff; margin:4px 0 8px;">อบรม &amp; ส่งมอบ</div>
+                <p style="font-size:0.78rem; color:#94a3b8; line-height:1.4;">ทดสอบระบบ 72 ชม. อบรมทีมงาน และเริ่มนับประกันโครงการ</p>
+              </div>
+            </div>
+
+            <div style="background:linear-gradient(135deg, #0284c7, #0369a1); border-radius:var(--radius-md); padding:20px 24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+              <div>
+                <div style="font-size:1.15rem; font-weight:800; color:#fff;">📞 นัดหมายสาธิตระบบจริง (Live Demonstration) &amp; ขอใบเสนอราคา</div>
+                <div style="font-size:0.85rem; color:#e0f2fe; margin-top:2px;">ทีมวิศวกร NCT พร้อมเข้าสำรวจและประเมินงบประมาณโครงการฟรี</div>
+              </div>
+              <div style="display:flex; gap:12px;">
+                <a href="index.html" target="_blank" class="btn-hdr" style="background:#fff; color:#0284c7; font-weight:800; border:none;">
+                  ⚡ ดู Live Dashboard
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="slide-footer">
+            <span>NCT Water Solutions • Tel: 02-XXX-XXXX • Email: sales@nct-water.com</span>
+            <span>สไลด์ 8 / 8</span>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- BOTTOM CONTROLS -->
+      <div class="slide-nav-controls">
+        <button class="nav-arrow-btn" onclick="changeSlide(-1)" title="สไลด์ก่อนหน้า (Left Arrow)">❮</button>
+        <div class="slide-dots" id="slideDotsContainer"></div>
+        <button class="nav-arrow-btn" onclick="changeSlide(1)" title="สไลด์ถัดไป (Right Arrow / Space)">❯</button>
+        <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted); margin-left:8px;" id="slideCounterText">1 / 8</span>
+      </div>
+
+    </div>
+
+    <!-- 2. DOCUMENT REPORT MODE -->
+    <div id="reportModeContainer" class="report-document-view">
+      
+      <div class="report-card-section" style="background:radial-gradient(circle at 90% 10%, #1e293b 0%, #0f172a 100%); color:#fff;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
+          <div>
+            <span style="font-size:0.8rem; font-weight:800; color:#38bdf8; background:rgba(56,189,248,0.15); padding:4px 10px; border-radius:6px; letter-spacing:0.5px;">EXECUTIVE PROPOSAL REPORT</span>
+            <h1 style="font-size:2.2rem; font-weight:800; margin-top:10px;">NCT WATER NEXUS PRO</h1>
+            <p style="font-size:1.1rem; color:#cbd5e1; margin-top:4px;">ระบบตรวจวัดและบริหารจัดการคุณภาพน้ำอัจฉริยะ พร้อมแดชบอร์ด SCADA และข้อเสนอราคาขาย</p>
+          </div>
+          <div style="text-align:right; font-size:0.85rem; color:#94a3b8;">
+            <div><b>วันที่ออกเอกสาร:</b> สิงหาคม 2026</div>
+            <div><b>เวอร์ชันระบบ:</b> 2.5 Pro Edition</div>
+            <div><b>สถานะ:</b> ข้อเสนอราคาทางการ (Commercial Proposal)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card-section">
+        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">1. บทสรุปผู้บริหารและหลักการทำงาน (Executive Summary)</h2>
+        <p style="font-size:0.92rem; color:#334155; line-height:1.7; margin-bottom:16px;">
+          <b>NCT WATER NEXUS PRO</b> คือระบบตรวจวัดและบริหารจัดการคุณภาพน้ำอัจฉริยะระดับอุตสาหกรรม (Smart Water Quality Intelligence Platform) ที่ผสานเซนเซอร์ตรวจวัดคุณภาพน้ำความแม่นยำสูง (pH, Temp, TDS, Residual Chlorine, ORP) เข้ากับหน่วยประมวลผล IoT Controller และส่งสัญญาณข้อมูลสด (Real-time Telemetry) ขึ้นสู่ระบบคลาวด์แบบวินาทีต่อวินาที (1-Sec Polling) ช่วยให้ผู้บริหารและทีมวิศวกรสามารถมอนิเตอร์และรับการแจ้งเตือนความผิดปกติของน้ำได้แบบ 24/7 ผ่านทั้ง <b>Desktop SCADA Web Dashboard</b> และ <b>Mobile Companion App</b>
+        </p>
+
+        <div class="grid-2col" style="margin-top:18px;">
+          <div style="background:#f8fafc; padding:18px; border-radius:12px; border:1px solid #e2e8f0;">
+            <b style="color:#e11d48;">❌ ความเสี่ยงของระบบเดิม (Traditional Operations)</b>
+            <ul style="margin-top:8px; font-size:0.85rem; color:#475569; display:flex; flex-direction:column; gap:6px; padding-left:18px;">
+              <li>การสุ่มตักน้ำตรวจแบบแมนนวล 1-2 ครั้ง/วัน ไม่เห็นค่าแกว่งตัวแบบฉับพลัน</li>
+              <li>ความเสี่ยงต่อการหลุดเกณฑ์มาตรฐานสิ่งแวดล้อมและมาตรฐานกรมอนามัย</li>
+              <li>ข้อมูลบันทึกในสมุดกระดาษสูญหายง่าย ไม่สามารถเชื่อมต่อระบบ ERP/SCADA ได้</li>
+              <li>ไม่สามารถแจ้งเตือนเหตุฉุกเฉินหรือสารปนเปื้อนได้ทันเวลา</li>
+            </ul>
+          </div>
+
+          <div style="background:#f0fdf4; padding:18px; border-radius:12px; border:1px solid #bbf7d0;">
+            <b style="color:#15803d;">✅ ประโยชน์ที่ได้รับจาก NCT WATER NEXUS</b>
+            <ul style="margin-top:8px; font-size:0.85rem; color:#166534; display:flex; flex-direction:column; gap:6px; padding-left:18px;">
+              <li>ตรวจวัดต่อเนื่อง 24 ชม. ตรวจจับความผิดปกติและแจ้งเตือนทันทีทาง Line/SMS</li>
+              <li>ลดเวลาแรงงานในการเดินสุ่มตรวจน้ำลงได้ถึง 80%</li>
+              <li>ระบบเก็บบันทึกประวัติบน Cloud ไม่จำกัด พร้อม Export รายงานรับรองมาตรฐาน</li>
+              <li>มีแบตเตอรี่สำรองไฟ LiFePO4 ทำงานต่อเนื่องแม้ยามไฟฟ้าดับ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="report-card-section">
+        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">2. ข้อมูลจำเพาะทางเทคนิคและเซนเซอร์ (Technical Specifications)</h2>
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>พารามิเตอร์</th>
+              <th>ประเภทหัววัด (Sensor Probe)</th>
+              <th>ช่วงการวัด (Range)</th>
+              <th>ความแม่นยำ (Accuracy)</th>
+              <th>มาตรฐานควบคุม</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>ความเป็นกรด-ด่าง (pH)</b></td>
+              <td>Industrial Glass Combination Electrode</td>
+              <td>0.00 – 14.00 pH</td>
+              <td>±0.01 pH</td>
+              <td>6.50 – 8.50 pH (มาตรฐานน้ำดื่ม/น้ำใช้)</td>
+            </tr>
+            <tr>
+              <td><b>อุณหภูมิน้ำ (Water Temp)</b></td>
+              <td>Platinum RTD PT1000 Probe</td>
+              <td>0.0 – 50.0 °C (32 – 122 °F)</td>
+              <td>±0.1 °C</td>
+              <td>15.0 – 30.0 °C (พร้อมระบบชดเชย ATC)</td>
+            </tr>
+            <tr>
+              <td><b>สารละลายรวม (TDS)</b></td>
+              <td>Titanium Alloy Dual-Pole Sensor</td>
+              <td>0 – 2,000 ppm (mg/L)</td>
+              <td>±2% F.S.</td>
+              <td>&lt; 500 ppm (ตามเกณฑ์กรมอนามัย)</td>
+            </tr>
+            <tr>
+              <td><b>คลอรีนคงเหลือ (Residual Cl)</b></td>
+              <td>Amperometric Membrane-Covered Sensor</td>
+              <td>0.00 – 5.00 mg/L (ppm)</td>
+              <td>±0.05 mg/L</td>
+              <td>0.20 – 2.00 mg/L (คงสภาพฆ่าเชื้อ)</td>
+            </tr>
+            <tr>
+              <td><b>ศักย์ไฟฟ้าออกซิเดชัน (ORP)</b></td>
+              <td>Platinum Disc Redox Electrode</td>
+              <td>-1,000 ถึง +1,000 mV</td>
+              <td>±5 mV</td>
+              <td>&gt; 650 mV (ยับยั้งเชื้อโรค 99.9%)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="report-card-section">
+        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">3. ตารางเปรียบเทียบแพ็กเกจและราคาจำหน่าย (Pricing Packages)</h2>
+        
+        <div class="grid-3col">
+          <div class="pricing-card">
+            <div class="pkg-header">
+              <span class="pkg-badge">เริ่มต้น</span>
+              <div class="pkg-name">STARTER MONITORING</div>
+              <div class="pkg-price">฿24,500</div>
+            </div>
+            <div class="pkg-body">
+              <ul>
+                <li>✔ 1x Controller Node (WiFi)</li>
+                <li>✔ เซนเซอร์ pH + อุณหภูมิ PT1000</li>
+                <li>✔ Web Dashboard &amp; Mobile App</li>
+                <li>✔ Cloud Server ฟรี 1 ปี</li>
+                <li>✔ รับประกัน 1 ปี</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pricing-card featured">
+            <div class="pkg-header">
+              <span class="pkg-badge">★ ยอดนิยม</span>
+              <div class="pkg-name">PROFESSIONAL TELEMETRY</div>
+              <div class="pkg-price">฿48,000</div>
+            </div>
+            <div class="pkg-body">
+              <ul>
+                <li>✔ 1x Heavy-Duty SCADA Node (IP67)</li>
+                <li>✔ เซนเซอร์ 4 ค่า (pH, Temp, TDS, Cl)</li>
+                <li>✔ Dual Telemetry (4G LTE + WiFi)</li>
+                <li>✔ LiFePO4 แบตเตอรี่สำรองไฟ</li>
+                <li>✔ แจ้งเตือน Line Alert &amp; SMS 24/7</li>
+                <li>✔ Cloud Server ฟรี 2 ปี</li>
+                <li>✔ ติดตั้งและตั้งค่าหน้างาน</li>
+                <li>✔ รับประกัน 2 ปีเต็ม</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pkg-header" style="background:#f0fdf4;">
+              <span class="pkg-badge" style="background:#dcfce7; color:#15803d;">Lab Grade 5-in-1</span>
+              <div class="pkg-name" style="color:#0f172a;">ENTERPRISE SCADA</div>
+              <div class="pkg-price" style="color:#059669;">฿85,000</div>
+            </div>
+            <div class="pkg-body">
+              <ul>
+                <li>✔ 1x Industrial Master PLC Hub</li>
+                <li>✔ เซนเซอร์ 5 ค่า (+ ORP Probe)</li>
+                <li>✔ ชุดกระเปาะ Flow Cell Chamber</li>
+                <li>✔ Dual Power + LiFePO4 Backup</li>
+                <li>✔ Cloud Unlimited + Modbus API</li>
+                <li>✔ สอบเทียบหน้างาน 4 ครั้ง/ปี</li>
+                <li>✔ รับประกัน 3 ปี (24/7 SLA)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:24px;">
+          <h3 style="font-size:1.05rem; font-weight:700; margin-bottom:10px;">รายการอุปกรณ์เสริมและบริการเพิ่มเติม (Optional Add-ons):</h3>
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>รายการอุปกรณ์ / บริการ</th>
+                <th>รายละเอียด</th>
+                <th>ราคา (THB)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>ชุดกระเปาะวัดน้ำติดตั้งสำเร็จ (Flow Cell Chamber Kit)</b></td>
+                <td>กระเปาะใส่หัววัด Acrylic/PVC ทนแรงดัน พร้อมวาล์วปรับอัตราการไหลและระบบบายพาส</td>
+                <td><b>฿8,500 / ชุด</b></td>
+              </tr>
+              <tr>
+                <td><b>ค่าบริการ Cloud Server &amp; 4G SIM รายปี</b></td>
+                <td>พื้นที่เก็บบันทึกข้อมูลไม่จำกัด, ซิมการ์ด 4G IoT ส่งข้อมูล 24 ชม., อัปเดตซอฟต์แวร์ตลอดสัญญา</td>
+                <td><b>฿6,000 – ฿9,600 / ปี</b></td>
+              </tr>
+              <tr>
+                <td><b>สัญญาบริการสอบเทียบหน้างาน (Annual SLA)</b></td>
+                <td>ทีมวิศวกรเข้าตรวจเช็คและ Calibrate 4 ครั้ง/ปี พร้อมน้ำยา Buffer และใบเซอร์ ISO</td>
+                <td><b>฿12,000 / ปี</b></td>
+              </tr>
+              <tr>
+                <td><b>โมดูลเชื่อมต่อระบบภายนอก (SCADA / ERP Integration)</b></td>
+                <td>เชื่อมต่อ Modbus TCP/RTU สู่ระบบ SCADA เดิมของโรงงาน หรือ REST API เข้า ERP/Power BI</td>
+                <td><b>฿12,000 / จุด</b></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="report-card-section">
+        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">4. การวิเคราะห์ความคุ้มค่าและระยะเวลาคืนทุน (ROI Analysis)</h2>
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;">
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px;">
+            <div style="font-size:0.85rem; color:#64748b;">ค่าแรงงานตรวจสอบที่ประหยัดได้</div>
+            <div style="font-size:1.5rem; font-weight:800; color:#0284c7; margin:4px 0;">฿72,000 / ปี</div>
+            <div style="font-size:0.78rem; color:#475569;">ประหยัดเวลาช่างเทคนิค 2 ชม./วัน เพื่อไปทำงานเชิงรุก</div>
+          </div>
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px;">
+            <div style="font-size:0.85rem; color:#64748b;">การป้องกันความเสียหายของสินค้า</div>
+            <div style="font-size:1.5rem; font-weight:800; color:#059669; margin:4px 0;">100% Zero Defect</div>
+            <div style="font-size:0.78rem; color:#475569;">แจ้งเตือนทันท่วงที ป้องกันสินค้าหรือไลน์ผลิตเสียหาย</div>
+          </div>
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px;">
+            <div style="font-size:0.85rem; color:#64748b;">ระยะเวลาคืนทุนโดยประมาณ</div>
+            <div style="font-size:1.5rem; font-weight:800; color:#d97706; margin:4px 0;">3 – 5 เดือน</div>
+            <div style="font-size:0.78rem; color:#475569;">ความคุ้มค่าสูง คืนทุนไว พร้อมความปลอดภัยระดับ 100%</div>
+          </div>
+        </div>
+
+        <div style="margin-top:28px; background:#0f172a; color:#fff; border-radius:16px; padding:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+          <div>
+            <h3 style="font-size:1.15rem; font-weight:800; color:#38bdf8;">พร้อมยกระดับระบบจัดการน้ำของคุณด้วย NCT WATER NEXUS PRO</h3>
+            <p style="font-size:0.85rem; color:#cbd5e1; margin-top:4px;">ติดต่อขอรับการประเมินหน้างานและใบเสนอราคาอย่างเป็นทางการได้ทันที</p>
+          </div>
+          <a href="index.html" target="_blank" class="btn-hdr btn-primary-action" style="padding:10px 20px; font-size:0.9rem;">
+            ⚡ เปิดหน้าจอ Dashboard จำลอง
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 8;
+
+    function initSlideDeck() {
+      const dotsContainer = document.getElementById('slideDotsContainer');
+      dotsContainer.innerHTML = '';
+      for (let i = 1; i <= totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = `slide-dot ${i === 1 ? 'active' : ''}`;
+        dot.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function goToSlide(n) {
+      if (n < 1) n = 1;
+      if (n > totalSlides) n = totalSlides;
+      
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+      const activeSlide = document.getElementById(`slide-${n}`);
+      if (activeSlide) activeSlide.classList.add('active');
+
+      document.querySelectorAll('.slide-dot').forEach((d, idx) => {
+        d.classList.toggle('active', idx + 1 === n);
+      });
+
+      document.getElementById('slideCounterText').innerText = `${n} / ${totalSlides}`;
+      currentSlide = n;
+    }
+
+    function changeSlide(direction) {
+      let target = currentSlide + direction;
+      if (target < 1) target = totalSlides;
+      if (target > totalSlides) target = 1;
+      goToSlide(target);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (document.getElementById('slideModeContainer').style.display !== 'none') {
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+          e.preventDefault();
+          changeSlide(1);
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          changeSlide(-1);
+        }
+      }
+    });
+
+    function toggleViewMode(mode) {
+      const slideBox = document.getElementById('slideModeContainer');
+      const docBox = document.getElementById('reportModeContainer');
+      const btnSlide = document.getElementById('btnViewSlide');
+      const btnDoc = document.getElementById('btnViewReport');
+
+      if (mode === 'slide') {
+        slideBox.style.display = 'flex';
+        docBox.style.display = 'none';
+        btnSlide.classList.add('btn-primary-action');
+        btnDoc.classList.remove('btn-primary-action');
+      } else {
+        slideBox.style.display = 'none';
+        docBox.style.display = 'flex';
+        btnDoc.classList.add('btn-primary-action');
+        btnSlide.classList.remove('btn-primary-action');
+      }
+    }
+
+    initSlideDeck();
+    toggleViewMode('slide');
+  </script>
+</body>
+</html>

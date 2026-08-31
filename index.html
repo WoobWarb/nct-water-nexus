@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>NCT WATER NEXUS - Smart Water Intelligence & Monitoring</title>
+  
+  <!-- Google Fonts: Prompt, Outfit, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <style>
+    :root {
+      --bg-body: #edf3f8;
+      --bg-card: #ffffff;
+      --bg-subtle: #f8fafc;
+      --border-color: #cbd5e1;
+      --border-light: #e2e8f0;
+      
+      --text-main: #0f172a;
+      --text-sub: #475569;
+      --text-muted: #64748b;
+      --text-dim: #94a3b8;
+      
+      --color-ph: #369b9b;
+      --color-ph-dark: #278181;
+      --color-temp: #f59e0b;
+      --color-temp-dark: #d97706;
+      --color-tds: #059669;
+      --color-cl: #0284c7;
+      --color-primary: #0284c7;
+
+      --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+      --shadow-card: 0 10px 25px -5px rgba(15, 23, 42, 0.07);
+      --shadow-device: 0 25px 60px -15px rgba(15, 23, 42, 0.25), 0 0 0 10px #1e293b, 0 0 0 12px #334155;
+      
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-full: 9999px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Prompt', 'Outfit', 'Inter', -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 10%, #f1f6fb 0%, #dbe6f2 100%);
+      min-height: 100vh;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 12px 36px;
+    }
+
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* GLOBAL TOP NAVIGATION & VIEW SWITCHER */
+    .global-nav-bar {
+      width: 100%;
+      max-width: 1320px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 12px 20px;
+      box-shadow: var(--shadow-card);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand-cluster {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon-logo {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #0284c7 0%, #047857 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.5px;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    }
+
+    .brand-texts h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+
+    .brand-texts p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* VIEW SWITCHER PILL (Desktop Web vs Mobile View) */
+    .mode-switch-group {
+      display: flex;
+      background: #e2e8f0;
+      padding: 4px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+    }
+
+    .mode-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: none;
+      background: transparent;
+      color: var(--text-sub);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .mode-btn.active {
+      background: #ffffff;
+      color: #0284c7;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+    }
+
+    .sim-btn-quick {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1e293b;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .sim-btn-quick:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    /* CONTAINER VIEWS */
+    .main-view-section {
+      width: 100%;
+      display: none;
+    }
+
+    .main-view-section.active {
+      display: block;
+    }
+
+    /* ========================================================= */
+    /* 1. DESKTOP / WEB VIEW (โหมดเว็บปกติ Widescreen SCADA)     */
+    /* ========================================================= */
+    .desktop-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* TOP STATUS SUMMARY STRIP */
+    .web-summary-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .strip-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .strip-info .label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .strip-info .val {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 2px;
+    }
+
+    .strip-badge {
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .badge-online { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #e0f2fe; color: #0369a1; }
+
+    /* WEB MAIN METRIC HERO TILES */
+    .web-hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .web-metric-card {
+      border-radius: var(--radius-md);
+      padding: 22px 20px;
+      color: #ffffff;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 140px;
+      transition: var(--transition);
+    }
+
+    .web-metric-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card-ph-theme {
+      background: linear-gradient(135deg, #439d9a 0%, #278181 100%);
+      box-shadow: 0 10px 25px rgba(39, 129, 129, 0.28);
+    }
+
+    .card-temp-theme {
+      background: linear-gradient(135deg, #f3a83b 0%, #d97706 100%);
+      box-shadow: 0 10px 25px rgba(217, 119, 6, 0.28);
+    }
+
+    .card-tds-theme {
+      background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+      box-shadow: 0 10px 25px rgba(4, 120, 87, 0.28);
+    }
+
+    .card-cl-theme {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      box-shadow: 0 10px 25px rgba(2, 132, 199, 0.28);
+    }
+
+    .metric-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      opacity: 0.95;
+    }
+
+    .metric-large-number {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1;
+      margin: 10px 0 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .metric-sub-detail {
+      font-size: 0.76rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    /* WEB SPLIT LAYOUT (CHART + CONTROLS & CONNECTION) */
+    .web-split-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+    }
+
+    .web-panel {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-card);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .panel-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* CONNECTION STATUS IN DESKTOP VIEW */
+    .connection-flow-desktop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      padding: 16px 12px;
+      background: var(--bg-subtle);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-light);
+      margin-bottom: 20px;
+    }
+
+    .flow-connector-line-desktop {
+      position: absolute;
+      top: 36px;
+      left: 45px;
+      right: 45px;
+      height: 2px;
+      background: #cbd5e1;
+      z-index: 1;
+    }
+
+    .flow-node-desktop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .flow-icon-box {
+      width: 44px;
+      height: 44px;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+      color: #0f172a;
+    }
+
+    .flow-icon-box svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .check-pill-badge {
+      width: 24px;
+      height: 24px;
+      background: #0284c7;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 0.76rem;
+      font-weight: 800;
+      z-index: 2;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.4);
+    }
+
+    /* CONTROLS LIST */
+    .control-row-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .control-row-item:last-child {
+      border-bottom: none;
+    }
+
+    /* ========================================================= */
+    /* 2. MOBILE APP VIEW (โหมดดูในมือถือตามรูปต้นแบบ)            */
+    /* ========================================================= */
+    .mobile-view-wrapper {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .mobile-phone-frame {
+      width: 100%;
+      max-width: 412px;
+      min-height: 840px;
+      background-color: #eef3f9;
+      border-radius: 46px;
+      box-shadow: var(--shadow-device);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      border: 4px solid #1e293b;
+    }
+
+    /* iOS STATUS BAR */
+    .ios-status-bar {
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0f172a;
+      z-index: 50;
+    }
+
+    .ios-notch {
+      width: 120px;
+      height: 24px;
+      background: #1e293b;
+      border-radius: 0 0 16px 16px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .status-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+    }
+
+    /* APP HEADER */
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 20px 14px;
+      position: relative;
+    }
+
+    .back-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: #1e293b;
+      font-size: 1.25rem;
+      transition: var(--transition);
+    }
+
+    .header-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #1e293b;
+      text-align: center;
+      flex: 1;
+      margin-right: 36px;
+    }
+
+    /* MAIN MOBILE SCROLLABLE CONTENT */
+    .mobile-content {
+      flex: 1;
+      padding: 0 18px 84px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .mobile-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* ROW 1: WEATHER & ALL DEVICES */
+    .mob-top-row {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 12px;
+    }
+
+    .weather-card-mob {
+      background: linear-gradient(135deg, #f3a83b 0%, #d97706 100%);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 20px rgba(217, 119, 6, 0.28);
+    }
+
+    .weather-left-icon svg {
+      width: 30px;
+      height: 30px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+    }
+
+    .weather-info-mob {
+      text-align: right;
+    }
+
+    .weather-today {
+      font-size: 0.82rem;
+      font-weight: 500;
+      opacity: 0.92;
+      line-height: 1.1;
+    }
+
+    .weather-temp-c {
+      font-size: 1.45rem;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    .weather-temp-f {
+      font-size: 0.85rem;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .devices-card-mob {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      transition: var(--transition);
+    }
+
+    .devices-card-mob:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card);
+    }
+
+    /* ROW 2: MAIN WATER PARAMETER METRICS (pH & TEMP) */
+    .mob-metrics-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .metric-hero-card-mob {
+      border-radius: var(--radius-md);
+      padding: 16px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 110px;
+      color: #ffffff;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .card-ph-mob {
+      background: linear-gradient(180deg, #439d9a 0%, #308481 100%);
+      box-shadow: 0 8px 20px rgba(48, 132, 129, 0.28);
+    }
+
+    .card-tds-mob {
+      background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.28);
+    }
+
+    .card-cl-mob {
+      background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.28);
+    }
+
+    .card-temp-mob {
+      background: linear-gradient(180deg, #f3a83b 0%, #e09020 100%);
+      box-shadow: 0 8px 20px rgba(224, 144, 32, 0.28);
+    }
+
+    .mob-metric-val {
+      font-size: 2.15rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1;
+      margin-top: 4px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .mob-metric-lbl {
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      opacity: 0.95;
+      margin-top: 10px;
+    }
+
+    /* ROW 3: CONNECTION STATUS CARD */
+    .mob-conn-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 16px 18px 18px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .conn-heading {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 14px;
+    }
+
+    .conn-flow-mob {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      padding: 4px 10px;
+    }
+
+    .flow-line-mob {
+      position: absolute;
+      top: 22px;
+      left: 35px;
+      right: 35px;
+      height: 2px;
+      background: #e2e8f0;
+      z-index: 1;
+    }
+
+    .flow-item-mob {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .flow-icon-mob {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1e293b;
+    }
+
+    .flow-icon-mob svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .flow-check-blue {
+      width: 22px;
+      height: 22px;
+      background: #2563eb;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);
+      z-index: 2;
+    }
+
+    /* ROW 4: BATTERY LIFE & SCREEN LIGHT */
+    .mob-controls-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .mob-ctrl-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 88px;
+    }
+
+    .mob-ctrl-title {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .battery-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .battery-outline {
+      width: 32px;
+      height: 16px;
+      border: 2px solid #10b981;
+      border-radius: 4px;
+      padding: 1px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .battery-outline::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      width: 2px;
+      height: 7px;
+      background: #10b981;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .battery-level-fill {
+      width: 90%;
+      height: 100%;
+      background: #10b981;
+      border-radius: 1px;
+      transition: var(--transition);
+    }
+
+    /* TOGGLE SWITCH */
+    .ios-switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 28px;
+    }
+
+    .ios-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .ios-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #cbd5e1;
+      transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 34px;
+    }
+
+    .ios-slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 50%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    input:checked + .ios-slider {
+      background-color: #2563eb;
+    }
+
+    input:checked + .ios-slider:before {
+      transform: translateX(20px);
+    }
+
+    /* MOBILE BOTTOM TAB BAR */
+    .mob-tab-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 74px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(226, 232, 240, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 10px 10px;
+      z-index: 100;
+    }
+
+    .mob-tab-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: #64748b;
+      cursor: pointer;
+      flex: 1;
+      padding: 6px 0;
+      transition: var(--transition);
+    }
+
+    .mob-tab-item svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2;
+    }
+
+    .mob-tab-item span {
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+
+    .mob-tab-item.active {
+      color: #2563eb;
+    }
+
+    /* TAB OVERLAYS */
+    .mob-overlay {
+      display: none;
+      position: absolute;
+      top: 44px;
+      left: 0;
+      right: 0;
+      bottom: 74px;
+      background: #eef3f9;
+      z-index: 80;
+      padding: 16px;
+      overflow-y: auto;
+    }
+
+    .mob-overlay.active {
+      display: block;
+    }
+
+    .overlay-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 14px;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .btn-action-custom {
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 8px;
+      transition: var(--transition);
+    }
+
+    .btn-action-custom:hover {
+      background: #0369a1;
+    }
+
+    @media (max-width: 1024px) {
+      .web-hero-metrics { grid-template-columns: repeat(2, 1fr); }
+      .web-split-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 8px 4px; }
+      .mobile-phone-frame {
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        max-width: 100%;
+        min-height: 100vh;
+      }
+      .ios-notch { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- GLOBAL TOP BAR: Brand & View Switcher -->
+  <header class="global-nav-bar">
+    <div class="brand-cluster">
+      <div class="brand-icon-logo">NCT</div>
+      <div class="brand-texts">
+        <h1 style="display:flex; align-items:center; gap:8px;">
+          <span>NCT WATER NEXUS</span>
+          <span style="font-size:0.65rem; background:linear-gradient(135deg, #0284c7, #065986); color:#fff; padding:2px 7px; border-radius:5px; font-weight:800; letter-spacing:0.5px;">PRO</span>
+        </h1>
+        <p>Next-Gen Smart Water Intelligence &amp; Autonomous Telemetry</p>
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <!-- Desktop vs Mobile Switcher -->
+      <div class="mode-switch-group">
+        <button id="btnDesktopView" class="mode-btn active" onclick="switchDisplayMode('desktop')">
+          💻 มุมมองเว็บ (Desktop)
+        </button>
+        <button id="btnMobileView" class="mode-btn" onclick="switchDisplayMode('mobile')">
+          📱 มุมมองมือถือ (Mobile)
+        </button>
+      </div>
+
+      <button class="sim-btn-quick" onclick="triggerRandomSimulation()">
+        ⚡ สุ่มค่าทดสอบ Real-Time
+      </button>
+
+      <a href="presentation.html" class="sim-btn-quick" style="background:#0284c7; color:#fff; text-decoration:none; border-color:#0284c7; font-weight:700;">
+        📊 สไลด์นำเสนอ &amp; ราคาขาย
+      </a>
+
+      <a href="NCT_Water_Nexus_Report_and_Pricing.pptx" download class="sim-btn-quick" style="background:#059669; color:#fff; text-decoration:none; border-color:#059669; font-weight:700;">
+        📥 ดาวน์โหลด PPTX
+      </a>
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- 1. DESKTOP / WEB VIEW (โหมดเว็บปกติ)                      -->
+  <!-- ========================================================= -->
+  <section id="desktopViewSection" class="main-view-section active">
+    <div class="desktop-container">
+      
+      <!-- Top Summary Strip -->
+      <div class="web-summary-strip">
+        <div class="strip-card">
+          <div class="strip-info">
+            <div class="label">สถานีที่กำลังตรวจวัด</div>
+            <div class="val">📍 NCT Node 01 (Main Plant)</div>
+          </div>
+          <span class="strip-badge badge-online">🟢 Online</span>
+        </div>
+
+        <div class="strip-card">
+          <div class="strip-info">
+            <div class="label">อุณหภูมิน้ำตอนนี้ (Water Temp)</div>
+            <div class="val" id="webWeatherVal">🌡️ 17.3°C / 63.1°F</div>
+          </div>
+          <span class="strip-badge badge-blue">Live ATC</span>
+        </div>
+
+        <div class="strip-card">
+          <div class="strip-info">
+            <div class="label">ระดับพลังงานสำรอง (Battery)</div>
+            <div class="val" id="webBatteryVal">🔋 90% (Normal)</div>
+          </div>
+          <span class="strip-badge badge-online">Healthy</span>
+        </div>
+
+        <div class="strip-card">
+          <div class="strip-info">
+            <div class="label">เวลาและสถานะระบบ</div>
+            <div class="val font-mono" id="webClockVal">10:41:00</div>
+          </div>
+          <span class="strip-badge badge-blue">Live Sync</span>
+        </div>
+      </div>
+
+      <!-- Hero Water Parameter Metrics (Water Temp First, then pH, TDS, Cl) -->
+      <div class="web-hero-metrics">
+        <!-- 1. Temperature Card (ไว้หน้าสุด) -->
+        <div class="web-metric-card card-temp-theme">
+          <div class="metric-top-bar">
+            <span>อุณหภูมิน้ำ (Water Temp)</span>
+            <span>PT1000 Sensor</span>
+          </div>
+          <div class="metric-large-number" id="webValTemp">17.3°C</div>
+          <div class="metric-sub-detail">63.14°F | ชดเชยอุณหภูมิ ATC อัตโนมัติ</div>
+        </div>
+
+        <!-- 2. pH Card -->
+        <div class="web-metric-card card-ph-theme">
+          <div class="metric-top-bar">
+            <span>ความเป็นกรด-ด่าง (pH)</span>
+            <span>เกณฑ์: 6.5 - 8.5</span>
+          </div>
+          <div class="metric-large-number" id="webValPH">7.29</div>
+          <div class="metric-sub-detail">ความแม่นยำ ±0.01 pH | Glass Electrode</div>
+        </div>
+
+        <!-- 3. TDS Card -->
+        <div class="web-metric-card card-tds-theme">
+          <div class="metric-top-bar">
+            <span>สารละลายรวม (TDS)</span>
+            <span>เกณฑ์: &lt; 500 ppm</span>
+          </div>
+          <div class="metric-large-number" id="webValTDS">210</div>
+          <div class="metric-sub-detail">ppm (mg/L) | ค่าความนำไฟฟ้าคงที่</div>
+        </div>
+
+        <!-- 4. Residual Cl Card -->
+        <div class="web-metric-card card-cl-theme">
+          <div class="metric-top-bar">
+            <span>คลอรีนคงเหลือ (Residual Cl)</span>
+            <span>เกณฑ์: 0.2 - 2.0 mg/L</span>
+          </div>
+          <div class="metric-large-number" id="webValCL">0.85</div>
+          <div class="metric-sub-detail">mg/L | การฆ่าเชื้ออยู่ในเกณฑ์สมบูรณ์</div>
+        </div>
+      </div>
+
+      <!-- Split Grid: Chart + Connection Diagram & Controls -->
+      <div class="web-split-grid">
+        
+        <!-- Left: Real-time Trends Chart -->
+        <div class="web-panel">
+          <div class="panel-header">
+            <div class="panel-title">📈 กราฟแนวโน้มคุณภาพน้ำ Real-Time (Telemetry Charts)</div>
+            <span style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">Live 1-Sec Polling</span>
+          </div>
+          <div style="height: 350px; position: relative;">
+            <canvas id="desktopChartCanvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Right: Connection Status & Smart Controls -->
+        <div class="web-panel" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div class="panel-header">
+              <div class="panel-title">📡 สถานะการเชื่อมต่อ (Connection Status)</div>
+            </div>
+
+            <!-- Connection Flow Diagram -->
+            <div class="connection-flow-desktop">
+              <div class="flow-connector-line-desktop"></div>
+
+              <div class="flow-node-desktop">
+                <div class="flow-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><circle cx="12" cy="20" r="1"></circle></svg>
+                </div>
+                <span style="font-size:0.75rem; font-weight:700; color:#334155;">WiFi</span>
+              </div>
+
+              <div class="check-pill-badge">✓</div>
+
+              <div class="flow-node-desktop">
+                <div class="flow-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"></rect><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2"></line></svg>
+                </div>
+                <span style="font-size:0.75rem; font-weight:700; color:#334155;">Display</span>
+              </div>
+
+              <div class="check-pill-badge">✓</div>
+
+              <div class="flow-node-desktop">
+                <div class="flow-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3h8a2 2 0 0 1 2 2v2a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V5a2 2 0 0 1 2-2z"></path><path d="M10 11v7a2 2 0 0 0 4 0v-7"></path></svg>
+                </div>
+                <span style="font-size:0.75rem; font-weight:700; color:#334155;">Probe</span>
+              </div>
+            </div>
+
+            <!-- Hardware & Smart Controls -->
+            <div style="margin-top: 16px;">
+              <div style="font-size: 0.9rem; font-weight: 700; color: #0f172a; margin-bottom: 8px;">🎛️ สวิตช์และควบคุมอุปกรณ์</div>
+              
+              <div class="control-row-item">
+                <div>
+                  <b style="font-size: 0.85rem;">ไฟหน้าจอ / Screen Light</b>
+                  <div style="font-size: 0.74rem; color: var(--text-muted);">เปิด-ปิดไฟส่องสว่างจอแสดงผล</div>
+                </div>
+                <label class="ios-switch">
+                  <input type="checkbox" id="webScreenLightToggle" checked onchange="syncScreenLight(this.checked)">
+                  <span class="ios-slider"></span>
+                </label>
+              </div>
+
+              <div class="control-row-item">
+                <div>
+                  <b style="font-size: 0.85rem;">ระบบปั๊มจ่ายสารเคมี (Auto Dosing)</b>
+                  <div style="font-size: 0.74rem; color: var(--text-muted);">ปรับสมดุล pH &amp; คลอรีนอัตโนมัติ</div>
+                </div>
+                <label class="ios-switch">
+                  <input type="checkbox" checked>
+                  <span class="ios-slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calibration Quick Action -->
+          <div style="margin-top: 16px; background: #f8fafc; padding: 12px; border-radius: 12px; border: 1px dashed #cbd5e1;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:0.82rem; font-weight:700; color:#0f172a;">💠 เทียบมาตรฐาน (Calibration)</span>
+              <button class="btn-action-custom" style="width:auto; margin:0; padding:6px 14px; font-size:0.78rem;" onclick="calibrateSensor('ph7')">Calibrate pH 7.00</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- 2. MOBILE APP VIEW (โหมดดูในมือถือตามรูปต้นแบบ)            -->
+  <!-- ========================================================= -->
+  <section id="mobileViewSection" class="main-view-section">
+    <div class="mobile-view-wrapper">
+      
+      <div class="mobile-phone-frame" id="mobilePhoneContainer">
+        
+        <!-- iOS Notch & Status Bar -->
+        <div class="ios-status-bar">
+          <span id="mobClockVal">10:41</span>
+          <div class="ios-notch"></div>
+          <div class="status-icons">
+            <svg width="15" height="11" viewBox="0 0 16 12" fill="currentColor"><path d="M0 8.5C1.8 6.5 4.7 5.2 8 5.2C11.3 5.2 14.2 6.5 16 8.5L8 16.5L0 8.5Z"/><circle cx="8" cy="11.5" r="1.5"/></svg>
+            <span style="font-weight: 700; font-size: 0.75rem;">5G</span>
+            <svg width="22" height="11" viewBox="0 0 22 11" fill="currentColor"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" fill="none" stroke="currentColor"/><rect x="2" y="2" width="13" height="7" rx="1.5"/><path d="M20 3.5V7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span style="font-size: 0.75rem; font-weight: 700;" id="mobBatIconNum">90</span>
+          </div>
+        </div>
+
+        <!-- APP HEADER -->
+        <header class="app-header">
+          <button class="back-btn" onclick="switchMobTab('home')">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="header-title" id="mobHeaderTitle">NCT Water Station</div>
+        </header>
+
+        <!-- MAIN MOBILE DASHBOARD (EXACT PHOTO LAYOUT) -->
+        <main class="mobile-content" id="mobHomeView">
+          
+          <!-- ROW 1: WEATHER & ALL DEVICES -->
+          <div class="mob-top-row">
+            <!-- Water Temperature Card -->
+            <div class="weather-card-mob" onclick="switchMobTab('history')" style="cursor: pointer;">
+              <div class="weather-left-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px; height:28px;">
+                  <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path>
+                </svg>
+              </div>
+              <div class="weather-info-mob">
+                <div class="weather-today">อุณหภูมิน้ำ</div>
+                <div class="weather-temp-c" id="mobAmbientC">17.3°C</div>
+                <div class="weather-temp-f" id="mobAmbientF">63.1°F</div>
+              </div>
+            </div>
+
+            <!-- All Devices Card -->
+            <div class="devices-card-mob" onclick="switchMobTab('devices')">
+              <div style="font-size: 1rem; font-weight: 700; color: #0f172a; line-height: 1.2;">All<br>Devices</div>
+              <div style="font-size: 0.74rem; font-weight: 600; color: #059669; margin-top: 4px; display:flex; align-items:center; gap:4px;">
+                <span style="width:7px; height:7px; background:#10b981; border-radius:50%; display:inline-block;"></span> 1 Online
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 2: MAIN WATER PARAMETER METRICS (pH & Residual Cl) -->
+          <div class="mob-metrics-row">
+            <!-- pH Card (Teal) -->
+            <div class="metric-hero-card-mob card-ph-mob" onclick="switchMobTab('history')">
+              <div class="mob-metric-val" id="mobValPH">7.29</div>
+              <div class="mob-metric-lbl">pH</div>
+            </div>
+
+            <!-- Residual Cl Card (Royal Blue) -->
+            <div class="metric-hero-card-mob card-cl-mob" onclick="switchMobTab('history')">
+              <div class="mob-metric-val" id="mobValCL">0.85</div>
+              <div class="mob-metric-lbl">CL (mg/L)</div>
+            </div>
+          </div>
+
+          <!-- SUB-METRIC ROW: TDS & ORP -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div style="background:#ffffff; border-radius:16px; padding:12px 14px; border:1px solid rgba(226,232,240,0.8); display:flex; justify-content:space-between; align-items:center; box-shadow:var(--shadow-sm); cursor:pointer;" onclick="switchMobTab('history')">
+              <div>
+                <div style="font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">TDS (ppm)</div>
+                <div style="font-size:1.15rem; font-weight:800; color:#059669; font-family:'JetBrains Mono',monospace;" id="mobValTDS">210</div>
+              </div>
+              <span style="font-size:0.7rem; font-weight:700; background:#dcfce7; color:#15803d; padding:3px 8px; border-radius:9999px;">ppm</span>
+            </div>
+
+            <div style="background:#ffffff; border-radius:16px; padding:12px 14px; border:1px solid rgba(226,232,240,0.8); display:flex; justify-content:space-between; align-items:center; box-shadow:var(--shadow-sm); cursor:pointer;" onclick="switchMobTab('history')">
+              <div>
+                <div style="font-size:0.72rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">ORP Redox</div>
+                <div style="font-size:1.15rem; font-weight:800; color:#15803d; font-family:'JetBrains Mono',monospace;" id="mobValORP">725</div>
+              </div>
+              <span style="font-size:0.7rem; font-weight:700; background:#dcfce7; color:#15803d; padding:3px 8px; border-radius:9999px;">mV</span>
+            </div>
+          </div>
+
+          <!-- ROW 3: CONNECTION STATUS CARD -->
+          <div class="mob-conn-card">
+            <div class="conn-heading">Connection Status</div>
+            
+            <div class="conn-flow-mob">
+              <div class="flow-line-mob"></div>
+
+              <!-- WiFi -->
+              <div class="flow-item-mob">
+                <div class="flow-icon-mob">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                    <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                    <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                    <line x1="12" y1="20" x2="12.01" y2="20" stroke-width="3"></line>
+                  </svg>
+                </div>
+                <span style="font-size: 0.78rem; font-weight: 600; color: #475569;">WiFi</span>
+              </div>
+
+              <!-- Check 1 -->
+              <div class="flow-check-blue">✓</div>
+
+              <!-- Display -->
+              <div class="flow-item-mob">
+                <div class="flow-icon-mob">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="5" y="2" width="14" height="20" rx="3"></rect>
+                    <line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2.5"></line>
+                  </svg>
+                </div>
+                <span style="font-size: 0.78rem; font-weight: 600; color: #475569;">Display</span>
+              </div>
+
+              <!-- Check 2 -->
+              <div class="flow-check-blue">✓</div>
+
+              <!-- Probe -->
+              <div class="flow-item-mob">
+                <div class="flow-icon-mob">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M8 3h8a2 2 0 0 1 2 2v2a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V5a2 2 0 0 1 2-2z"></path>
+                    <path d="M10 11v7a2 2 0 0 0 4 0v-7"></path>
+                    <circle cx="12" cy="20" r="1.5" fill="currentColor"></circle>
+                  </svg>
+                </div>
+                <span style="font-size: 0.78rem; font-weight: 600; color: #475569;">Probe</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 4: BATTERY LIFE & SCREEN LIGHT -->
+          <div class="mob-controls-row">
+            <!-- Battery Life -->
+            <div class="mob-ctrl-card">
+              <div class="mob-ctrl-title">Battery Life</div>
+              <div class="battery-box">
+                <div class="battery-outline">
+                  <div class="battery-level-fill" id="mobBatFill"></div>
+                </div>
+                <span style="font-size: 1.05rem; font-weight: 700;" id="mobBatPctText">90%</span>
+              </div>
+            </div>
+
+            <!-- Screen Light -->
+            <div class="mob-ctrl-card">
+              <div class="mob-ctrl-title">Screen Light</div>
+              <div>
+                <label class="ios-switch">
+                  <input type="checkbox" id="mobScreenLightToggle" checked onchange="syncScreenLight(this.checked)">
+                  <span class="ios-slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </main>
+
+        <!-- OVERLAY 1: HISTORY CHART -->
+        <div class="mob-overlay" id="mobHistoryOverlay">
+          <div class="overlay-card">
+            <div style="font-size: 1rem; font-weight: 700; margin-bottom: 12px;">📈 ประวัติคุณภาพน้ำ (History)</div>
+            <div style="height: 220px; position: relative;">
+              <canvas id="mobileChartCanvas"></canvas>
+            </div>
+          </div>
+
+          <div class="overlay-card">
+            <div style="font-size: 0.95rem; font-weight: 700; margin-bottom: 10px;">📋 บันทึกประวัติล่าสุด</div>
+            <div id="mobHistoryLogs" style="font-size: 0.8rem; display: flex; flex-direction: column; gap: 6px;"></div>
+          </div>
+        </div>
+
+        <!-- OVERLAY 2: CALIBRATION -->
+        <div class="mob-overlay" id="mobCalibOverlay">
+          <div class="overlay-card">
+            <div style="font-size: 1rem; font-weight: 700; margin-bottom: 6px;">💠 การเทียบมาตรฐาน (Calibration)</div>
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px;">โปรดจุ่มหัววัดลงในน้ำยา Buffer เพื่อคาลิเบรต</p>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #f1f5f9;">
+              <div>
+                <b>pH 7.00 Buffer</b>
+                <div style="font-size:0.72rem; color:var(--text-muted);">จุดสมดุลมาตรฐาน</div>
+              </div>
+              <button class="btn-action-custom" style="width:auto; margin:0; padding:6px 12px; font-size:0.75rem;" onclick="calibrateSensor('ph7')">Calibrate</button>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid #f1f5f9;">
+              <div>
+                <b>pH 4.01 Buffer</b>
+                <div style="font-size:0.72rem; color:var(--text-muted);">จุดสอบเทียบกรด</div>
+              </div>
+              <button class="btn-action-custom" style="width:auto; margin:0; padding:6px 12px; font-size:0.75rem; background:#475569;" onclick="calibrateSensor('ph4')">Calibrate</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- OVERLAY 3: DEVICES -->
+        <div class="mob-overlay" id="mobDevicesOverlay">
+          <div class="overlay-card">
+            <div style="font-size: 1rem; font-weight: 700; margin-bottom: 12px;">🎛️ สถานีทั้งหมด (All Devices)</div>
+            <div style="background:#f1f5f9; padding:12px; border-radius:12px; border:2px solid #0284c7; display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <b>📍 NCT Station #01</b>
+                <div style="font-size:0.74rem; color:#10b981; font-weight:600;">🟢 Online (Active)</div>
+              </div>
+              <span style="font-size:0.72rem; font-weight:700; color:#0284c7; background:#e0f2fe; padding:4px 8px; border-radius:6px;">เลือกอยู่</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- OVERLAY 4: SETTINGS -->
+        <div class="mob-overlay" id="mobSettingsOverlay">
+          <div class="overlay-card">
+            <div style="font-size: 1rem; font-weight: 700; margin-bottom: 12px;">⚙️ การตั้งค่าระบบ (Settings)</div>
+            <div style="display:flex; flex-direction:column; gap:12px; font-size:0.84rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span>แจ้งเตือนเมื่อค่า pH ผิดปกติ</span>
+                <input type="checkbox" checked>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span>เฟิร์มแวร์เวอร์ชัน</span>
+                <span style="color:#64748b; font-family:monospace;">NCT-v2.5.0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MOBILE BOTTOM TAB BAR (Exact Icons) -->
+        <nav class="mob-tab-bar">
+          <div class="mob-tab-item active" id="mobTabHome" onclick="switchMobTab('home')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Home</span>
+          </div>
+
+          <div class="mob-tab-item" id="mobTabHistory" onclick="switchMobTab('history')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20v-6M6 20V10M18 20V4"></path></svg>
+            <span>History</span>
+          </div>
+
+          <div class="mob-tab-item" id="mobTabCalib" onclick="switchMobTab('calib')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 2 12 12 22 22 12 12 2"></polygon></svg>
+            <span>Calibration</span>
+          </div>
+
+          <div class="mob-tab-item" id="mobTabShop" onclick="switchMobTab('devices')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Shop</span>
+          </div>
+
+          <div class="mob-tab-item" id="mobTabSettings" onclick="switchMobTab('settings')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            <span>Settings</span>
+          </div>
+        </nav>
+
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    // SHARED TELEMETRY STATE
+    const state = {
+      ph: 7.29,
+      temp: 17.3,
+      tds: 210,
+      cl: 0.85,
+      orp: 725,
+      battery: 90,
+      screenLight: true,
+      labels: [],
+      historyPH: [],
+      historyTemp: [],
+      historyTDS: [],
+      historyCL: []
+    };
+
+    // SWITCH DISPLAY MODE (Desktop vs Mobile View)
+    function switchDisplayMode(mode) {
+      document.getElementById('btnDesktopView').classList.toggle('active', mode === 'desktop');
+      document.getElementById('btnMobileView').classList.toggle('active', mode === 'mobile');
+
+      document.getElementById('desktopViewSection').classList.toggle('active', mode === 'desktop');
+      document.getElementById('mobileViewSection').classList.toggle('active', mode === 'mobile');
+
+      setTimeout(() => {
+        desktopChart.resize();
+        mobileChart.resize();
+      }, 100);
+    }
+
+    // CLOCK TICK
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toTimeString().split(' ')[0];
+      const hmStr = timeStr.substring(0, 5);
+      
+      const elDesk = document.getElementById('webClockVal');
+      const elMob = document.getElementById('mobClockVal');
+      if (elDesk) elDesk.innerText = timeStr;
+      if (elMob) elMob.innerText = hmStr;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // DESKTOP CHART INITIALIZATION
+    const ctxDesk = document.getElementById('desktopChartCanvas').getContext('2d');
+    const desktopChart = new Chart(ctxDesk, {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: [
+          {
+            label: 'pH',
+            data: [],
+            borderColor: '#369b9b',
+            backgroundColor: 'rgba(54, 155, 155, 0.12)',
+            fill: true,
+            tension: 0.35,
+            borderWidth: 2.5,
+            yAxisID: 'y'
+          },
+          {
+            label: 'Temp (°C)',
+            data: [],
+            borderColor: '#f59e0b',
+            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+            fill: true,
+            tension: 0.35,
+            borderWidth: 2.5,
+            yAxisID: 'y1'
+          },
+          {
+            label: 'Residual Cl (mg/L)',
+            data: [],
+            borderColor: '#0284c7',
+            borderWidth: 2,
+            tension: 0.35,
+            yAxisID: 'y'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { grid: { display: false } },
+          y: { position: 'left', min: 6.0, max: 8.5 },
+          y1: { position: 'right', min: 10, max: 35, grid: { drawOnChartArea: false } }
+        }
+      }
+    });
+
+    // MOBILE CHART INITIALIZATION
+    const ctxMob = document.getElementById('mobileChartCanvas').getContext('2d');
+    const mobileChart = new Chart(ctxMob, {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: [
+          {
+            label: 'pH',
+            data: [],
+            borderColor: '#369b9b',
+            backgroundColor: 'rgba(54, 155, 155, 0.12)',
+            fill: true,
+            tension: 0.35,
+            borderWidth: 2.5,
+            yAxisID: 'y'
+          },
+          {
+            label: 'Temp (°C)',
+            data: [],
+            borderColor: '#f59e0b',
+            backgroundColor: 'rgba(245, 158, 11, 0.1)',
+            fill: true,
+            tension: 0.35,
+            borderWidth: 2.5,
+            yAxisID: 'y1'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { grid: { display: false } },
+          y: { position: 'left', min: 6.0, max: 8.5 },
+          y1: { position: 'right', min: 10, max: 35, grid: { drawOnChartArea: false } }
+        }
+      }
+    });
+
+    // POPULATE INITIAL SEED DATA
+    for (let i = 10; i >= 0; i--) {
+      const pastTime = new Date(Date.now() - i * 20000).toTimeString().split(' ')[0];
+      state.labels.push(pastTime);
+      state.historyPH.push(+(7.25 + Math.random() * 0.08).toFixed(2));
+      state.historyTemp.push(+(17.2 + Math.random() * 0.25).toFixed(1));
+      state.historyTDS.push(208 + Math.floor(Math.random() * 4));
+      state.historyCL.push(+(0.84 + Math.random() * 0.03).toFixed(2));
+    }
+
+    function syncUIValues() {
+      const fahrenheit = (state.temp * 9/5 + 32).toFixed(1);
+
+      // Sync Desktop UI
+      document.getElementById('webValPH').innerText = state.ph.toFixed(2);
+      document.getElementById('webValTemp').innerText = `${state.temp.toFixed(1)}°C`;
+      document.getElementById('webValTDS').innerText = state.tds;
+      document.getElementById('webValCL').innerText = state.cl.toFixed(2);
+      document.getElementById('webBatteryVal').innerText = `🔋 ${state.battery}% (Normal)`;
+      
+      const elWebWeather = document.getElementById('webWeatherVal');
+      if (elWebWeather) elWebWeather.innerText = `🌡️ ${state.temp.toFixed(1)}°C / ${fahrenheit}°F`;
+
+      // Sync Mobile UI
+      document.getElementById('mobValPH').innerText = state.ph.toFixed(2);
+      const elMobTDS = document.getElementById('mobValTDS');
+      if (elMobTDS) elMobTDS.innerText = state.tds;
+      const elMobCL = document.getElementById('mobValCL');
+      if (elMobCL) elMobCL.innerText = state.cl.toFixed(2);
+      const elMobORP = document.getElementById('mobValORP');
+      if (elMobORP) elMobORP.innerText = Math.round(state.orp || 725);
+
+      document.getElementById('mobBatPctText').innerText = `${state.battery}%`;
+      document.getElementById('mobBatIconNum').innerText = state.battery;
+      document.getElementById('mobBatFill').style.width = `${state.battery}%`;
+
+      const elMobAmbC = document.getElementById('mobAmbientC');
+      const elMobAmbF = document.getElementById('mobAmbientF');
+      if (elMobAmbC) elMobAmbC.innerText = `${state.temp.toFixed(1)}°C`;
+      if (elMobAmbF) elMobAmbF.innerText = `${fahrenheit}°F`;
+
+      // Update Charts
+      desktopChart.data.labels = state.labels;
+      desktopChart.data.datasets[0].data = state.historyPH;
+      desktopChart.data.datasets[1].data = state.historyTemp;
+      desktopChart.data.datasets[2].data = state.historyCL;
+      desktopChart.update();
+
+      mobileChart.data.labels = state.labels;
+      mobileChart.data.datasets[0].data = state.historyPH;
+      mobileChart.data.datasets[1].data = state.historyTemp;
+      mobileChart.update();
+
+      // Mobile Log List
+      const mobLogs = document.getElementById('mobHistoryLogs');
+      if (mobLogs) {
+        mobLogs.innerHTML = state.labels.slice(-4).reverse().map((t, idx) => `
+          <div style="display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid #f8fafc;">
+            <span>⏱️ ${t}</span>
+            <span>pH <b>${state.historyPH[state.historyPH.length - 1 - idx].toFixed(2)}</b> | Temp <b>${state.historyTemp[state.historyTemp.length - 1 - idx].toFixed(1)}°C</b></span>
+          </div>
+        `).join('');
+      }
+    }
+
+    // LIVE TICK INTERVAL
+    setInterval(() => {
+      state.ph = Math.min(Math.max(+(state.ph + (Math.random() * 0.04 - 0.02)).toFixed(2), 6.8), 8.2);
+      state.temp = Math.min(Math.max(+(state.temp + (Math.random() * 0.1 - 0.05)).toFixed(1), 14.0), 32.0);
+      state.tds = Math.min(Math.max(state.tds + Math.floor(Math.random() * 3 - 1), 150), 350);
+      state.cl = Math.min(Math.max(+(state.cl + (Math.random() * 0.02 - 0.01)).toFixed(2), 0.5), 1.5);
+
+      const time = new Date().toTimeString().split(' ')[0];
+      if (state.labels.length > 15) {
+        state.labels.shift();
+        state.historyPH.shift();
+        state.historyTemp.shift();
+        state.historyTDS.shift();
+        state.historyCL.shift();
+      }
+      state.labels.push(time);
+      state.historyPH.push(state.ph);
+      state.historyTemp.push(state.temp);
+      state.historyTDS.push(state.tds);
+      state.historyCL.push(state.cl);
+
+      syncUIValues();
+    }, 3500);
+
+    syncUIValues();
+
+    // TRIGGER RANDOM SIMULATION
+    function triggerRandomSimulation() {
+      state.ph = +(7.10 + Math.random() * 0.4).toFixed(2);
+      state.temp = +(16.5 + Math.random() * 2.0).toFixed(1);
+      state.tds = 190 + Math.floor(Math.random() * 60);
+      state.cl = +(0.75 + Math.random() * 0.3).toFixed(2);
+      state.battery = Math.max(state.battery - 2, 20);
+
+      const time = new Date().toTimeString().split(' ')[0];
+      if (state.labels.length > 15) {
+        state.labels.shift();
+        state.historyPH.shift();
+        state.historyTemp.shift();
+        state.historyTDS.shift();
+        state.historyCL.shift();
+      }
+      state.labels.push(time);
+      state.historyPH.push(state.ph);
+      state.historyTemp.push(state.temp);
+      state.historyTDS.push(state.tds);
+      state.historyCL.push(state.cl);
+
+      syncUIValues();
+    }
+
+    // SYNC SCREEN LIGHT TOGGLES
+    function syncScreenLight(val) {
+      state.screenLight = val;
+      document.getElementById('webScreenLightToggle').checked = val;
+      document.getElementById('mobScreenLightToggle').checked = val;
+      
+      const phone = document.getElementById('mobilePhoneContainer');
+      if (phone) {
+        phone.style.filter = val ? 'none' : 'brightness(0.92)';
+      }
+    }
+
+    // MOBILE TAB SWITCHING
+    function switchMobTab(tabId) {
+      document.querySelectorAll('.mob-overlay').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.mob-tab-item').forEach(el => el.classList.remove('active'));
+
+      if (tabId === 'home') {
+        document.getElementById('mobTabHome').classList.add('active');
+      } else if (tabId === 'history') {
+        document.getElementById('mobHistoryOverlay').classList.add('active');
+        document.getElementById('mobTabHistory').classList.add('active');
+        setTimeout(() => mobileChart.resize(), 100);
+      } else if (tabId === 'calib') {
+        document.getElementById('mobCalibOverlay').classList.add('active');
+        document.getElementById('mobTabCalib').classList.add('active');
+      } else if (tabId === 'devices') {
+        document.getElementById('mobDevicesOverlay').classList.add('active');
+        document.getElementById('mobTabShop').classList.add('active');
+      } else if (tabId === 'settings') {
+        document.getElementById('mobSettingsOverlay').classList.add('active');
+        document.getElementById('mobTabSettings').classList.add('active');
+      }
+    }
+
+    // CALIBRATION ACTION
+    function calibrateSensor(type) {
+      if (type === 'ph7') {
+        state.ph = 7.00;
+        syncUIValues();
+        alert('✅ NCT SCADA: เทียบค่า pH 7.00 สำเร็จเรียบร้อย');
+      } else if (type === 'ph4') {
+        state.ph = 4.01;
+        syncUIValues();
+        alert('✅ NCT SCADA: เทียบค่า pH 4.01 สำเร็จเรียบร้อย');
+      }
+    }
+  </script>
+</body>
+</html>
