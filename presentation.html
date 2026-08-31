@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NCT WATER NEXUS PRO - 100-Node Project Solution & Pricing</title>
+  <title>NCT WATER NEXUS PRO - สรุปรายการต้นทุน (BOM) และราคาขายโครงการ 100 ชุด</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -288,34 +288,6 @@
       box-shadow: var(--shadow-card);
     }
 
-    .box-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .feature-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 0.88rem;
-      color: var(--text-sub);
-    }
-
-    .feature-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      line-height: 1.4;
-    }
-
-    .feature-list li b { color: var(--text-main); }
-
-    /* PRICING CARDS */
     .pricing-card {
       background: #ffffff;
       border: 2px solid var(--border-light);
@@ -325,7 +297,6 @@
       flex-direction: column;
       justify-content: space-between;
       transition: all 0.25s ease;
-      position: relative;
     }
 
     .pricing-card:hover {
@@ -338,11 +309,6 @@
       box-shadow: 0 10px 30px rgba(2, 132, 199, 0.18);
     }
 
-    .pricing-card.featured-green {
-      border-color: var(--emerald);
-      box-shadow: 0 10px 30px rgba(5, 150, 105, 0.18);
-    }
-
     .pkg-header {
       padding: 16px 20px;
       background: #f8fafc;
@@ -351,11 +317,6 @@
 
     .pricing-card.featured .pkg-header {
       background: linear-gradient(135deg, #0284c7, #0369a1);
-      color: #ffffff;
-    }
-
-    .pricing-card.featured-green .pkg-header {
-      background: linear-gradient(135deg, #059669, #047857);
       color: #ffffff;
     }
 
@@ -371,7 +332,7 @@
       margin-bottom: 6px;
     }
 
-    .pricing-card.featured .pkg-badge, .pricing-card.featured-green .pkg-badge {
+    .pricing-card.featured .pkg-badge {
       background: #ffffff;
       color: var(--text-main);
     }
@@ -402,19 +363,16 @@
       color: #334155;
     }
 
-    .metric-hero {
+    .alert-code-box {
+      background: #0f172a;
+      color: #38bdf8;
       border-radius: var(--radius-md);
-      padding: 18px;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      padding: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
     }
-
-    .card-ph { background: linear-gradient(135deg, #369b9b, #278181); }
-    .card-temp { background: linear-gradient(135deg, #f59e0b, #d97706); }
-    .card-tds { background: linear-gradient(135deg, #10b981, #059669); }
-    .card-cl { background: linear-gradient(135deg, #0284c7, #0369a1); }
 
     .custom-table {
       width: 100%;
@@ -463,7 +421,7 @@
       <div class="logo-badge">NCT</div>
       <div>
         <div style="font-weight: 800; font-size: 1.05rem; letter-spacing: -0.3px;">NCT WATER NEXUS PRO</div>
-        <div style="font-size: 0.72rem; color: #94a3b8;">100-Node Scalable Water Quality Solution (แพ็กเกจโครงการชุดละ 100 จุด)</div>
+        <div style="font-size: 0.72rem; color: #94a3b8;">BOM ต้นทุนฮาร์ดแวร์ &amp; ราคาขายโครงการ 100 ชุด (Modela + Cybertice)</div>
       </div>
     </div>
 
@@ -490,34 +448,36 @@
         <!-- SLIDE 1: COVER -->
         <section class="slide slide-dark active" id="slide-1">
           <div>
-            <div class="slide-category">💧 ENTERPRISE WATER MONITORING SOLUTION (100-NODE BATCH)</div>
-            <h1 class="slide-title" style="font-size: 2.5rem; margin-top: 10px;">NCT WATER NEXUS PRO</h1>
-            <p style="font-size: 1.2rem; color: #cbd5e1; font-weight: 500; margin-bottom: 20px;">
-              โซลูชันระบบตรวจวัดคุณภาพน้ำอัจฉริยะแบบกลุ่มโครงการ (Lot of 100 Nodes Package)
+            <div class="slide-category">💧 โครงการระบบตรวจวัดคุณภาพน้ำอัจฉริยะ 100 ชุด</div>
+            <h1 class="slide-title" style="font-size: 2.3rem; margin-top: 10px;">NCT WATER NEXUS PRO</h1>
+            <p style="font-size: 1.15rem; color: #cbd5e1; font-weight: 500; margin-bottom: 20px;">
+              สรุปรายการต้นทุน (BOM) และราคาขายโครงการตรวจวัดคุณภาพน้ำ (100 ชุด)
             </p>
             <div style="background: rgba(255,255,255,0.08); border-left: 4px solid var(--accent-cyan); padding: 14px 20px; border-radius: 8px; max-width: 850px;">
-              <p style="font-size: 0.95rem; color: #e2e8f0; line-height: 1.6;">
-                โครงสร้างราคาขายแบบแพ็กเกจโครงการ 100 สถานี: <b>【 แบบซื้อขาด 100 จุด (One-Time Lot) 】</b> vs <b>【 แบบสัญญารายปี 100 จุด (Annual Subscription Lot) 】</b> พร้อมระบบ Dashboard รวมศูนย์และ Mobile Companion ตลอด 24 ชม.
+              <p style="font-size: 0.92rem; color: #e2e8f0; line-height: 1.6;">
+                • ตรวจวัด 4 ค่าหลัก: <b>pH / TDS / อุณหภูมิ / คลอรีนคงเหลือ</b> (Modela One + Cybertice)<br>
+                • ต้นทุนฮาร์ดแวร์ตู้คอนโทรล: <b>฿21,000 บ./ชุด</b> (รวม 100 ชุด = <b>฿2,100,000 บ.</b>)<br>
+                • 2 รูปแบบข้อเสนอราคา: <b>【 แบบที่ 1 Plug &amp; Play (2.95–3.20 ล้าน) 】</b> vs <b>【 แบบที่ 2 Turnkey (3.80–4.20 ล้าน) 】</b>
               </p>
             </div>
           </div>
 
           <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px;">
             <div style="background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-              <div style="font-size:0.75rem; color:#94a3b8;">ขนาดโครงการมาตรฐาน</div>
-              <div style="font-size:1.15rem; font-weight:700; color:#fff; margin-top:2px;">100 จุด / โครงการ</div>
+              <div style="font-size:0.75rem; color:#94a3b8;">ต้นทุน BOM/ชุด</div>
+              <div style="font-size:1.15rem; font-weight:700; color:#fff; margin-top:2px;">฿21,000 / ชุด</div>
             </div>
             <div style="background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-              <div style="font-size:0.75rem; color:#94a3b8;">ส่วนลดแพ็กเกจโครงการ</div>
-              <div style="font-size:1.15rem; font-weight:700; color:#38bdf8; margin-top:2px;">ลด 12 - 13%</div>
+              <div style="font-size:0.75rem; color:#94a3b8;">ต้นทุน 100 ชุด</div>
+              <div style="font-size:1.15rem; font-weight:700; color:#38bdf8; margin-top:2px;">฿2,100,000</div>
             </div>
             <div style="background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-              <div style="font-size:0.75rem; color:#94a3b8;">ซื้อขาด 100 จุด</div>
-              <div style="font-size:1.1rem; font-weight:700; color:#38bdf8; margin-top:2px;">฿2.19M - ฿6.9M</div>
+              <div style="font-size:0.75rem; color:#94a3b8;">แบบที่ 1 (Supply)</div>
+              <div style="font-size:1.1rem; font-weight:700; color:#38bdf8; margin-top:2px;">฿2.95M - ฿3.20M</div>
             </div>
             <div style="background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-              <div style="font-size:0.75rem; color:#94a3b8;">รายปี 100 จุด</div>
-              <div style="font-size:1.1rem; font-weight:700; color:#4ade80; margin-top:2px;">฿1.05M - ฿3.45M/ปี</div>
+              <div style="font-size:0.75rem; color:#94a3b8;">แบบที่ 2 (Turnkey)</div>
+              <div style="font-size:1.1rem; font-weight:700; color:#4ade80; margin-top:2px;">฿3.80M - ฿4.20M</div>
             </div>
           </div>
 
@@ -527,333 +487,324 @@
           </div>
         </section>
 
-        <!-- SLIDE 2: 100-NODE LOT SOLUTION HIGHLIGHTS -->
+        <!-- SLIDE 2: HARDWARE BOM PER UNIT -->
         <section class="slide" id="slide-2">
           <div>
-            <div class="slide-category">100-NODE TURNKEY VALUE</div>
-            <h2 class="slide-title">จุดเด่นโซลูชันโครงการชุดละ 100 สถานี (Lot of 100 Nodes)</h2>
+            <div class="slide-category">1. HARDWARE BOM PER UNIT</div>
+            <h2 class="slide-title">1. ตารางต้นทุนฮาร์ดแวร์และอุปกรณ์ต่อชุด (BOM per Unit)</h2>
           </div>
 
           <div class="slide-body">
             <div class="grid-4col">
               <div class="content-box highlight">
-                <div style="font-size:1.6rem; margin-bottom:6px;">🗺️</div>
-                <div style="font-weight:700; color:var(--primary); font-size:0.95rem; margin-bottom:4px;">ระบบรวมศูนย์ 100 จุด</div>
-                <p style="font-size:0.78rem; color:var(--text-muted); line-height:1.4;">
-                  แดชบอร์ดแผนที่ GIS และ Grid View รวมสถานีตรวจวัดน้ำทั้ง 100 จุดไว้ในจอเดียว ตรวจสอบสถานะและค่าน้ำได้พร้อมกันแบบ Real-Time
+                <div style="font-size:0.85rem; font-weight:700; color:var(--primary); line-height:1.3;">ชุดเซนเซอร์หลัก (Modela One + pH/TDS/Temp + คลอรีน Cybertice)</div>
+                <div style="font-size:1.45rem; font-weight:800; font-family:'JetBrains Mono'; color:#0f172a; margin:6px 0;">17,000 บาท</div>
+                <p style="font-size:0.75rem; color:var(--text-muted); line-height:1.3;">
+                  บอร์ด Modela One + หัววัด pH แก้ว + TDS Titanium + Temp PT1000 + เซนเซอร์คลอรีน Cybertice
                 </p>
               </div>
 
               <div class="content-box highlight">
-                <div style="font-size:1.6rem; margin-bottom:6px;">📱</div>
-                <div style="font-weight:700; color:var(--emerald); font-size:0.95rem; margin-bottom:4px;">Mobile App 100 สถานี</div>
-                <p style="font-size:0.78rem; color:var(--text-muted); line-height:1.4;">
-                  สลับเลือกดูข้อมูลสถานีใดก็ได้ใน 100 จุดผ่านมือถือ พร้อมระบบแจ้งเตือน Line Alert และ Push Notification แยกตามโซนพื้นที่
+                <div style="font-size:0.85rem; font-weight:700; color:var(--emerald); line-height:1.3;">4G LTE Router (TP-Link TL-MR100)</div>
+                <div style="font-size:1.45rem; font-weight:800; font-family:'JetBrains Mono'; color:#0f172a; margin:6px 0;">1,000 บาท</div>
+                <p style="font-size:0.75rem; color:var(--text-muted); line-height:1.3;">
+                  เราเตอร์ 4G LTE Wi-Fi ความเร็ว 300 Mbps เสาภายนอก 2 เสา สัญญาณนิ่งเสถียร
                 </p>
               </div>
 
               <div class="content-box highlight">
-                <div style="font-size:1.6rem; margin-bottom:6px;">🏷️</div>
-                <div style="font-weight:700; color:var(--amber); font-size:0.95rem; margin-bottom:4px;">White-Label Branding</div>
-                <p style="font-size:0.78rem; color:var(--text-muted); line-height:1.4;">
-                  ฟรีสกรีนโลโก้และชื่อโครงการของลูกค้าบนตู้ควบคุมคอนโทรลเลอร์ทั้ง 100 ชุด และปรับแต่ง UI แดชบอร์ดตามอัตลักษณ์ขององค์กร
+                <div style="font-size:0.85rem; font-weight:700; color:var(--amber); line-height:1.3;">ซิมการ์ด 4G รายปี (Unlimited 15-20 Mbps)</div>
+                <div style="font-size:1.45rem; font-weight:800; font-family:'JetBrains Mono'; color:#0f172a; margin:6px 0;">1,800 บาท</div>
+                <p style="font-size:0.75rem; color:var(--text-muted); line-height:1.3;">
+                  ซิมเน็ต IoT รายปี ไม่อั้น ไม่ลดสปีด รวมค่าบริการ 12 เดือนเต็ม ส่งข้อมูล 24 ชม.
                 </p>
               </div>
 
               <div class="content-box highlight">
-                <div style="font-size:1.6rem; margin-bottom:6px;">🛡️</div>
-                <div style="font-weight:700; color:var(--text-main); font-size:0.95rem; margin-bottom:4px;">Spare 5% &amp; On-Site SLA</div>
-                <p style="font-size:0.78rem; color:var(--text-muted); line-height:1.4;">
-                  ส่งมอบเครื่องและเซนเซอร์สำรองฉุกเฉินประจำไซต์งาน 5 ชุด (5%) พร้อมทีมวิศวกรเข้าอบรมช่างเทคนิคและดูแลตลอดโครงการ
+                <div style="font-size:0.85rem; font-weight:700; color:var(--text-main); line-height:1.3;">ตู้คอนโทรล IP65 + Switching 24V + Breaker</div>
+                <div style="font-size:1.45rem; font-weight:800; font-family:'JetBrains Mono'; color:#0f172a; margin:6px 0;">1,200 บาท</div>
+                <p style="font-size:0.75rem; color:var(--text-muted); line-height:1.3;">
+                  ตู้กันน้ำ IP65 + Switching 24V + Breaker ป้องกันไฟเกิน + Terminal + Wiring ครบ
                 </p>
               </div>
+            </div>
+
+            <div style="margin-top:16px; background:#0f172a; color:#fff; border-radius:var(--radius-md); padding:16px 22px; display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                <span style="font-size:0.85rem; color:#94a3b8;">สรุปรวมต้นทุนฮาร์ดแวร์หน้างาน:</span>
+                <div style="font-size:1.4rem; font-weight:800; color:#38bdf8; margin-top:2px;">
+                  ➡️ รวมต้นทุนต่อชุด: 21,000 บาท  |  รวมต้นทุนโครงการ (100 ชุด): 2,100,000 บาท
+                </div>
+              </div>
+              <span style="font-size:0.8rem; background:rgba(56,189,248,0.2); color:#38bdf8; border:1px solid #38bdf8; padding:6px 14px; border-radius:9999px; font-weight:700;">
+                Modela + Cybertice
+              </span>
             </div>
           </div>
 
           <div class="slide-footer">
-            <span>NCT Water Nexus • สิทธิประโยชน์โซลูชันโครงการ 100 จุด</span>
+            <span>NCT Water Nexus • ตารางต้นทุนฮาร์ดแวร์และอุปกรณ์ต่อชุด (BOM)</span>
             <span>สไลด์ 2 / 8</span>
           </div>
         </section>
 
-        <!-- SLIDE 3: MASTER COMPARISON TABLE -->
+        <!-- SLIDE 3: 2 SALES MODELS (PLUG & PLAY VS TURNKEY) -->
         <section class="slide" id="slide-3">
           <div>
-            <div class="slide-category">MASTER PRICING TABLE</div>
-            <h2 class="slide-title">ตารางราคา: ราคาต่อชุด (&lt;100) vs แพ็กเกจโครงการ 100 ชุด</h2>
+            <div class="slide-category">2. SALES PACKAGES (100 SETS)</div>
+            <h2 class="slide-title">2. โครงสร้างราคาขายแนะนำ (แพ็กเกจ 100 ชุด รวม App + Web Dashboard)</h2>
           </div>
 
           <div class="slide-body">
-            <table class="custom-table">
-              <thead>
-                <tr>
-                  <th>ระดับแพ็กเกจ (Tier)</th>
-                  <th>ซื้อขาด (&lt; 100 ชุด)</th>
-                  <th>ซื้อขาด (Lot 100 ชุด)</th>
-                  <th>รายปี (&lt; 100 ชุด)</th>
-                  <th>รายปี (Lot 100 ชุด/ปี)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><b>1. Standard (pH + Temp)</b></td>
-                  <td>฿24,900 / ชุด</td>
-                  <td><b style="color:#0284c7;">฿2,190,000</b> / Lot<br><small>(เฉลี่ย ฿21,900/ชุด)</small></td>
-                  <td>฿12,000 / ชุด / ปี</td>
-                  <td><b style="color:#059669;">฿1,050,000</b> / Lot/ปี<br><small>(เฉลี่ย ~฿875/ชุด/ด.)</small></td>
-                </tr>
-                <tr>
-                  <td><b>2. Pro 4-in-1 (pH, Temp, TDS, Cl)</b></td>
-                  <td>฿49,000 / ชุด</td>
-                  <td><b style="color:#0284c7;">฿4,250,000</b> / Lot<br><small>(ประหยัด ฿650,000)</small></td>
-                  <td>฿24,000 / ชุด / ปี</td>
-                  <td><b style="color:#059669;">฿2,100,000</b> / Lot/ปี<br><small>(เฉลี่ย ~฿1,750/ชุด/ด.)</small></td>
-                </tr>
-                <tr>
-                  <td><b>3. Enterprise 5-in-1 (+ ORP)</b></td>
-                  <td>฿79,000 / ชุด</td>
-                  <td><b style="color:#0284c7;">฿6,900,000</b> / Lot<br><small>(ประหยัด ฿1,000,000)</small></td>
-                  <td>฿39,000 / ชุด / ปี</td>
-                  <td><b style="color:#059669;">฿3,450,000</b> / Lot/ปี<br><small>(เฉลี่ย ~฿2,875/ชุด/ด.)</small></td>
-                </tr>
-                <tr>
-                  <td><b>กรรมสิทธิ์อุปกรณ์</b></td>
-                  <td colspan="2" style="text-align:center;"><b style="color:#0284c7;">เป็นกรรมสิทธิ์ของลูกค้า 100%</b></td>
-                  <td colspan="2" style="text-align:center;"><b style="color:#059669;">ให้ยืมเครื่องใช้งานฟรีตลอดอายุสัญญา</b></td>
-                </tr>
-                <tr>
-                  <td><b>อะไหล่สำรองหน้างาน</b></td>
-                  <td colspan="2" style="text-align:center;">ฟรีตามประกัน + แถมเครื่องสำรอง Spare 5 ชุด (5%)</td>
-                  <td colspan="2" style="text-align:center;"><b style="color:#059669;">ฟรี 100% ตลอดสัญญา + อะไหล่สำรอง 5 ชุด (5%)</b></td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="grid-2col">
+              
+              <!-- Model 1: Plug & Play -->
+              <div class="content-box highlight" style="border-top:4px solid var(--primary);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <div>
+                    <b style="color:var(--primary); font-size:1.15rem;">[แบบที่ 1] ส่งมอบอุปกรณ์พร้อมระบบออนไลน์</b>
+                    <div style="font-size:0.85rem; color:#64748b; margin-top:2px;">Plug &amp; Play / Supply Only</div>
+                  </div>
+                  <span style="font-size:0.8rem; background:#e0f2fe; color:#0369a1; padding:4px 10px; border-radius:9999px; font-weight:800;">
+                    ฿29,500 - ฿32,000 / ชุด
+                  </span>
+                </div>
+
+                <div style="margin:12px 0 8px;">
+                  <b style="font-size:0.85rem; color:#0f172a;">📋 ขอบเขตงาน (Scope):</b>
+                  <ul class="feature-list" style="margin-top:6px; font-size:0.8rem;">
+                    <li>✔ ประกอบตู้คอนโทรลสำเร็จรูป พร้อมเดินระบบไฟภายใน</li>
+                    <li>✔ ใส่ซิมรายปีและตั้งค่าเชื่อมต่อเน็ตเวิร์ก 4G LTE</li>
+                    <li>✔ เชื่อมต่อ Modbus อ่านค่า pH, TDS, Temp, Chlorine</li>
+                    <li>✔ ตั้งค่าระบบ Modela App ดูข้อมูลและแจ้งเตือนผ่านมือถือ</li>
+                    <li>✔ จัดทำ Web Dashboard กลางรวมข้อมูลทั้ง 100 จุด</li>
+                  </ul>
+                </div>
+
+                <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:10px 14px; border-radius:10px; font-size:0.82rem;">
+                  <div>💰 <b>มูลค่าโครงการรวม (100 ชุด):</b> <span style="color:var(--primary); font-weight:800;">2,950,000 - 3,200,000 บาท</span></div>
+                  <div>📈 <b>กำไรขั้นต้นโดยประมาณ:</b> <span style="color:var(--emerald); font-weight:800;">850,000 - 1,100,000 บาท</span> (Margin ~29-34%)</div>
+                </div>
+              </div>
+
+              <!-- Model 2: Turnkey -->
+              <div class="content-box highlight" style="border-top:4px solid var(--emerald);">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                  <div>
+                    <b style="color:var(--emerald); font-size:1.15rem;">[แบบที่ 2] แบบครบวงจร รวมติดตั้งหน้างาน + สอบเทียบ</b>
+                    <div style="font-size:0.85rem; color:#64748b; margin-top:2px;">Turnkey Solution (พร้อมประกัน On-site 1 ปี)</div>
+                  </div>
+                  <span style="font-size:0.8rem; background:#dcfce7; color:#15803d; padding:4px 10px; border-radius:9999px; font-weight:800;">
+                    ฿38,000 - ฿42,000 / ชุด
+                  </span>
+                </div>
+
+                <div style="margin:12px 0 8px;">
+                  <b style="font-size:0.85rem; color:#0f172a;">📋 ขอบเขตงาน (Scope):</b>
+                  <ul class="feature-list" style="margin-top:6px; font-size:0.8rem;">
+                    <li>✔ ทุกอย่างในแบบที่ 1 (ตู้ + ซิม + Modbus + App + Web Dashboard)</li>
+                    <li>✔ ค่าแรงและทีมงานเข้าติดตั้งยึดตู้ / เดินท่อบายพาสหน้างาน</li>
+                    <li>✔ สอบเทียบ (Calibration) หัววัด pH/TDS ด้วยน้ำยามาตรฐานหน้างาน</li>
+                    <li>✔ อบรมการใช้งานระบบและส่งมอบคู่มือการปฏิบัติงาน</li>
+                    <li>✔ รับประกันระบบและบริการ On-site Service ตลอด 1 ปี</li>
+                  </ul>
+                </div>
+
+                <div style="background:#f0fdf4; border:1px solid #bbf7d0; padding:10px 14px; border-radius:10px; font-size:0.82rem;">
+                  <div>💰 <b>มูลค่าโครงการรวม (100 ชุด):</b> <span style="color:var(--emerald); font-weight:800;">3,800,000 - 4,200,000 บาท</span></div>
+                  <div>📈 <b>กำไรขั้นต้นโดยประมาณ:</b> <span style="color:var(--emerald); font-weight:800;">1,700,000 - 2,100,000 บาท</span> (Margin ~45-50%)</div>
+                </div>
+              </div>
+
+            </div>
           </div>
 
           <div class="slide-footer">
-            <span>* ส่วนลดแพ็กเกจโครงการ 100 ชุด ~12-13% พร้อมแถมชุดเครื่องสำรองประจำไซต์งาน 5% ทันที</span>
+            <span>* เปรียบเทียบขอบเขตงานและกำไรขั้นต้นระหว่างแบบที่ 1 และแบบที่ 2</span>
             <span>สไลด์ 3 / 8</span>
           </div>
         </section>
 
-        <!-- SLIDE 4: OUTRIGHT 100-NODE PACKAGES -->
+        <!-- SLIDE 4: DASHBOARD & ALERT OPTIONS -->
         <section class="slide" id="slide-4">
           <div>
-            <div class="slide-category">LOT 100: OUTRIGHT PURCHASE</div>
-            <h2 class="slide-title">แพ็กเกจโครงการ 100 ชุด: แบบซื้อขาด (100-Node Outright)</h2>
+            <div class="slide-category">3. SOFTWARE DASHBOARD &amp; NOTIFICATIONS</div>
+            <h2 class="slide-title">3. ราคาซอฟต์แวร์ Dashboard &amp; ระบบแจ้งเตือน (3 Option)</h2>
           </div>
 
           <div class="slide-body">
             <div class="grid-3col">
-              <div class="pricing-card">
-                <div class="pkg-header">
-                  <span class="pkg-badge">ซื้อขาด • 100 จุด</span>
-                  <div class="pkg-name">STANDARD LOT 100</div>
-                  <div class="pkg-price">฿2,190,000</div>
-                  <div style="font-size:0.75rem; color:#64748b;">เฉลี่ย ฿21,900 / จุด (pH + Temp 100 ชุด)</div>
-                </div>
-                <div class="pkg-body">
-                  <ul>
-                    <li>✔ 100x ตู้ควบคุม NCT WiFi Node</li>
-                    <li>✔ 100x หัววัด pH แก้วอุตสาหกรรม (±0.01 pH)</li>
-                    <li>✔ 100x หัววัดอุณหภูมิ PT1000 (ATC)</li>
-                    <li>✔ รวมระบบ Dashboard รวมศูนย์ 100 จุด</li>
-                    <li>✔ ฟรี Cloud Server &amp; ซิม 4G 2 ปีแรก</li>
-                    <li>✔ แถมชุดสำรองหน้างาน Spare Units 5 ชุด</li>
-                    <li>✔ รับประกันอุปกรณ์ 2 ปีเต็ม</li>
-                  </ul>
-                </div>
-              </div>
-
+              
+              <!-- Option 1 -->
               <div class="pricing-card featured">
                 <div class="pkg-header">
-                  <span class="pkg-badge">★ ยอดนิยมสูงสุด</span>
-                  <div class="pkg-name">PRO TELEMETRY LOT 100</div>
-                  <div class="pkg-price">฿4,250,000</div>
-                  <div style="font-size:0.75rem; color:#e0f2fe;">เฉลี่ย ฿42,500 / จุด (ประหยัด ฿650,000)</div>
+                  <span class="pkg-badge">★ แนะนำ คุ้มค่าสูงสุด</span>
+                  <div class="pkg-name">[ Option 1 ]</div>
+                  <div style="font-size:1rem; font-weight:700;">แอปมือถือ + Telegram</div>
                 </div>
                 <div class="pkg-body">
-                  <ul>
-                    <li>✔ 100x Heavy-Duty SCADA Node (IP67)</li>
-                    <li>✔ <b>100x เซนเซอร์ 4 ค่า (pH, Temp, TDS, Cl)</b></li>
-                    <li>✔ <b>Dual Telemetry 4G LTE + WiFi ทุกตู้</b></li>
-                    <li>✔ <b>แบตสำรอง LiFePO4 ครบทั้ง 100 ตู้</b></li>
-                    <li>✔ ฟรี Private Cloud &amp; White-label Logo</li>
-                    <li>✔ แถมชุดสำรอง Spare Units 5 ชุด (5%)</li>
-                    <li>✔ ติดตั้ง ปรับเทียบ และรับประกัน 2 ปี</li>
-                  </ul>
+                  <div style="margin-bottom:10px;">
+                    <div style="font-size:0.85rem; color:#64748b;">แบบซื้อขาด:</div>
+                    <div style="font-size:1.45rem; font-weight:800; color:var(--primary); font-family:'JetBrains Mono';">250,000 บ.</div>
+                    <small style="color:var(--text-muted);">(2,500 บ./จุด)</small>
+                  </div>
+                  <div style="border-top:1px dashed #e2e8f0; padding-top:8px; margin-bottom:10px;">
+                    <div style="font-size:0.85rem; color:#64748b;">แบบรายปี:</div>
+                    <div style="font-size:1.15rem; font-weight:700; color:var(--emerald); font-family:'JetBrains Mono';">170,000 บ. (ปีแรก)</div>
+                    <small style="color:var(--text-muted);">ปีถัดไป 120,000 บ./ปี (1,200 บ./จุด/ปี)</small>
+                  </div>
+                  <div style="background:#f0fdf4; padding:8px 10px; border-radius:8px; font-size:0.78rem; color:#166534; font-weight:600;">
+                    💡 จุดเด่น: แจ้งเตือนฟรีตลอดชีพ ไม่มีค่าส่งข้อความ
+                  </div>
                 </div>
               </div>
 
+              <!-- Option 2 -->
               <div class="pricing-card">
-                <div class="pkg-header" style="background:#f0fdf4;">
-                  <span class="pkg-badge" style="background:#dcfce7; color:#15803d;">Lab Grade 100 สถานี</span>
-                  <div class="pkg-name" style="color:#0f172a;">ENTERPRISE LOT 100</div>
-                  <div class="pkg-price" style="color:#059669;">฿6,900,000</div>
-                  <div style="font-size:0.75rem; color:#64748b;">เฉลี่ย ฿69,000 / จุด (ประหยัด ฿1,000,000)</div>
+                <div class="pkg-header" style="background:#f8fafc;">
+                  <span class="pkg-badge">สำหรับห้องควบคุม SCADA</span>
+                  <div class="pkg-name">[ Option 2 ]</div>
+                  <div style="font-size:1rem; font-weight:700;">เว็บกลาง 100 จุด + Telegram</div>
                 </div>
                 <div class="pkg-body">
-                  <ul>
-                    <li>✔ 100x Master SCADA PLC Hub</li>
-                    <li>✔ <b>100x เซนเซอร์แล็บ 5 ค่า (+ ORP Probe)</b></li>
-                    <li>✔ <b>100x ชุดกระเปาะ Flow Cell Chamber</b></li>
-                    <li>✔ Dual Power + LiFePO4 Backup 100 จุด</li>
-                    <li>✔ Cloud Unlimited + Modbus TCP/ERP API</li>
-                    <li>✔ ฟรี Calibrate 4 ครั้ง/ปี + ใบเซอร์ ISO</li>
-                    <li>✔ แถมชุดสำรอง 5 ชุด + รับประกัน 3 ปี</li>
-                  </ul>
+                  <div style="margin-bottom:10px;">
+                    <div style="font-size:0.85rem; color:#64748b;">แบบซื้อขาด:</div>
+                    <div style="font-size:1.45rem; font-weight:800; color:#0f172a; font-family:'JetBrains Mono';">450,000 บ.</div>
+                    <small style="color:var(--text-muted);">(4,500 บ./จุด)</small>
+                  </div>
+                  <div style="border-top:1px dashed #e2e8f0; padding-top:8px; margin-bottom:10px;">
+                    <div style="font-size:0.85rem; color:#64748b;">แบบรายปี:</div>
+                    <div style="font-size:1.15rem; font-weight:700; color:var(--emerald); font-family:'JetBrains Mono';">340,000 บ. (ปีแรก)</div>
+                    <small style="color:var(--text-muted);">ปีถัดไป 240,000 บ./ปี (2,400 บ./จุด/ปี)</small>
+                  </div>
+                  <div style="background:#f8fafc; border:1px solid #e2e8f0; padding:8px 10px; border-radius:8px; font-size:0.78rem; color:#334155; font-weight:600;">
+                    💡 จุดเด่น: ดูภาพรวมและตารางสรุปทั้ง 100 จุดในจอเดียว
+                  </div>
                 </div>
               </div>
+
+              <!-- Option 3 -->
+              <div class="pricing-card">
+                <div class="pkg-header" style="background:#f8fafc;">
+                  <span class="pkg-badge">ครบวงจร + LINE OA</span>
+                  <div class="pkg-name">[ Option 3 ]</div>
+                  <div style="font-size:1rem; font-weight:700;">เว็บกลาง + แอป + LINE OA</div>
+                </div>
+                <div class="pkg-body">
+                  <div style="margin-bottom:10px;">
+                    <div style="font-size:0.85rem; color:#64748b;">แบบซื้อขาด:</div>
+                    <div style="font-size:1.45rem; font-weight:800; color:#0f172a; font-family:'JetBrains Mono';">600,000 บ.</div>
+                    <small style="color:var(--text-muted);">(6,000 บ./จุด)</small>
+                  </div>
+                  <div style="border-top:1px dashed #e2e8f0; padding-top:8px; margin-bottom:10px;">
+                    <div style="font-size:0.85rem; color:#64748b;">แบบรายปี:</div>
+                    <div style="font-size:1.15rem; font-weight:700; color:var(--emerald); font-family:'JetBrains Mono';">510,000 บ. (ปีแรก)</div>
+                    <small style="color:var(--text-muted);">ปีถัดไป 360,000 บ./ปี (3,600 บ./จุด/ปี)</small>
+                  </div>
+                  <div style="background:#fef2f2; border:1px solid #fecaca; padding:8px 10px; border-radius:8px; font-size:0.78rem; color:#991b1b; font-weight:600;">
+                    ⚠️ หมายเหตุ: LINE มีค่าแพ็กเกจส่งข้อความรายเดือนเพิ่มเติม
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 
           <div class="slide-footer">
-            <span>* จ่ายครั้งเดียวจบ เป็นเจ้าของอุปกรณ์ 100 ชุดครบวงจร พร้อมระบบแดชบอร์ดแผนที่ GIS</span>
+            <span>* สามารถเลือกออปชันซอฟต์แวร์ที่เหมาะสมกับงบประมาณของลูกค้า</span>
             <span>สไลด์ 4 / 8</span>
           </div>
         </section>
 
-        <!-- SLIDE 5: ANNUAL 100-NODE PACKAGES -->
+        <!-- SLIDE 5: ALERT TEMPLATES -->
         <section class="slide" id="slide-5">
           <div>
-            <div class="slide-category">LOT 100: ANNUAL SUBSCRIPTION</div>
-            <h2 class="slide-title">แพ็กเกจโครงการ 100 ชุด: แบบสัญญารายปี (100-Node Annual Care)</h2>
+            <div class="slide-category">4. ALERT NOTIFICATION MOCKUPS</div>
+            <h2 class="slide-title">4. ตัวอย่างข้อความแจ้งเตือนเมื่อพบค่าผิดปกติ</h2>
           </div>
 
           <div class="slide-body">
-            <div class="grid-3col">
-              <div class="pricing-card">
-                <div class="pkg-header">
-                  <span class="pkg-badge">รายปี • 100 จุด</span>
-                  <div class="pkg-name">STANDARD CARE LOT 100</div>
-                  <div class="pkg-price">฿1,050,000 <span style="font-size:1rem; font-weight:500;">/ ปี</span></div>
-                  <div style="font-size:0.75rem; color:#64748b;">เฉลี่ยเพียง ~฿875 / จุด / เดือน</div>
+            <div class="grid-2col">
+              
+              <!-- Telegram -->
+              <div class="content-box" style="border-top:4px solid #0284c7;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                  <b style="color:#0284c7; font-size:1rem;">✈️ รูปแบบ Telegram (ส่งฟรี &amp; ไว):</b>
+                  <span style="font-size:0.72rem; background:#e0f2fe; color:#0369a1; padding:2px 8px; border-radius:9999px; font-weight:700;">Zero Cost</span>
                 </div>
-                <div class="pkg-body">
-                  <ul>
-                    <li>✔ <b>ให้ยืมเครื่อง NCT Controller ครบ 100 ชุด</b></li>
-                    <li>✔ หัววัด pH + Temp 100 ชุด (เปลี่ยนฟรีตลอดสัญญา)</li>
-                    <li>✔ ฟรี Cloud Server &amp; ซิม 4G 100 จุด ไม่จำกัด</li>
-                    <li>✔ ระบบรวมศูนย์ SCADA 100 จุด + Mobile App</li>
-                    <li>✔ แจ้งเตือน Line Alert &amp; SMS แยกโซน 24 ชม.</li>
-                    <li>✔ แถมเครื่องสำรอง Spare Units ประจำไซต์ 5 ชุด</li>
-                    <li>✔ ดูแลและรับประกันตลอดอายุสัญญาเช่า</li>
-                  </ul>
-                </div>
+                <div class="alert-code-box">🚨 แจ้งเตือนคุณภาพน้ำผิดปกติ
+📍 จุดติดตั้ง: บ่อพักน้ำ #04 (ตู้ 1004)
+⏰ เวลา: 14:15 น.
+━━━━━━━━━━━━━━━━━━━━
+• คลอรีน: 0.15 mg/L ❌ (เกณฑ์ 0.20-2.00)
+• pH: 6.4 ❌ (เกณฑ์ 6.5-8.5)
+• TDS: 185 ppm (ปกติ)
+• อุณหภูมิ: 28.5 °C (ปกติ)
+━━━━━━━━━━━━━━━━━━━━
+🔗 ดูกราฟย้อนหลัง: https://water-iot.com/node/1004</div>
               </div>
 
-              <div class="pricing-card featured-green">
-                <div class="pkg-header">
-                  <span class="pkg-badge">★ แนะนำสำหรับนิคมฯ/ประปา</span>
-                  <div class="pkg-name">PRO CARE LOT 100</div>
-                  <div class="pkg-price">฿2,100,000 <span style="font-size:1rem; font-weight:500;">/ ปี</span></div>
-                  <div style="font-size:0.75rem; color:#e0f2fe;">เฉลี่ยเพียง ~฿1,750 / จุด / เดือน (ตรวจ 4 ค่า)</div>
+              <!-- LINE OA -->
+              <div class="content-box" style="border-top:4px solid #059669;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                  <b style="color:#059669; font-size:1rem;">💬 รูปแบบ LINE (แจ้งเป็นการ์ดสถานะ):</b>
+                  <span style="font-size:0.72rem; background:#dcfce7; color:#15803d; padding:2px 8px; border-radius:9999px; font-weight:700;">LINE OA Card</span>
                 </div>
-                <div class="pkg-body">
-                  <ul>
-                    <li>✔ <b>ให้ยืมเครื่อง Heavy-Duty SCADA ครบ 100 ชุด</b></li>
-                    <li>✔ <b>หัววัด 4 ค่า (pH, Temp, TDS, Cl) 100 ชุด</b></li>
-                    <li>✔ <b>ฟรีบริการ Calibrate หน้างาน 2 ครั้ง/ปี</b></li>
-                    <li>✔ <b>ฟรีอะไหล่และหัววัดเปลี่ยนใหม่ 100% ทันที</b></li>
-                    <li>✔ ฟรี Private Cloud &amp; White-label Logo</li>
-                    <li>✔ แถมเครื่องสำรอง Spare Units 5 ชุด + On-site SLA</li>
-                    <li>✔ ทีมวิศวกร Support ดูแลตลอดสัญญา 24/7</li>
-                  </ul>
-                </div>
+                <div class="alert-code-box" style="color:#4ade80;">🚨 [CRITICAL] คุณภาพน้ำหลุดเกณฑ์
+📍 สถานี: บ่อจ่ายน้ำเขตเหนือ
+━━━━━━━━━━━━━━━━━━━━
+• คลอรีน: 0.12 mg/L ⚠️ (ต่ำกว่าเกณฑ์)
+• ค่า pH: 6.30 ⚠️ (ต่ำกว่าเกณฑ์)
+• ค่า TDS: 190 ppm (ปกติ)
+• อุณหภูมิ: 29.0 °C (ปกติ)
+━━━━━━━━━━━━━━━━━━━━
+👉 [เปิด Dashboard ดูข้อมูลสด]</div>
               </div>
 
-              <div class="pricing-card">
-                <div class="pkg-header" style="background:#f0fdf4;">
-                  <span class="pkg-badge" style="background:#dcfce7; color:#15803d;">Full SLA • 100 สถานี</span>
-                  <div class="pkg-name" style="color:#0f172a;">ENTERPRISE CARE LOT 100</div>
-                  <div class="pkg-price" style="color:#059669;">฿3,450,000 <span style="font-size:1rem; font-weight:500;">/ ปี</span></div>
-                  <div style="font-size:0.75rem; color:#64748b;">เฉลี่ยเพียง ~฿2,875 / จุด / เดือน (ตรวจ 5 ค่า)</div>
-                </div>
-                <div class="pkg-body">
-                  <ul>
-                    <li>✔ <b>ให้ยืมตู้ Master SCADA PLC Hub ครบ 100 ชุด</b></li>
-                    <li>✔ <b>หัววัด 5 ค่า (+ ORP) + Flow Cell 100 ชุด</b></li>
-                    <li>✔ <b>ฟรี Calibrate 4 ครั้ง/ปี พร้อมใบเซอร์ ISO</b></li>
-                    <li>✔ Cloud Unlimited + Modbus TCP / ERP API</li>
-                    <li>✔ เครื่องสำรองประจำไซต์ 5 ชุด + เคลมใน 24 ชม.</li>
-                    <li>✔ สัญญาบริการระดับ Priority 24/7 SLA</li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
 
           <div class="slide-footer">
-            <span>* รวมเครื่อง 100 ชุด + ซิม 100 เบอร์ + Cloud + อะไหล่เปลี่ยนฟรีตลอดสัญญา (ตัดเป็น OPEX หักภาษีได้)</span>
+            <span>NCT Water Nexus • รูปแบบการแจ้งเตือน Real-Time</span>
             <span>สไลด์ 5 / 8</span>
           </div>
         </section>
 
-        <!-- SLIDE 6: SENSORS & SPECS -->
+        <!-- SLIDE 6: STRATEGIC PRICING ANALYSIS -->
         <section class="slide" id="slide-6">
           <div>
-            <div class="slide-category">HARDWARE ECOSYSTEM &amp; SENSORS</div>
-            <h2 class="slide-title">สเปกเซนเซอร์ตรวจวัดคุณภาพน้ำความแม่นยำสูง</h2>
+            <div class="slide-category">5. STRATEGIC MARGIN ANALYSIS</div>
+            <h2 class="slide-title">5. วิเคราะห์จุดแข็ง-จุดเสี่ยงของแต่ละราคา</h2>
           </div>
 
           <div class="slide-body">
-            <div class="grid-4col">
-              <div class="metric-hero card-temp">
-                <div>
-                  <div style="font-size:0.8rem; font-weight:700; opacity:0.9;">อุณหภูมิน้ำ (Water Temp)</div>
-                  <div style="font-size:1.8rem; font-weight:800; font-family:'JetBrains Mono'; margin:8px 0;">17.3°C</div>
-                </div>
-                <div style="font-size:0.75rem; opacity:0.92; line-height:1.3;">
-                  <b>หัววัด PT1000 RTD</b><br>
-                  ช่วง 0-50°C | ความแม่นยำ ±0.1°C พร้อมชดเชยอุณหภูมิ ATC อัตโนมัติ
-                </div>
+            <div class="grid-2col">
+              <div class="content-box highlight" style="border-left:4px solid var(--emerald);">
+                <b style="color:var(--emerald); font-size:1.05rem;">🔄 ฝั่งรายปี (ดีมาก แนะนำให้ผลักดันลูกค้ารูปแบบนี้)</b>
+                <ul class="feature-list" style="margin-top:10px;">
+                  <li>✔ <b>ตัวเลข 1,200 – 3,600 บาท/จุด/ปี:</b> (ตกเดือนละ 100–300 บาท/ตู้) ลูกค้าองค์กร/โรงงาน/เทศบาล จ่ายได้ง่ายมาก</li>
+                  <li>✔ <b>Recurring Income ก้อนโตทุกปี:</b> มีรายรับสม่ำเสมอ <b>120,000 – 360,000 บาททุกปี</b> ไว้เป็นค่า Cloud Server, ค่าซ่อมบำรุง และกำไรต่อเนื่อง</li>
+                  <li>✔ <b>ความผูกพันลูกค้าระยะยาว:</b> ล็อกฐานลูกค้าได้ต่อเนื่อง ไม่ต้องเริ่มขายใหม่ทุกปี</li>
+                </ul>
               </div>
 
-              <div class="metric-hero card-ph">
-                <div>
-                  <div style="font-size:0.8rem; font-weight:700; opacity:0.9;">ความเป็นกรด-ด่าง (pH)</div>
-                  <div style="font-size:1.8rem; font-weight:800; font-family:'JetBrains Mono'; margin:8px 0;">7.29 pH</div>
-                </div>
-                <div style="font-size:0.75rem; opacity:0.92; line-height:1.3;">
-                  <b>Industrial Glass Probe</b><br>
-                  ช่วง 0-14 pH | ความแม่นยำ ±0.01 pH รองรับ Calibrate 4.01/7.00/10.01
-                </div>
-              </div>
-
-              <div class="metric-hero card-tds">
-                <div>
-                  <div style="font-size:0.8rem; font-weight:700; opacity:0.9;">สารละลายรวม (TDS)</div>
-                  <div style="font-size:1.8rem; font-weight:800; font-family:'JetBrains Mono'; margin:8px 0;">210 ppm</div>
-                </div>
-                <div style="font-size:0.75rem; opacity:0.92; line-height:1.3;">
-                  <b>Titanium Dual-Pole</b><br>
-                  ช่วง 0-2,000 ppm | ตรวจสอบปริมาณสารแขวนลอยและเกลือแร่ในน้ำ
-                </div>
-              </div>
-
-              <div class="metric-hero card-cl">
-                <div>
-                  <div style="font-size:0.8rem; font-weight:700; opacity:0.9;">คลอรีนคงเหลือ (Residual Cl)</div>
-                  <div style="font-size:1.8rem; font-weight:800; font-family:'JetBrains Mono'; margin:8px 0;">0.85 mg/L</div>
-                </div>
-                <div style="font-size:0.75rem; opacity:0.92; line-height:1.3;">
-                  <b>Amperometric Probe</b><br>
-                  ช่วง 0-5 mg/L | ควบคุมประสิทธิภาพการฆ่าเชื้อโรคตามเกณฑ์สาธารณสุข
-                </div>
+              <div class="content-box highlight" style="border-left:4px solid var(--primary);">
+                <b style="color:var(--primary); font-size:1.05rem;">🏷️ ฝั่งซื้อขาด (ตัวเลขผ่าน แต่ต้องล็อคขอบเขตให้ชัด)</b>
+                <ul class="feature-list" style="margin-top:10px;">
+                  <li>✔ <b>ราคาเฉลี่ย 2,500 – 6,000 บาท/จุด:</b> (ยอดรวม 2.5 – 6 แสนบาท) ลูกค้าไม่รู้สึกว่าแพงเกินไปสำหรับระบบ 100 จุด</li>
+                  <li>⚠️ <b>จุดที่ต้องระวัง:</b> ซื้อขาดแปลว่าคุณต้องแบกค่า Host/Database เองในอนาคต หรือต้องส่งมอบ Source Code ให้เขาไปรัน Server เอง</li>
+                  <li>🛡️ <b>แนวทางล็อคสัญญา:</b> ควรกำหนดในสัญญาว่า <b>ฟรี Support/แก้บั๊ก 1 ปีแรกเท่านั้น</b> ปีถัดไปคิดสัญญา <b>MA แยก 10–15% ต่อปี</b></li>
+                </ul>
               </div>
             </div>
 
-            <div style="margin-top:16px; background:#0f172a; color:#fff; border-radius:var(--radius-md); padding:14px 20px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
-              <div>
-                <b style="color:#38bdf8;">🎛️ NCT Master Controller Hub:</b>
-                <span style="font-size:0.82rem; color:#cbd5e1; margin-left:8px;">WiFi 2.4G + 4G LTE Cellular | LiFePO4 Battery Backup | Alarm Relay Dry Contact</span>
-              </div>
-              <span style="font-size:0.75rem; background:#0284c7; padding:4px 10px; border-radius:9999px; font-weight:700;">IP67 Weatherproof</span>
+            <div style="margin-top:14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:12px 18px; font-size:0.85rem; color:#334155;">
+              <b>ข้อแตกต่าง Telegram vs LINE (ตั้งราคาแยกถูกทางแล้ว):</b> Telegram ฟรีจริง ไม่มีต้นทุนแฝง กำไรเต็มเม็ดเต็มหน่วย | LINE การบวกเพิ่มอีก 1,500 บาท/จุด (+1.5 แสน) สมเหตุสมผลแล้ว เพราะ LINE คิดค่า Broadcast รายเดือน (1,500–5,000+ บ./ด.)
             </div>
           </div>
 
           <div class="slide-footer">
-            <span>NCT Water Nexus • สเปกเซนเซอร์และฮาร์ดแวร์</span>
+            <span>NCT Water Nexus • วิเคราะห์จุดแข็ง-จุดเสี่ยงและกำไร</span>
             <span>สไลด์ 6 / 8</span>
           </div>
         </section>
@@ -861,17 +812,15 @@
         <!-- SLIDE 7: DUAL-MODE DASHBOARD -->
         <section class="slide" id="slide-7">
           <div>
-            <div class="slide-category">SOFTWARE PLATFORM &amp; SCADA UI</div>
-            <h2 class="slide-title">แพลตฟอร์มแดชบอร์ดรวมศูนย์ 100 จุด (Web SCADA + Mobile App)</h2>
+            <div class="slide-category">6. SOFTWARE PLATFORM &amp; SCADA UI</div>
+            <h2 class="slide-title">6. ระบบแดชบอร์ด SCADA และ Mobile Companion App</h2>
           </div>
 
           <div class="slide-body">
             <div class="grid-2col">
               <div class="content-box">
-                <div class="box-title" style="color:var(--primary);">
-                  <span>💻 1. Centralized SCADA Widescreen View</span>
-                </div>
-                <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:10px;">ออกแบบสำหรับจอห้องควบคุม (Control Room), มอนิเตอร์ 100 จุดบนแผนที่ GIS</p>
+                <b style="color:var(--primary); font-size:1.05rem;">💻 1. Centralized SCADA Widescreen View</b>
+                <p style="font-size:0.82rem; color:var(--text-muted); margin:6px 0 10px;">ออกแบบสำหรับจอห้องควบคุม (Control Room), มอนิเตอร์ 100 จุดบนแผนที่ GIS</p>
                 <ul class="feature-list">
                   <li>✔ กราฟเส้นแนวโน้ม Multi-Axis คุณภาพน้ำ Real-Time (1-Sec polling)</li>
                   <li>✔ ปรับเทียบมาตรฐานหัววัดได้ในคลิกเดียว (One-Click Digital Calibration)</li>
@@ -881,10 +830,8 @@
               </div>
 
               <div class="content-box">
-                <div class="box-title" style="color:var(--emerald);">
-                  <span>📱 2. Multi-Station Mobile Companion App</span>
-                </div>
-                <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:10px;">สำหรับผู้บริหาร วิศวกร และผู้ดูแลระบบผ่านสมาร์ทโฟน iOS / Android</p>
+                <b style="color:var(--emerald); font-size:1.05rem;">📱 2. Multi-Station Mobile Companion App</b>
+                <p style="font-size:0.82rem; color:var(--text-muted); margin:6px 0 10px;">สำหรับผู้บริหาร วิศวกร และผู้ดูแลระบบผ่านสมาร์ทโฟน iOS / Android</p>
                 <ul class="feature-list">
                   <li>✔ หน้าตา UI สวยงามตามโมเดลแอปพลิเคชันต้นแบบ อ่านค่าง่ายทันที</li>
                   <li>✔ แผนผังการเชื่อมต่อชัดเจน (WiFi ➔ Display ➔ Probe Topology)</li>
@@ -901,18 +848,21 @@
           </div>
         </section>
 
-        <!-- SLIDE 8: CONTACT & NEXT STEPS -->
+        <!-- SLIDE 8: SUMMARY & CONTACT -->
         <section class="slide slide-dark" id="slide-8">
           <div>
-            <div class="slide-category">IMPLEMENTATION &amp; NEXT STEPS</div>
-            <h2 class="slide-title">ขั้นตอนการติดตั้งและช่องทางติดต่อขอใบเสนอราคา</h2>
+            <div class="slide-category">SUMMARY &amp; CONTACT</div>
+            <h2 class="slide-title">สรุปภาพรวมโครงการ 100 ชุด และช่องทางติดต่อ</h2>
           </div>
 
           <div class="slide-body">
             <div style="background:linear-gradient(135deg, #0284c7, #0369a1); border-radius:var(--radius-md); padding:24px 28px; margin-bottom:20px;">
-              <h3 style="font-size:1.3rem; font-weight:800; color:#fff; margin-bottom:8px;">📞 นัดหมายสาธิตระบบจริง (Live Demonstration) &amp; ขอใบเสนอราคา</h3>
-              <p style="font-size:0.92rem; color:#e0f2fe; line-height:1.6;">
-                ทีมวิศวกร NCT พร้อมเข้าสำรวจหน้างานและจัดทำใบเสนอราคาโซลูชันโครงการ 100 จุด (ทั้งแบบซื้อขาด และแบบสัญญารายปี)
+              <h3 style="font-size:1.25rem; font-weight:800; color:#fff; margin-bottom:8px;">📞 พร้อมนำเสนอและจัดทำใบเสนอราคาโครงการ 100 ชุด</h3>
+              <p style="font-size:0.9rem; color:#e0f2fe; line-height:1.6;">
+                • <b>รวมต้นทุนต่อชุด:</b> 21,000 บาท (100 ชุด = 2,100,000 บาท)<br>
+                • <b>[แบบที่ 1 Plug &amp; Play]:</b> 29,500 - 32,000 บ./ชุด (รวม 2.95 - 3.20 ล้าน | กำไร 8.5 แสน - 1.1 ล้าน)<br>
+                • <b>[แบบที่ 2 Turnkey]:</b> 38,000 - 42,000 บ./ชุด (รวม 3.80 - 4.20 ล้าน | กำไร 1.7 - 2.1 ล้าน)<br>
+                • <b>ซอฟต์แวร์แดชบอร์ด 100 จุด:</b> ซื้อขาด 2.5 - 6.0 แสน | รายปี 1.2 - 3.6 แสน/ปี (Recurring Income)
               </p>
               <div style="margin-top:16px; font-size:0.95rem; color:#fff; display:flex; flex-wrap:wrap; gap:20px;">
                 <span>📧 <b>Email:</b> sales@nct-water.com</span>
@@ -953,81 +903,129 @@
       <div class="report-card-section" style="background:radial-gradient(circle at 90% 10%, #1e293b 0%, #0f172a 100%); color:#fff;">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
           <div>
-            <span style="font-size:0.8rem; font-weight:800; color:#38bdf8; background:rgba(56,189,248,0.15); padding:4px 10px; border-radius:6px; letter-spacing:0.5px;">100-NODE PROJECT PROPOSAL</span>
-            <h1 style="font-size:2.2rem; font-weight:800; margin-top:10px;">NCT WATER NEXUS PRO</h1>
-            <p style="font-size:1.1rem; color:#cbd5e1; margin-top:4px;">โซลูชันระบบตรวจวัดคุณภาพน้ำอัจฉริยะแบบกลุ่มโครงการ 100 จุด (Lot of 100 Nodes)</p>
+            <span style="font-size:0.8rem; font-weight:800; color:#38bdf8; background:rgba(56,189,248,0.15); padding:4px 10px; border-radius:6px; letter-spacing:0.5px;">PROJECT PROPOSAL REPORT</span>
+            <h1 style="font-size:2.1rem; font-weight:800; margin-top:10px;">NCT WATER NEXUS PRO</h1>
+            <p style="font-size:1.05rem; color:#cbd5e1; margin-top:4px;">สรุปรายการต้นทุน (BOM) และราคาขายโครงการตรวจวัดคุณภาพน้ำ (100 ชุด)</p>
           </div>
           <div style="text-align:right; font-size:0.85rem; color:#94a3b8;">
             <div><b>วันที่ออกเอกสาร:</b> สิงหาคม 2026</div>
-            <div><b>เวอร์ชันระบบ:</b> 2.5 Pro Edition</div>
-            <div><b>สถานะ:</b> Commercial Proposal</div>
+            <div><b>พารามิเตอร์:</b> pH / TDS / อุณหภูมิ / คลอรีนคงเหลือ</div>
+            <div><b>ฮาร์ดแวร์:</b> Modela One + Cybertice</div>
           </div>
         </div>
       </div>
 
-      <!-- Section 1: Pricing Matrix Table -->
+      <!-- Section 1: Hardware BOM -->
       <div class="report-card-section">
-        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">1. ตารางราคาเปรียบเทียบ: ราคาต่อชุด vs แพ็กเกจโครงการ 100 ชุด</h2>
-        <table class="custom-table">
-          <thead>
-            <tr>
-              <th>ระดับแพ็กเกจ (Tier)</th>
-              <th>ซื้อขาด (&lt; 100 ชุด)</th>
-              <th>ซื้อขาด (Lot 100 ชุด)</th>
-              <th>รายปี (&lt; 100 ชุด)</th>
-              <th>รายปี (Lot 100 ชุด/ปี)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><b>1. Standard (pH + Temp)</b></td>
-              <td>฿24,900 / ชุด</td>
-              <td><b style="color:#0284c7;">฿2,190,000</b> / Lot<br><small>(เฉลี่ย ฿21,900/ชุด)</small></td>
-              <td>฿12,000 / ชุด / ปี</td>
-              <td><b style="color:#059669;">฿1,050,000</b> / Lot/ปี<br><small>(เฉลี่ย ~฿875/ชุด/ด.)</small></td>
-            </tr>
-            <tr>
-              <td><b>2. Pro 4-in-1 (pH, Temp, TDS, Cl)</b></td>
-              <td>฿49,000 / ชุด</td>
-              <td><b style="color:#0284c7;">฿4,250,000</b> / Lot<br><small>(ประหยัด ฿650,000)</small></td>
-              <td>฿24,000 / ชุด / ปี</td>
-              <td><b style="color:#059669;">฿2,100,000</b> / Lot/ปี<br><small>(เฉลี่ย ~฿1,750/ชุด/ด.)</small></td>
-            </tr>
-            <tr>
-              <td><b>3. Enterprise 5-in-1 (+ ORP)</b></td>
-              <td>฿79,000 / ชุด</td>
-              <td><b style="color:#0284c7;">฿6,900,000</b> / Lot<br><small>(ประหยัด ฿1,000,000)</small></td>
-              <td>฿39,000 / ชุด / ปี</td>
-              <td><b style="color:#059669;">฿3,450,000</b> / Lot/ปี<br><small>(เฉลี่ย ~฿2,875/ชุด/ด.)</small></td>
-            </tr>
-          </tbody>
-        </table>
+        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">1. ตารางต้นทุนฮาร์ดแวร์และอุปกรณ์ต่อชุด (BOM per Unit)</h2>
+        <ul style="font-size:0.95rem; line-height:1.8; color:#334155; padding-left:20px;">
+          <li>• ชุดเซนเซอร์หลัก (Modela One + pH/TDS/Temp + คลอรีน Cybertice): <b>17,000 บาท</b></li>
+          <li>• 4G LTE Router (TP-Link TL-MR100): <b>1,000 บาท</b></li>
+          <li>• ซิมการ์ด 4G รายปี (Unlimited 15-20 Mbps): <b>1,800 บาท</b></li>
+          <li>• ตู้คอนโทรล IP65 + Switching 24V + Breaker + Terminal + Wiring: <b>1,200 บาท</b></li>
+        </ul>
+        <div style="margin-top:12px; background:#f0fdf4; border:1px solid #bbf7d0; padding:12px 18px; border-radius:10px; font-weight:700; color:#15803d; font-size:1.05rem;">
+          ➡️ รวมต้นทุนต่อชุด: 21,000 บาท  |  รวมต้นทุนโครงการ (100 ชุด): 2,100,000 บาท
+        </div>
       </div>
 
-      <!-- Section 2: Model Comparison Details -->
+      <!-- Section 2: 2 Sales Models -->
       <div class="report-card-section">
-        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">2. สิทธิพิเศษสำหรับแพ็กเกจโครงการ 100 จุด (Lot of 100 Nodes)</h2>
+        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">2. โครงสร้างราคาขายแนะนำ (แพ็กเกจ 100 ชุด รวม App มือถือ + Web Dashboard)</h2>
+        
         <div class="grid-2col">
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:18px;">
-            <b style="color:#0284c7; font-size:1rem;">🏷️ แบบซื้อขาด 100 จุด (Outright Lot)</b>
-            <ul style="margin-top:8px; font-size:0.85rem; color:#475569; display:flex; flex-direction:column; gap:6px; padding-left:18px;">
-              <li>เป็นกรรมสิทธิ์ของลูกค้า 100% ทั้ง 100 ตู้</li>
-              <li>ฟรี Cloud Server &amp; ซิม 4G 100 ซิม ตลอด 2 ปีแรก</li>
-              <li>ฟรีสกรีนโลโก้ White-Label บนตู้และแอปพลิเคชัน</li>
-              <li>แถมฟรีเครื่องสำรอง Spare Units ประจำไซต์ 5 ชุด (5%)</li>
-              <li>รับประกันอุปกรณ์ 2–3 ปีเต็ม</li>
+          <div style="background:#f8fafc; border:2px solid #0284c7; border-radius:12px; padding:20px;">
+            <b style="color:#0284c7; font-size:1.15rem;">[แบบที่ 1] ส่งมอบอุปกรณ์พร้อมระบบออนไลน์ (Plug &amp; Play / Supply Only)</b>
+            <ul style="margin:10px 0; font-size:0.85rem; color:#475569; padding-left:18px; line-height:1.5;">
+              <li>ประกอบตู้คอนโทรลสำเร็จรูป พร้อมเดินระบบไฟภายใน</li>
+              <li>ใส่ซิมรายปีและตั้งค่าเชื่อมต่อเน็ตเวิร์ก</li>
+              <li>เชื่อมต่อ Modbus อ่านค่า pH, TDS, Temp, Chlorine</li>
+              <li>ตั้งค่าระบบ Modela App สำหรับดูข้อมูลและแจ้งเตือนผ่านมือถือ</li>
+              <li>จัดทำ Web Dashboard กลางรวมข้อมูลทั้ง 100 จุด</li>
             </ul>
+            <div style="border-top:1px solid #e2e8f0; padding-top:10px; font-size:0.9rem;">
+              <div>• <b>ราคาขายต่อชุด:</b> 29,500 - 32,000 บาท</div>
+              <div>• <b>มูลค่าโครงการรวม (100 ชุด):</b> <span style="color:#0284c7; font-weight:800;">2,950,000 - 3,200,000 บาท</span></div>
+              <div>• <b>กำไรขั้นต้นโดยประมาณ:</b> <span style="color:#059669; font-weight:800;">850,000 - 1,100,000 บาท</span> (Margin ~29-34%)</div>
+            </div>
           </div>
 
-          <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:18px;">
-            <b style="color:#059669; font-size:1rem;">🔄 แบบสัญญารายปี 100 จุด (Annual Subscription Lot)</b>
-            <ul style="margin-top:8px; font-size:0.85rem; color:#166534; display:flex; flex-direction:column; gap:6px; padding-left:18px;">
-              <li>ไม่มีเงินลงทุนก้อนแรก จ่ายเฉพาะค่าบริการรายปี</li>
-              <li>รวมเครื่อง 100 ตู้ + ซิม 100 เบอร์ + Cloud ตลอดสัญญา</li>
-              <li>ฟรีอะไหล่และหัววัดเปลี่ยนใหม่ 100% เมื่อเสื่อมสภาพ</li>
-              <li>ฟรีบริการสอบเทียบ Calibrate หน้างาน 2–4 ครั้ง/ปี พร้อมใบเซอร์ ISO</li>
-              <li>บันทึกเป็นค่าใช้จ่ายดำเนินงาน (OPEX) หักภาษีได้ 100%</li>
+          <div style="background:#f0fdf4; border:2px solid #059669; border-radius:12px; padding:20px;">
+            <b style="color:#059669; font-size:1.15rem;">[แบบที่ 2] แบบครบวงจร รวมติดตั้งหน้างาน + สอบเทียบ (Turnkey Solution)</b>
+            <ul style="margin:10px 0; font-size:0.85rem; color:#166534; padding-left:18px; line-height:1.5;">
+              <li>ทุกอย่างในแบบที่ 1</li>
+              <li>ค่าแรงและทีมงานเข้าติดตั้งยึดตู้/เดินท่อบายพาสหน้างาน</li>
+              <li>สอบเทียบ (Calibration) หัววัด pH/TDS ด้วยน้ำยามาตรฐานหน้างาน</li>
+              <li>อบรมการใช้งานระบบและส่งมอบคู่มือ</li>
+              <li>รับประกันระบบและบริการ On-site Service ตลอด 1 ปี</li>
             </ul>
+            <div style="border-top:1px solid #bbf7d0; padding-top:10px; font-size:0.9rem;">
+              <div>• <b>ราคาขายต่อชุด:</b> 38,000 - 42,000 บาท</div>
+              <div>• <b>มูลค่าโครงการรวม (100 ชุด):</b> <span style="color:#059669; font-weight:800;">3,800,000 - 4,200,000 บาท</span></div>
+              <div>• <b>กำไรขั้นต้นโดยประมาณ:</b> <span style="color:#059669; font-weight:800;">1,700,000 - 2,100,000 บาท</span> (Margin ~45-50%)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Software Options -->
+      <div class="report-card-section">
+        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">3. ราคาซอฟต์แวร์ Dashboard &amp; ระบบแจ้งเตือน (100 จุด)</h2>
+        <div class="grid-3col">
+          <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:12px; padding:16px;">
+            <b style="color:#0284c7;">[ Option 1 ] แอปมือถือ + Telegram (แนะนำ)</b>
+            <div style="margin:8px 0; font-size:0.85rem;">
+              <div>• ซื้อขาด: <b>250,000 บ.</b> (2,500 บ./จุด)</div>
+              <div>• รายปี: <b>170,000 บ.</b> (ปีถัดไป 120,000 บ./ปี)</div>
+            </div>
+            <small style="color:#059669; font-weight:600;">✔ แจ้งเตือนฟรีตลอดชีพ ไม่มีค่าส่งข้อความ</small>
+          </div>
+
+          <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:12px; padding:16px;">
+            <b style="color:#0f172a;">[ Option 2 ] เว็บกลาง 100 จุด + Telegram</b>
+            <div style="margin:8px 0; font-size:0.85rem;">
+              <div>• ซื้อขาด: <b>450,000 บ.</b> (4,500 บ./จุด)</div>
+              <div>• รายปี: <b>340,000 บ.</b> (ปีถัดไป 240,000 บ./ปี)</div>
+            </div>
+            <small style="color:#334155; font-weight:600;">✔ ดูภาพรวมและตารางสรุป 100 จุดในจอเดียว</small>
+          </div>
+
+          <div style="background:#f8fafc; border:1px solid #cbd5e1; border-radius:12px; padding:16px;">
+            <b style="color:#0f172a;">[ Option 3 ] เว็บกลาง + แอป + LINE OA</b>
+            <div style="margin:8px 0; font-size:0.85rem;">
+              <div>• ซื้อขาด: <b>600,000 บ.</b> (6,000 บ./จุด)</div>
+              <div>• รายปี: <b>510,000 บ.</b> (ปีถัดไป 360,000 บ./ปี)</div>
+            </div>
+            <small style="color:#b91c1c; font-weight:600;">⚠️ LINE มีค่าแพ็กเกจส่งข้อความรายเดือนเพิ่มเติม</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Alert Templates -->
+      <div class="report-card-section">
+        <h2 style="font-size:1.35rem; font-weight:800; margin-bottom:14px; color:#0f172a; border-bottom:2px solid #0284c7; padding-bottom:8px;">4. ตัวอย่างข้อความแจ้งเตือนเมื่อพบค่าผิดปกติ</h2>
+        <div class="grid-2col">
+          <div>
+            <b style="color:#0284c7; font-size:1rem;">✈️ รูปแบบ Telegram (ส่งฟรี &amp; ไว):</b>
+            <div class="alert-code-box" style="margin-top:8px;">🚨 แจ้งเตือนคุณภาพน้ำผิดปกติ
+📍 จุดติดตั้ง: บ่อพักน้ำ #04 (ตู้ 1004)
+⏰ เวลา: 14:15 น.
+• คลอรีน: 0.15 mg/L ❌ (เกณฑ์ 0.20-2.00)
+• pH: 6.4 ❌ (เกณฑ์ 6.5-8.5)
+• TDS: 185 ppm (ปกติ)
+• อุณหภูมิ: 28.5 °C (ปกติ)
+🔗 ดูกราฟย้อนหลัง: https://water-iot.com/node/1004</div>
+          </div>
+
+          <div>
+            <b style="color:#059669; font-size:1rem;">💬 รูปแบบ LINE (แจ้งเป็นการ์ดสถานะ):</b>
+            <div class="alert-code-box" style="color:#4ade80; margin-top:8px;">🚨 [CRITICAL] คุณภาพน้ำหลุดเกณฑ์
+📍 สถานี: บ่อจ่ายน้ำเขตเหนือ
+• คลอรีน: 0.12 mg/L ⚠️ (ต่ำกว่าเกณฑ์)
+• ค่า pH: 6.30 ⚠️ (ต่ำกว่าเกณฑ์)
+• ค่า TDS: 190 ppm (ปกติ)
+• อุณหภูมิ: 29.0 °C (ปกติ)
+👉 [เปิด Dashboard ดูข้อมูลสด]</div>
           </div>
         </div>
       </div>
