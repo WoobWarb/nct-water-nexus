@@ -55,7 +55,7 @@
       background: rgba(15, 23, 42, 0.95);
       backdrop-filter: blur(12px);
       color: #ffffff;
-      padding: 14px 24px;
+      padding: 12px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -84,16 +84,17 @@
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .btn-hdr {
       background: rgba(255,255,255,0.12);
       color: #fff;
       border: 1px solid rgba(255,255,255,0.2);
-      padding: 7px 16px;
+      padding: 6px 14px;
       border-radius: 9999px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
@@ -117,6 +118,16 @@
 
     .btn-hdr.btn-primary-action:hover {
       background: linear-gradient(135deg, #0369a1, #075985);
+    }
+
+    .btn-hdr.btn-pdf-action {
+      background: linear-gradient(135deg, #e11d48, #be123c);
+      border: none;
+      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.35);
+    }
+
+    .btn-hdr.btn-pdf-action:hover {
+      background: linear-gradient(135deg, #be123c, #9f1239);
     }
 
     /* VIEW CONTAINER */
@@ -426,13 +437,16 @@
     </div>
 
     <div class="header-actions">
-      <button class="btn-hdr" onclick="toggleViewMode('slide')" id="btnViewSlide">🖥️ โหมดสไลด์นำเสนอ (PPT Mode)</button>
-      <button class="btn-hdr" onclick="toggleViewMode('report')" id="btnViewReport">📄 โหมดเอกสารรายงาน (Doc Mode)</button>
+      <button class="btn-hdr" onclick="toggleViewMode('slide')" id="btnViewSlide">🖥️ สไลด์นำเสนอ (PPT)</button>
+      <button class="btn-hdr" onclick="toggleViewMode('report')" id="btnViewReport">📄 รายงานสรุป (Doc)</button>
+      <a href="NCT_Water_Nexus_Commercial_Proposal.pdf" download class="btn-hdr btn-pdf-action">
+        📄 ดาวน์โหลดใบเสนอราคา (PDF)
+      </a>
       <a href="NCT_Water_Nexus_Report_and_Pricing.pptx" download class="btn-hdr btn-primary-action">
-        📥 ดาวน์โหลดไฟล์ PPTX
+        📥 ดาวน์โหลดสไลด์ (PPTX)
       </a>
       <a href="index.html" target="_blank" class="btn-hdr">
-        ⚡ เปิดแดชบอร์ดจริง (Live Demo)
+        ⚡ Live Dashboard
       </a>
     </div>
   </header>
@@ -782,7 +796,7 @@
               <div class="content-box highlight" style="border-left:4px solid var(--emerald);">
                 <b style="color:var(--emerald); font-size:1.05rem;">🔄 ฝั่งรายปี (ดีมาก แนะนำให้ผลักดันลูกค้ารูปแบบนี้)</b>
                 <ul class="feature-list" style="margin-top:10px;">
-                  <li>✔ <b>ตัวเลข 1,200 – 3,600 บาท/จุด/ปี:</b> (ตกเดือนละ 100–300 บาท/ตู้) ลูกค้าองค์กร/โรงงาน/เทศบาล จ่ายได้ง่ายมาก</li>
+                  <li>✔ <b>ตัวเลข 1,200 – 3,600 บาท/จุด/ปี:</b> (ตกเดือนละ 100–300 บาท/ตู้) เป็นราคาที่ลูกค้าองค์กร/โรงงาน/เทศบาล จ่ายได้ง่ายมาก</li>
                   <li>✔ <b>Recurring Income ก้อนโตทุกปี:</b> มีรายรับสม่ำเสมอ <b>120,000 – 360,000 บาททุกปี</b> ไว้เป็นค่า Cloud Server, ค่าซ่อมบำรุง และกำไรต่อเนื่อง</li>
                   <li>✔ <b>ความผูกพันลูกค้าระยะยาว:</b> ล็อกฐานลูกค้าได้ต่อเนื่อง ไม่ต้องเริ่มขายใหม่ทุกปี</li>
                 </ul>

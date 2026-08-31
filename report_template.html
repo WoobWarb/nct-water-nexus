@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ใบเสนอราคาและรายงานข้อเสนอโครงการ - NCT WATER NEXUS PRO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 12mm 14mm 12mm 14mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Prompt', sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      background: #ffffff;
+      color: #0f172a;
+      font-size: 9.5pt;
+      line-height: 1.45;
+    }
+
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* PAGE CONTAINER */
+    .page {
+      page-break-after: always;
+      position: relative;
+      min-height: 270mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    /* HEADER */
+    .doc-header {
+      border-bottom: 2px solid #0284c7;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-box {
+      background: linear-gradient(135deg, #0284c7, #059669);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 16pt;
+      padding: 6px 14px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .company-title {
+      font-size: 14pt;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.1;
+    }
+
+    .company-sub {
+      font-size: 8pt;
+      color: #64748b;
+      margin-top: 3px;
+    }
+
+    .doc-meta {
+      text-align: right;
+      font-size: 8pt;
+      color: #475569;
+      line-height: 1.35;
+    }
+
+    .doc-meta b { color: #0f172a; }
+
+    .doc-title-bar {
+      background: #f1f5f9;
+      border-left: 4px solid #0284c7;
+      padding: 8px 14px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .doc-title-bar h1 {
+      font-size: 11.5pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .status-badge {
+      background: #0284c7;
+      color: #ffffff;
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+    }
+
+    /* SECTION STYLES */
+    .section-title {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #0284c7;
+      margin: 12px 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 3px;
+    }
+
+    /* TABLES */
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+      font-size: 8.5pt;
+    }
+
+    table.data-table th {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 6px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 8.5pt;
+    }
+
+    table.data-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #e2e8f0;
+      color: #1e293b;
+      vertical-align: top;
+    }
+
+    table.data-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    table.data-table tr.highlight-row td {
+      background: #f0fdf4;
+      font-weight: 700;
+      color: #15803d;
+      border-top: 1.5px solid #15803d;
+      border-bottom: 1.5px solid #15803d;
+    }
+
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+
+    /* PRICING OFFER CARDS */
+    .offer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .offer-card {
+      border: 1.5px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: #ffffff;
+    }
+
+    .offer-card.featured {
+      border-color: #059669;
+      background: #f0fdf4;
+    }
+
+    .offer-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+      border-bottom: 1px dashed #cbd5e1;
+      padding-bottom: 6px;
+    }
+
+    .offer-name {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .offer-badge {
+      font-size: 7pt;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      color: #334155;
+    }
+
+    .offer-card.featured .offer-badge {
+      background: #059669;
+      color: #ffffff;
+    }
+
+    .offer-price-box {
+      margin: 6px 0;
+    }
+
+    .price-unit {
+      font-size: 11.5pt;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      color: #0284c7;
+    }
+
+    .offer-card.featured .price-unit {
+      color: #059669;
+    }
+
+    .price-total {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #1e293b;
+    }
+
+    .scope-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 6px;
+      font-size: 7.8pt;
+      color: #475569;
+    }
+
+    .scope-list li {
+      margin-bottom: 3px;
+      display: flex;
+      gap: 4px;
+    }
+
+    /* CODE ALERT BOX */
+    .alert-box {
+      background: #0f172a;
+      color: #38bdf8;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.8pt;
+      line-height: 1.35;
+      white-space: pre-wrap;
+    }
+
+    /* FOOTER */
+    .doc-footer {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 8px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7.5pt;
+      color: #64748b;
+    }
+
+    /* SIGNATURE BLOCK */
+    .signature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 16px;
+      padding: 10px 14px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+    }
+
+    .sig-box {
+      text-align: center;
+      font-size: 8pt;
+    }
+
+    .sig-line {
+      margin-top: 35px;
+      border-top: 1px dashed #94a3b8;
+      padding-top: 4px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1: COMMERCIAL QUOTATION ==================== -->
+  <div class="page">
+    <div>
+      <!-- HEADER -->
+      <div class="doc-header">
+        <div class="brand-logo">
+          <div class="logo-box">NCT</div>
+          <div>
+            <div class="company-title">NCT WATER SOLUTIONS CO., LTD.</div>
+            <div class="company-sub">ผู้ให้บริการโซลูชันระบบตรวจวัดคุณภาพน้ำอัจฉริยะและ IoT SCADA Platform</div>
+          </div>
+        </div>
+        <div class="doc-meta">
+          <div><b>เลขที่เอกสาร:</b> NCT-QT-2026-08100</div>
+          <div><b>วันที่:</b> 31 สิงหาคม 2026</div>
+          <div><b>ยืนยันราคา:</b> 30 วัน</div>
+          <div><b>โครงการ:</b> โครงการระบบวัดคุณภาพน้ำ 100 จุด</div>
+        </div>
+      </div>
+
+      <!-- TITLE BAR -->
+      <div class="doc-title-bar">
+        <h1>ใบเสนอราคาและรายงานข้อเสนอโครงการ (Commercial Quotation & Proposal)</h1>
+        <span class="status-badge">100-Node Project Package</span>
+      </div>
+
+      <p style="font-size: 8.5pt; color: #475569; margin-bottom: 10px;">
+        <b>เรียน:</b> ผู้บริหาร / คณะกรรมการจัดซื้อและตรวจรับโครงการ<br>
+        บริษัทฯ ขอเสนอราคาและขอบเขตงานระบบตรวจวัดคุณภาพน้ำอัจฉริยะ (Smart Water Quality Monitoring System) จำนวน 100 ชุด ตรวจวัด 4 พารามิเตอร์หลัก: <b>ความเป็นกรด-ด่าง (pH), สารละลายรวม (TDS), อุณหภูมิน้ำ (Temp PT1000 ATC), และคลอรีนคงเหลือ (Residual Chlorine)</b> พร้อมระบบส่งสัญญาณ 4G LTE และ Cloud Dashboard ดังนี้:
+      </p>
+
+      <!-- 1. READY-TO-SELL PRICING OPTIONS -->
+      <div class="section-title">1. ตารางราคาพร้อมขายแนะนำ (แพ็กเกจโครงการ 100 ชุด)</div>
+      
+      <div class="offer-grid">
+        <!-- Option 1 -->
+        <div class="offer-card">
+          <div class="offer-card-header">
+            <span class="offer-name">[แบบที่ 1] ส่งมอบอุปกรณ์พร้อมออนไลน์</span>
+            <span class="offer-badge">Supply & Plug-Play</span>
+          </div>
+          <div class="offer-price-box">
+            <div class="price-unit">฿31,500 <span style="font-size:8pt; font-weight:normal; color:#64748b;">/ ชุด (29,500 - 32,000 บ.)</span></div>
+            <div class="price-total">มูลค่ารวม 100 ชุด: <b>3,150,000 บาท</b></div>
+            <div style="font-size:7.5pt; color:#059669; font-weight:700; margin-top:2px;">กำไรขั้นต้น: ~850,000 - 1,100,000 บ. (Margin ~29-34%)</div>
+          </div>
+          <ul class="scope-list">
+            <li>✔ ประกอบตู้คอนโทรลสำเร็จรูป พร้อมเดินสายไฟและเบรกเกอร์ภายใน</li>
+            <li>✔ ใส่ซิมรายปี 4G Unlimited (15-20 Mbps) และตั้งค่าออนไลน์</li>
+            <li>✔ เชื่อมต่อ Modbus อ่านค่า pH, TDS, Temp, Chlorine ครบ 4 ค่า</li>
+            <li>✔ ตั้งค่า Modela Mobile App และ Web Dashboard รวม 100 จุด</li>
+            <li>✔ จัดส่งอุปกรณ์สำเร็จรูปถึงหน้างานพร้อมคู่มือการติดตั้ง</li>
+          </ul>
+        </div>
+
+        <!-- Option 2 -->
+        <div class="offer-card featured">
+          <div class="offer-card-header">
+            <span class="offer-name">[แบบที่ 2] ครบวงจร รวมติดตั้ง + สอบเทียบ</span>
+            <span class="offer-badge">★ แนะนำ Turnkey Solution</span>
+          </div>
+          <div class="offer-price-box">
+            <div class="price-unit">฿39,500 <span style="font-size:8pt; font-weight:normal; color:#059669;">/ ชุด (38,000 - 42,000 บ.)</span></div>
+            <div class="price-total">มูลค่ารวม 100 ชุด: <b>3,950,000 บาท</b></div>
+            <div style="font-size:7.5pt; color:#059669; font-weight:700; margin-top:2px;">กำไรขั้นต้น: ~1,700,000 - 2,100,000 บ. (Margin ~45-50%)</div>
+          </div>
+          <ul class="scope-list">
+            <li>✔ <b>ทุกรายการในแบบที่ 1 ครบถ้วน 100%</b></li>
+            <li>✔ ทีมวิศวกรเข้าติดตั้งยึดตู้และเดินท่อบายพาสหน้างาน 100 จุด</li>
+            <li>✔ สอบเทียบ (Calibration) หัววัด pH/TDS ด้วยสารละลายมาตรฐานหน้างาน</li>
+            <li>✔ จัดอบรมถ่ายทอดการใช้งานระบบแก่เจ้าหน้าที่และส่งมอบคู่มือ</li>
+            <li>✔ <b>รับประกันระบบและบริการ On-site Service ตลอด 1 ปีเต็ม</b></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2. HARDWARE BOM BREAKDOWN -->
+      <div class="section-title">2. ตารางรายละเอียดต้นทุนอุปกรณ์ฮาร์ดแวร์ต่อชุด (BOM per Unit)</div>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width: 8%;">ลำดับ</th>
+            <th style="width: 42%;">รายการอุปกรณ์และสเปก</th>
+            <th style="width: 25%;">คุณสมบัติทางเทคนิค</th>
+            <th style="width: 12%;" class="text-right">ต้นทุน/ชุด (บ.)</th>
+            <th style="width: 13%;" class="text-right">รวม 100 ชุด (บ.)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center">1</td>
+            <td><b>ชุดเซนเซอร์หลัก 4 ค่า</b> (Modela One + pH/TDS/Temp + คลอรีน Cybertice)</td>
+            <td>Modbus RTU RS-485, หัววัด pH แก้ว, TDS Titanium, PT1000 ATC, คลอรีนคงเหลือ</td>
+            <td class="text-right font-mono">17,000</td>
+            <td class="text-right font-mono">1,700,000</td>
+          </tr>
+          <tr>
+            <td class="text-center">2</td>
+            <td><b>4G LTE Router</b> (TP-Link TL-MR100)</td>
+            <td>300 Mbps Wi-Fi 4G LTE, 2 เสารับสัญญาณภายนอก สัญญาณนิ่งเสถียร</td>
+            <td class="text-right font-mono">1,000</td>
+            <td class="text-right font-mono">100,000</td>
+          </tr>
+          <tr>
+            <td class="text-center">3</td>
+            <td><b>ซิมการ์ด 4G รายปี</b> (Unlimited Data)</td>
+            <td>เน็ตไม่อั้นความเร็ว 15-20 Mbps รวมแพ็กเกจ 12 เดือนเต็ม</td>
+            <td class="text-right font-mono">1,800</td>
+            <td class="text-right font-mono">180,000</td>
+          </tr>
+          <tr>
+            <td class="text-center">4</td>
+            <td><b>ตู้คอนโทรล IP65 + แหล่งจ่ายไฟและอุปกรณ์ประกอบ</b></td>
+            <td>ตู้กันน้ำกันฝุ่น IP65, Switching 24V, Breaker Surge, Terminal & Wiring</td>
+            <td class="text-right font-mono">1,200</td>
+            <td class="text-right font-mono">120,000</td>
+          </tr>
+          <tr class="highlight-row">
+            <td colspan="3" class="text-right"><b>รวมต้นทุนอุปกรณ์ฮาร์ดแวร์ทั้งหมด (Hardware Total COGS):</b></td>
+            <td class="text-right font-mono">21,000</td>
+            <td class="text-right font-mono">2,100,000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 3. SOFTWARE & ALERT OPTIONS -->
+      <div class="section-title">3. ทางเลือกซอฟต์แวร์ Dashboard & ระบบแจ้งเตือน (3 Option ทางเลือก)</div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>แพ็กเกจซอฟต์แวร์และระบบแจ้งเตือน</th>
+            <th class="text-center">แบบซื้อขาด (100 จุด)</th>
+            <th class="text-center">แบบรายปี (ปีแรก)</th>
+            <th class="text-center">รายปี (ปีถัดไป/ปี)</th>
+            <th>จุดเด่น & เงื่อนไขสัญญา</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>[ Option 1 ] แอปมือถือ + Telegram</b> <i>(แนะนำ)</i></td>
+            <td class="text-center font-mono">฿250,000 <small>(2.5k/จุด)</small></td>
+            <td class="text-center font-mono">฿170,000</td>
+            <td class="text-center font-mono" style="color:#059669; font-weight:700;">฿120,000/ปี <small>(1.2k/จุด)</small></td>
+            <td>ส่งแจ้งเตือน Telegram ฟรีตลอดชีพ ไม่มีต้นทุนแฝง กำไรเต็มเม็ดเต็มหน่วย</td>
+          </tr>
+          <tr>
+            <td><b>[ Option 2 ] เว็บกลาง 100 จุด + Telegram</b></td>
+            <td class="text-center font-mono">฿450,000 <small>(4.5k/จุด)</small></td>
+            <td class="text-center font-mono">฿340,000</td>
+            <td class="text-center font-mono" style="color:#059669; font-weight:700;">฿240,000/ปี <small>(2.4k/จุด)</small></td>
+            <td>Centralized SCADA แผนที่ GIS Map + ตารางสรุป 100 จุดในจอเดียว</td>
+          </tr>
+          <tr>
+            <td><b>[ Option 3 ] เว็บกลาง + แอป + LINE OA</b></td>
+            <td class="text-center font-mono">฿600,000 <small>(6.0k/จุด)</small></td>
+            <td class="text-center font-mono">฿510,000</td>
+            <td class="text-center font-mono" style="color:#059669; font-weight:700;">฿360,000/ปี <small>(3.6k/จุด)</small></td>
+            <td>แจ้งเตือนเป็นการ์ด LINE OA (*บวกเพิ่มเพื่อซัพพอร์ตค่า Broadcast LINE)</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <!-- FOOTER PAGE 1 -->
+    <div class="doc-footer">
+      <span>NCT WATER SOLUTIONS CO., LTD. • Email: sales@nct-water.com • Tel: 02-XXX-XXXX</span>
+      <span>หน้า 1 / 2 (Commercial Quotation)</span>
+    </div>
+  </div>
+
+
+  <!-- ==================== PAGE 2: SPECIFICATIONS & SLA ==================== -->
+  <div class="page">
+    <div>
+      <!-- HEADER -->
+      <div class="doc-header">
+        <div class="brand-logo">
+          <div class="logo-box">NCT</div>
+          <div>
+            <div class="company-title">NCT WATER SOLUTIONS CO., LTD.</div>
+            <div class="company-sub">ข้อกำหนดทางเทคนิคและการบริการหลังการขาย (Technical Specs & SLA)</div>
+          </div>
+        </div>
+        <div class="doc-meta">
+          <div><b>อ้างอิงใบเสนอราคา:</b> NCT-QT-2026-08100</div>
+          <div><b>โครงการ:</b> NCT WATER NEXUS PRO (100 สถานี)</div>
+        </div>
+      </div>
+
+      <!-- 4. ALERT TEMPLATES -->
+      <div class="section-title">4. ตัวอย่างข้อความแจ้งเตือนอัตโนมัติ Real-Time (Telegram vs LINE OA)</div>
+      
+      <div class="offer-grid" style="margin-bottom: 12px;">
+        <div>
+          <div style="font-size:8.5pt; font-weight:700; color:#0284c7; margin-bottom:4px;">✈️ รูปแบบ Telegram Alert (ส่งฟรี 100% & รวดเร็วทันที):</div>
+          <div class="alert-box">🚨 แจ้งเตือนคุณภาพน้ำผิดปกติ
+📍 จุดติดตั้ง: บ่อพักน้ำ #04 (ตู้ 1004)
+⏰ เวลา: 14:15 น.
+━━━━━━━━━━━━━━━━━━━━
+• คลอรีน: 0.15 mg/L ❌ (เกณฑ์ 0.20-2.00)
+• pH: 6.4 ❌ (เกณฑ์ 6.5-8.5)
+• TDS: 185 ppm (ปกติ)
+• อุณหภูมิ: 28.5 °C (ปกติ)
+━━━━━━━━━━━━━━━━━━━━
+🔗 ดูกราฟย้อนหลัง: https://water-iot.com/node/1004</div>
+        </div>
+
+        <div>
+          <div style="font-size:8.5pt; font-weight:700; color:#059669; margin-bottom:4px;">💬 รูปแบบ LINE OA Alert (แจ้งเป็นการ์ดสถานะในกลุ่มไลน์):</div>
+          <div class="alert-box" style="color:#4ade80;">🚨 [CRITICAL] คุณภาพน้ำหลุดเกณฑ์
+📍 สถานี: บ่อจ่ายน้ำเขตเหนือ
+━━━━━━━━━━━━━━━━━━━━
+• คลอรีน: 0.12 mg/L ⚠️ (ต่ำกว่าเกณฑ์)
+• ค่า pH: 6.30 ⚠️ (ต่ำกว่าเกณฑ์)
+• ค่า TDS: 190 ppm (ปกติ)
+• อุณหภูมิ: 29.0 °C (ปกติ)
+━━━━━━━━━━━━━━━━━━━━
+👉 [เปิด Dashboard ดูข้อมูลสด]</div>
+        </div>
+      </div>
+
+      <!-- 5. TECHNICAL SPECIFICATIONS -->
+      <div class="section-title">5. รายละเอียดทางเทคนิคของระบบตรวจวัด (Technical Parameters)</div>
+      
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>พารามิเตอร์คุณภาพน้ำ</th>
+            <th>ช่วงการวัด (Range)</th>
+            <th>ความแม่นยำ (Accuracy)</th>
+            <th>เทคโนโลยีเซนเซอร์และการชดเชย</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>ความเป็นกรด-ด่าง (pH)</b></td>
+            <td>0.00 – 14.00 pH</td>
+            <td>±0.01 pH</td>
+            <td>Industrial Glass Electrode Probe พร้อมระบบสอบเทียบ Buffer Digital</td>
+          </tr>
+          <tr>
+            <td><b>สารละลายรวม (TDS)</b></td>
+            <td>0 – 2,000 ppm (mg/L)</td>
+            <td>±1.5% F.S.</td>
+            <td>Titanium Dual-Pole Sensor ทนทานต่อการกัดกร่อน</td>
+          </tr>
+          <tr>
+            <td><b>อุณหภูมิน้ำ (Water Temp)</b></td>
+            <td>-10.0 – 80.0 °C</td>
+            <td>±0.2 °C</td>
+            <td>Platinum RTD PT1000 พร้อมระบบชดเชยอุณหภูมิ ATC อัตโนมัติ</td>
+          </tr>
+          <tr>
+            <td><b>คลอรีนคงเหลือ (Residual Cl)</b></td>
+            <td>0.00 – 5.00 mg/L</td>
+            <td>±0.02 mg/L</td>
+            <td>Amperometric Membrane Sensor วัดค่าคลอรีนอิสระในน้ำต่อเนื่อง</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 6. TERMS & SLA -->
+      <div class="section-title">6. เงื่อนไขสัญญา การรับประกัน และบริการหลังการขาย (Terms & SLA)</div>
+      
+      <div style="font-size:8pt; color:#334155; line-height:1.5;">
+        <p><b>1. การรับประกันและบริการ (Warranty & Support):</b></p>
+        <ul style="padding-left:18px; margin-bottom:6px;">
+          <li><b>แบบซื้อขาด:</b> รับประกันฮาร์ดแวร์และดูแลระบบฟรี 1 ปีแรกเต็ม นับตั้งแต่วันส่งมอบงาน | ปีที่ 2 เป็นต้นไป คิดค่าบริการบำรุงรักษา (MA) 10–15% ต่อปี</li>
+          <li><b>แบบรายปี:</b> รวมค่าบริการ Cloud Server, Database, ซิมการ์ด 4G และการดูแลแก้ไขปัญหาระบบตลอดอายุสัญญา</li>
+        </ul>
+        <p><b>2. กำหนดเวลาส่งมอบงาน (Delivery Time):</b> 30 – 45 วันทำการ หลังได้รับใบสั่งซื้อ (PO)</p>
+        <p><b>3. การชำระเงิน (Payment Terms):</b></p>
+        <ul style="padding-left:18px;">
+          <li>งวดที่ 1: 40% เมื่อลงนามในสัญญา / อนุมัติสั่งซื้อ</li>
+          <li>งวดที่ 2: 40% เมื่อส่งมอบอุปกรณ์ตู้คอนโทรล 100 ชุดถึงหน้างาน</li>
+          <li>งวดที่ 3: 20% เมื่อติดตั้ง สอบเทียบ และส่งมอบงานระบบสมบูรณ์</li>
+        </ul>
+      </div>
+
+      <!-- SIGNATURE BLOCK -->
+      <div class="signature-grid">
+        <div class="sig-box">
+          <div><b>ผู้เสนอราคา (Offered By)</b></div>
+          <div class="sig-line">NCT WATER SOLUTIONS CO., LTD.</div>
+          <div style="color:#64748b; font-size:7.5pt; margin-top:2px;">( วิศวกรโครงการ / ผู้มีอำนาจลงนาม )</div>
+        </div>
+        <div class="sig-box">
+          <div><b>ผู้อนุมัติสั่งซื้อ (Accepted By)</b></div>
+          <div class="sig-line">ผู้มีอำนาจลงนาม / ลูกค้า</div>
+          <div style="color:#64748b; font-size:7.5pt; margin-top:2px;">( วันที่: ...... / ...... / 2569 )</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER PAGE 2 -->
+    <div class="doc-footer">
+      <span>🖥️ เปิดดูสไลด์และเอกสารออนไลน์: https://woobwarb.github.io/nct-water-nexus/presentation.html</span>
+      <span>หน้า 2 / 2 (Technical Specs &amp; SLA)</span>
+    </div>
+  </div>
+
+</body>
+</html>
