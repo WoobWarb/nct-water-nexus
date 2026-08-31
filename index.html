@@ -187,7 +187,7 @@
     }
 
     /* ========================================================= */
-    /* 1. DESKTOP / WEB VIEW (โหมดเว็บปกติ Widescreen SCADA)     */
+    /* 1. DESKTOP / WEB VIEW (โหมดเว็บปกติ Widescreen Web Dashboard) */
     /* ========================================================= */
     .desktop-container {
       max-width: 1320px;
@@ -1805,11 +1805,11 @@
       if (type === 'ph7') {
         state.ph = 7.00;
         syncUIValues();
-        alert('✅ NCT SCADA: เทียบค่า pH 7.00 สำเร็จเรียบร้อย');
+        alert('✅ NCT Web Dashboard: เทียบค่า pH 7.00 สำเร็จเรียบร้อย');
       } else if (type === 'ph4') {
         state.ph = 4.01;
         syncUIValues();
-        alert('✅ NCT SCADA: เทียบค่า pH 4.01 สำเร็จเรียบร้อย');
+        alert('✅ NCT Web Dashboard: เทียบค่า pH 4.01 สำเร็จเรียบร้อย');
       }
     }
   </script>
