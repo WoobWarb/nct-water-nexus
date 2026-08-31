@@ -716,7 +716,7 @@
       z-index: 2;
     }
 
-    /* ROW 4: BATTERY LIFE & SCREEN LIGHT */
+    /* ROW 4: POWER SUPPLY & SCREEN LIGHT */
     .mob-controls-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -740,41 +740,6 @@
       font-weight: 700;
       color: #1e293b;
       margin-bottom: 8px;
-    }
-
-    .battery-box {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .battery-outline {
-      width: 32px;
-      height: 16px;
-      border: 2px solid #10b981;
-      border-radius: 4px;
-      padding: 1px;
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
-    .battery-outline::after {
-      content: '';
-      position: absolute;
-      right: -4px;
-      width: 2px;
-      height: 7px;
-      background: #10b981;
-      border-radius: 0 2px 2px 0;
-    }
-
-    .battery-level-fill {
-      width: 90%;
-      height: 100%;
-      background: #10b981;
-      border-radius: 1px;
-      transition: var(--transition);
     }
 
     /* TOGGLE SWITCH */
@@ -996,8 +961,8 @@
 
         <div class="strip-card">
           <div class="strip-info">
-            <div class="label">ระดับพลังงานสำรอง (Battery)</div>
-            <div class="val" id="webBatteryVal">🔋 90% (Normal)</div>
+            <div class="label">สถานะไฟเลี้ยงระบบ (Power Supply)</div>
+            <div class="val" id="webPowerVal">⚡ 24V DC (Normal)</div>
           </div>
           <span class="strip-badge badge-online">Healthy</span>
         </div>
@@ -1289,16 +1254,17 @@
             </div>
           </div>
 
-          <!-- ROW 4: BATTERY LIFE & SCREEN LIGHT -->
+          <!-- ROW 4: POWER SUPPLY & SCREEN LIGHT -->
           <div class="mob-controls-row">
-            <!-- Battery Life -->
+            <!-- Power Supply -->
             <div class="mob-ctrl-card">
-              <div class="mob-ctrl-title">Battery Life</div>
-              <div class="battery-box">
-                <div class="battery-outline">
-                  <div class="battery-level-fill" id="mobBatFill"></div>
+              <div class="mob-ctrl-title">Power Supply</div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size: 1.3rem;">⚡</span>
+                <div>
+                  <div style="font-size: 1.05rem; font-weight: 800; color: #0f172a;" id="mobPowerText">24V DC</div>
+                  <div style="font-size: 0.68rem; color: #059669; font-weight: 700;">AC 220V (Normal)</div>
                 </div>
-                <span style="font-size: 1.05rem; font-weight: 700;" id="mobBatPctText">90%</span>
               </div>
             </div>
 
@@ -1524,7 +1490,6 @@
       tds: 210,
       cl: 0.85,
       orp: 725,
-      battery: 90,
       screenLight: true,
       labels: [],
       historyPH: [],
@@ -1667,7 +1632,8 @@
       document.getElementById('webValTemp').innerText = `${state.temp.toFixed(1)}°C`;
       document.getElementById('webValTDS').innerText = state.tds;
       document.getElementById('webValCL').innerText = state.cl.toFixed(2);
-      document.getElementById('webBatteryVal').innerText = `🔋 ${state.battery}% (Normal)`;
+      const elWebPower = document.getElementById('webPowerVal');
+      if (elWebPower) elWebPower.innerText = '⚡ 24V DC (Normal)';
       
       const elWebWeather = document.getElementById('webWeatherVal');
       if (elWebWeather) elWebWeather.innerText = `🌡️ ${state.temp.toFixed(1)}°C / ${fahrenheit}°F`;
@@ -1681,9 +1647,8 @@
       const elMobORP = document.getElementById('mobValORP');
       if (elMobORP) elMobORP.innerText = Math.round(state.orp || 725);
 
-      document.getElementById('mobBatPctText').innerText = `${state.battery}%`;
-      document.getElementById('mobBatIconNum').innerText = state.battery;
-      document.getElementById('mobBatFill').style.width = `${state.battery}%`;
+      const elMobPower = document.getElementById('mobPowerText');
+      if (elMobPower) elMobPower.innerText = '24V DC';
 
       const elMobAmbC = document.getElementById('mobAmbientC');
       const elMobAmbF = document.getElementById('mobAmbientF');
@@ -1746,7 +1711,6 @@
       state.temp = +(16.5 + Math.random() * 2.0).toFixed(1);
       state.tds = 190 + Math.floor(Math.random() * 60);
       state.cl = +(0.75 + Math.random() * 0.3).toFixed(2);
-      state.battery = Math.max(state.battery - 2, 20);
 
       const time = new Date().toTimeString().split(' ')[0];
       if (state.labels.length > 15) {
